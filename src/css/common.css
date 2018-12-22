@@ -1,0 +1,39 @@
+@font-face {
+  font-family: 'iconfont';  /* project id 748609 */
+  src: url('//at.alicdn.com/t/font_748609_yt4tej8ve5l.eot');
+  src: url('//at.alicdn.com/t/font_748609_yt4tej8ve5l.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_748609_yt4tej8ve5l.woff') format('woff'),
+  url('//at.alicdn.com/t/font_748609_yt4tej8ve5l.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_748609_yt4tej8ve5l.svg#iconfont') format('svg');
+}
+
+.iconfont {font-family:"iconfont" !important;font-size:16px;font-style:normal;-webkit-font-smoothing:antialiased;-webkit-text-stroke-width:0.2px;-moz-osx-font-smoothing:grayscale;}
+
+*{}
+body{font-size: 14px; }
+html, body, #app{height: 100%; overflow: hidden;}
+/* #app>div{min-height:100%; height:auto;} */
+
+.page{position: relative; height:100%;}
+.page-content{position:absolute; left:0; top:44px; right:0; bottom:0; overflow:auto;}
+.page-content>div{position:relative; width:100%; height:100%;}
+
+.weui-tab.w-tab>.weui-navbar::after{content:none;}
+.w-tab .weui-navbar__item:after{content:none;}
+.w-tab .weui-navbar__item{color:#494a4a; background:white;}
+.w-tab .weui-navbar__item.weui-bar__item--on{background:white; color:#36c8a1; position:relative;}
+.w-tab .weui-navbar__item.weui-bar__item--on:before{content:' '; position:absolute; bottom:0; left:50%; top:auto; right:auto; width:1em; height:4px; border:none; background-color:#36c8a1; transform:translate(-50%,-50%); border-radius:2px;}
+
+.w-tabbar>.weui-bar__item--on>.weui-tabbar__icon>i.iconfont{color:#61d4b6;}
+.w-tabbar>.weui-tabbar__item.weui-bar__item--on .weui-tabbar__label{color:#61d4b6;}
+
+.w-sel-search .weui-flex__item{position:relative;}
+.w-sel-search .weui-flex__item + .weui-flex__item::before{content:' '; position:absolute; width:1px; height:1em; background-color:#e5e5e5; left:0; top:50%; transform:translate(-50%,-50%);}
+
+.w-search{background:-webkit-linear-gradient(129deg, #B05ED6, #545BDF); background:-o-linear-gradient(129deg, #B05ED6, #545BDF); background:-moz-linear-gradient(129deg, #B05ED6, #545BDF); background:linear-gradient(129deg, #B05ED6, #545BDF);}
+
+.weui-badge.city{background:#E6A23C;}
+.weui-badge.type{background:#a74bde;}
+
+.toolbar .picker-button{color:#905dd9;}
+.weui-dialog__btn.primary{color:#905dd9;}

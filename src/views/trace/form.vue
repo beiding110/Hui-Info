@@ -101,6 +101,7 @@ export default {
         this.$get('/Api/Common/GetDictionary', {
             type: 'City'
         }, function(data){
+            data.unshift({label: '全部', value: ''});
             that.CityData = data;
         });
 

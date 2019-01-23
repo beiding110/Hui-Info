@@ -51,7 +51,7 @@
                                 <a :href="'tel:'+scope.row">{{scope.row}}</a>
                             </template>
                         </table-row>
-                        <table-row label="仙子邮件" prop="dlemail" :label-width="labelWidth"></table-row>
+                        <table-row label="电子邮件" prop="dlemail" :label-width="labelWidth"></table-row>
                     </table-con>
                 </div>
             </div>

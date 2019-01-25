@@ -1,5 +1,5 @@
 <template>
-    <div class="weui-tab w-tab">
+    <div class="weui-tab w-tab w-tab_primary">
         <div class="weui-navbar">
             <template v-for="(item,index) in itemArr">
                 <span

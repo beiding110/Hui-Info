@@ -16,6 +16,18 @@ export default //追踪详情列表
             name: 'trace-add',
             meta: {title: '添加追踪'},
             component: function(){return import(/*webpackChunkName: 'trace'*/ '@/views/trace/form')},
+        },
+        {
+            path: 'form-keyword',
+            name: 'trace-add-keyword',
+            meta: {title: '添加追踪关键字'},
+            component: function(){return import(/*webpackChunkName: 'trace'*/ '@/views/trace/sub/form-keyword')},
+        },
+        {
+            path: 'form-settings',
+            name: 'trace-add-settings',
+            meta: {title: '添加追踪设置'},
+            component: function(){return import(/*webpackChunkName: 'trace'*/ '@/views/trace/sub/form-settings')},
         }
     ]
 }

@@ -1,31 +1,38 @@
 <template>
     <div>
-        <scroll-loader action="/Api/Biding/GetZhaoBiaoList" :extra.sync="extraObj" v-model="tableData" ref="loader">
+        <scroll-loader :action="url" :extra.sync="extraObj" v-model="tableData" ref="loader" :lazy="lazy">
 
-            <div class="weui-panel weui-panel_access">
-                <div class="weui-panel__bd">
-
-                    <template v-for="item in tableData">
-                        <router-link :to="'/detail/bidding/'+item.RowGuid+'/'+item.Category" class="weui-media-box weui-media-box_appmsg">
-                            <div class="weui-media-box__bd">
-                                <h4 class="weui-media-box__title">{{item.Title}}</h4>
-                                <p class="weui-media-box__desc">
-                                    <div class="item-info-con_left">
-                                        <div>
-                                            <span class="weui-badge city">{{item.cityname}}</span>
-                                            <span class="weui-badge type">{{item.TypeName}}</span>
-                                        </div>
-                                    </div>
-                                    <div class="item-info-con_right">
-                                        {{timeFormatter(item.AddTime)}}
-                                    </div>
-                                </p>
+            <template v-for="(item, index) in tableData">
+                <w-card
+                class="info--card"
+                @click.native="toDetail(item, index)">
+                    <w-badge slot="header" is-dot :hidden="!!item.IsRead">
+                        <div class="info--card__header">
+                            <span>{{item.Title}}</span>
+                        </div>
+                    </w-badge>
+                    <div class="info--card__body">
+                        <div class="info--body__left">
+                            <div>
+                                <span>业主：{{item.yezhu}}</span>
                             </div>
-                        </router-link>
-                    </template>
-
-                </div>
-            </div>
+                            <div>
+                                <span>代理机构：{{item.zbdlname}}</span>
+                            </div>
+                        </div>
+                        <div class="info--body__right">{{timeFormatter(item.AddTime)}}</div>
+                    </div>
+                    <div slot="footer" class="info--card__footer">
+                        <div class="info--footer__left">
+                            <span class="iconfont">&#xe615;</span>
+                            {{item.cityname}}
+                        </div>
+                        <div class="info--footer__right">
+                            <w-tag>{{item.TypeName}}</w-tag>
+                        </div>
+                    </div>
+                </w-card>
+            </template>
 
         </scroll-loader>
     </div>
@@ -33,7 +40,19 @@
 
 <script>
 export default {
-    props: ['extra'],
+    props: {
+        extra: {
+            type: [String, Object]
+        },
+        url: {
+            type: String,
+            default: '/Api/Biding/GetZhaoBiaoList'
+        },
+        lazy: {
+            type: Boolean,
+            default: false
+        }
+    },
     data () {
         return {
             tableData: [],
@@ -62,6 +81,11 @@ export default {
         timeFormatter: function(time){
             return / /.test(time) ? time.split(' ')[0] : time;
         },
+        toDetail(item, index) {
+            item.IsRead = 1;
+            this.tableData.splice(index, 1, item);
+            this.$router.push('/detail/bidding/'+item.RowGuid+'/'+item.Category);
+        }
     },
     created: function () {
 

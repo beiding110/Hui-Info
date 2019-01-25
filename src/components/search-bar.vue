@@ -3,7 +3,7 @@
         <form class="weui-search-bar__form">
             <div class="weui-search-bar__box">
                 <i class="weui-icon-search"></i>
-                <input type="search" class="weui-search-bar__input" placeholder="搜索" v-model="model">
+                <input type="search" class="weui-search-bar__input" placeholder="搜索" v-model="model" @keydown="search">
                 <a href="javascript:" class="weui-icon-clear" @click="clearSearchKey"></a>
             </div>
             <label class="weui-search-bar__label">
@@ -40,24 +40,26 @@ export default {
             this.$nextTick(function(){
                 this.$emit('search', this.model);
             })
+        },
+        search(e) {
+            var code = e.code || e.Code
+            if(e.keycode == 13 || e.keycode == '13' || e.keyCode == 13 || e.keyCode == '13' || code.toLowerCase()=='enter'){
+                this.$emit('search', this.model);
+                e.preventDefault();
+            }
         }
     },
     mounted:function(){
-        var that = this;
-        document.addEventListener('keydown', function(e){
-            var code = e.code || e.Code
-            if(e.keycode == 13 || e.keycode == '13' || e.keyCode == 13 || e.keyCode == '13' || code.toLowerCase()=='enter'){
-                that.$emit('search', that.model);
-                e.preventDefault();
-            }
-        })
+
     }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-    .weui-search-bar__form{border-radius:14px; overflow:hidden;}
-    .weui-search-bar{z-index:10; background-color: #409EFF;}
-    .weui-search-bar__cancel-btn{color:white;}
+    .weui-search-bar__form{border-radius:5px; overflow:hidden;}
+    .weui-search-bar{z-index:10; background-color: #fff;}
+    .weui-search-bar__cancel-btn{color:#85D5BC;}
+
+    .weui-search-bar.w-search:after{content:none;}
 </style>

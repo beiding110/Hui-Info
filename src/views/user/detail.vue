@@ -1,9 +1,6 @@
 <template>
     <div class="page">
-        <top-bar></top-bar>
-        <div class="page-content">
-            <router-view/>
-        </div>
+        <router-view/>
     </div>
 </template>
 

@@ -44,8 +44,10 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-    .nav-bar{background:linear-gradient(129deg, #B05ED6, #545BDF); height:44px; color:white; text-align:center; line-height:44px; font-size:16px; position: relative; z-index:1000;}
-    .nav-bar .iconfont{width:44px; height: 44px; position: absolute; z-index: 1000; top:0; font-size:20px;}
-    .nav-bar .iconfont.left{left:0;}
-    .nav-bar .iconfont.right{right:0;}
+    .w-light .nav-bar{background:linear-gradient(129deg, #B05ED6, #545BDF); height:44px; color:white; text-align:center; line-height:44px; font-size:16px; position: relative; z-index:1000;}
+    .w-light .nav-bar .iconfont{width:44px; height: 44px; position: absolute; z-index: 1000; top:0; font-size:20px;}
+    .w-light .nav-bar .iconfont.left{left:0;}
+    .w-light .nav-bar .iconfont.right{right:0;}
+
+
 </style>

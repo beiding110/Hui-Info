@@ -1,12 +1,45 @@
 <template>
-    <div class="btn-picker_con">
-        <input class="btn-picker" ref="picker" v-model="label" :placeholder="placeholder"/>
+    <div class="weui-media-box weui-media-box_appmsg">
+        <div class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+            <div class="weui-media-box__title">{{text}}</div>
+            <div :class="'weui-media-box__desc' + label ? 'label' : ' placeholder'">
+                <input v-model="label" :placeholder="placeholder" ref="picker"/>
+            </div>
+        </div>
     </div>
 </template>
 
 <script>
 export default {
-    props: ['value', 'placeholder', 'data'],
+    props: {
+        placeholder: {
+            type: String,
+            default: ''
+        },
+        value: {
+            type: [String, Number],
+            default: ''
+        },
+        props: {
+            type: Object,
+            default() {
+                return {
+                    label: 'label',
+                    value: 'value'
+                }
+            }
+        },
+        data: {
+            type: Array,
+            default() {
+                return []
+            }
+        },
+        text: {
+            type: String,
+            default: '请选择'
+        },
+    },
     data () {
         return {
             label: '',
@@ -67,14 +100,6 @@ export default {
             var labelData = data.map(function(item){
                 return item.label;
             });
-            // var labelMap = {};
-            // var valueMap = {};
-            // var labelObjMap = {};
-            // data.forEach(function(item){
-            //     labelMap[escape(item.label)] = item.value;
-            //     valueMap[item.value] = item.label;
-            //     labelObjMap[escape(item.label)] = item;
-            // });
 
             $(this.$refs.picker).picker({
             	title: !!that.placeholder ? that.placeholder : '选择',
@@ -87,7 +112,6 @@ export default {
                     that.model = that.labelMap[escape(e.value[0])];
 
                     var res = !!e.value ? that.labelObjMap[escape(e.value[0])] : '';
-                    // that.$emit('select', res);
                 },
                 onClose: function(e){
                     var res = !!e.value ? that.labelObjMap[escape(e.value[0])] : ''
@@ -101,7 +125,6 @@ export default {
         },
         dataPreCal: function(val){
             var data = val.slice(0);
-            data.unshift({label: '全部', value: ''});
             this.newData = data;
 
             $(this.$refs.picker).picker("destroy");
@@ -110,16 +133,15 @@ export default {
     },
     mounted:function(){
         this.dataPreCal(this.data);
-        this.picker_init();
+        // this.picker_init();
     }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-    .btn-picker_con{height:44px; position: relative; z-index:10; background:white;}
-    .btn-picker_con:before, .btn-picker_con:after{content:' '; display:block; position:absolute; }
-    /* .btn-picker_con:before{width:100%; height:1px; background: #e5e5e5; bottom:0; } */
-    .btn-picker_con:after{content:' '; border-bottom:1px solid #9B9B9B; border-right:1px solid #9B9B9B; width:0.5em; height:0.5em; right:10%; top:50%; transform: translate(-50%, -50%) rotate(45deg);}
-    .btn-picker{border:none; display: block; width:80%; height:100%; color:#9B9B9B; margin: 0 auto;}
+.placeholder{color:#C8C8C8;}
+.label{color:#707070;}
+input{display:block; border:none; width:100%;}
+input:focus{outline: none;}
 </style>

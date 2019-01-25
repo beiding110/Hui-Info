@@ -1,12 +1,12 @@
 <template>
     <div class="page">
-        <top-bar>
+        <!-- <top-bar>
             <i slot="right" class="iconfont right" @click="collectHandler" v-html="collectIcon" v-if="collect!=undefined"></i>
         </top-bar>
         <div class="page-content">
             <router-view v-model="collect"/>
-        </div>
-        <!-- <router-view/> -->
+        </div> -->
+        <router-view v-model="collect"/>
     </div>
 </template>
 

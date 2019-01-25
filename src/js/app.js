@@ -210,6 +210,15 @@ export default (function(owner){
         this.toast(msg);
     }
 
+    owner.showConform = function(content, callback) {
+        $.confirm(content, function() {
+            //点击确认后的回调函数
+            callback && callback()
+        }, function() {
+            //点击取消后的回调函数
+        });
+    }
+
     /**
      * 在目标ref上生成一个随机id
      * @param  {obj} ref vue的一个ref实例

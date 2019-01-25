@@ -1,31 +1,39 @@
 <template>
     <div>
-        <scroll-loader action="/Api/Project/GetProjectList" :extra.sync="extraObj" v-model="tableData" ref="loader">
+        <scroll-loader :action="url" :extra.sync="extraObj" v-model="tableData" ref="loader" :lazy="lazy">
 
-            <div class="weui-panel weui-panel_access">
-                <div class="weui-panel__bd">
-
-                    <template v-for="item in tableData">
-                        <router-link :to="'/detail/project/'+item.RowGuid+'/'+item.Category" class="weui-media-box weui-media-box_appmsg">
-                            <div class="weui-media-box__bd">
-                                <h4 class="weui-media-box__title">{{item.Title}}</h4>
-                                <p class="weui-media-box__desc">
-                                    <div class="item-info-con_left">
-                                        <div>
-                                            <span class="weui-badge city">{{item.CityName}}</span>
-                                            <span class="weui-badge type">{{item.SsHyName}}</span>
-                                        </div>
-                                    </div>
-                                    <div class="item-info-con_right">
-                                        {{timeFormatter(item.AddTime)}}
-                                    </div>
-                                </p>
+            <template v-for="(item, index) in tableData">
+                <w-card class="info--card" @click.native="toDetail(item, index)">
+                    <w-badge slot="header" is-dot :hidden="!!item.IsRead">
+                        <div class="info--card__header">
+                            <span>{{item.Title}}</span>
+                        </div>
+                    </w-badge>
+                    <div class="info--card__body">
+                        <div class="info--body__left">
+                            <div>
+                                <span>{{item.JsDw}}</span>
                             </div>
-                        </router-link>
-                    </template>
+                            <div>
+                                <span class="iconfont">&#xe615;</span>
+                                <span>{{item.CityName}}</span>
+                            </div>
+                        </div>
+                        <div class="info--body__right">
+                            <div class="price">￥{{item.TzZe}}</div>
+                            <div>{{timeFormatter(item.AddTime)}}</div>
+                        </div>
+                    </div>
+                    <div slot="footer" class="info--card__footer">
 
-                </div>
-            </div>
+                        <div>
+                            <w-tag class="info-card footer-tags" type="info">{{item.ZjLy}}</w-tag>
+                            <w-tag class="info-card footer-tags">{{item.JsXzName}}</w-tag>
+                            <w-tag class="info-card footer-tags" type="warn">{{item.JdName}}</w-tag>
+                        </div>
+                    </div>
+                </w-card>
+            </template>
 
         </scroll-loader>
     </div>
@@ -33,7 +41,19 @@
 
 <script>
 export default {
-    props: ['extra'],
+    props: {
+        extra: {
+            type: [String, Object]
+        },
+        url: {
+            type: String,
+            default: '/Api/Project/GetProjectList'
+        },
+        lazy: {
+            type: Boolean,
+            default: false
+        }
+    },
     data () {
         return {
             tableData: [],
@@ -62,6 +82,11 @@ export default {
         timeFormatter: function(time){
             return / /.test(time) ? time.split(' ')[0] : time;
         },
+        toDetail(item, index) {
+            item.IsRead = 1;
+            this.tableData.splice(index, 1, item);
+            this.$router.push('/detail/project/'+item.RowGuid+'/'+item.Category);
+        }
     },
     created: function () {
 
@@ -80,4 +105,9 @@ export default {
     .item-info-con_left{width:100%; float:left; margin-right:-80px;}
     .item-info-con_left>div{margin-right:80px;}
     .item-info-con_right{width:80px; float:right; text-align:right; color:#909399}
+
+    .info-card{margin-right:1em;}
+    .footer-tags{float:left; margin-bottom:.2em;}
+
+    .price{color:#E05457; font-weight:bold;}
 </style>

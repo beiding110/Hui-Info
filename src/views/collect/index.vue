@@ -1,17 +1,17 @@
 <template>
     <w-tab>
         <w-tab-item label="招标" name="bidding">
-            <list-bidding ref="listbidding"></list-bidding>
+            <list-bidding ref="listbidding" url="/Api/Collection/GetCollectList?type=ZhaoBiao"></list-bidding>
         </w-tab-item>
         <w-tab-item label="项目" name="project">
-            <list-project ref="listproject"></list-project>
+            <list-project ref="listproject" url="/Api/Collection/GetCollectList?type=Project"></list-project>
         </w-tab-item>
     </w-tab>
 </template>
 
 <script>
-import listBidding from './sub/list-bidding'
-import listProject from './sub/list-project'
+import listBidding from '@/views/bidding/list'
+import listProject from '@/views/project/list'
 export default {
     components: {
         listBidding, listProject

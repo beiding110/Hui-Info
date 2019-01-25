@@ -1,41 +1,33 @@
 <template>
     <div>
-        <div class="price">
-            <div>
-                <div>
-                    <span style="">￥</span>
-                    <span style="">680</span>
-                    <span style="font-size:1.3em;">/年</span>
-                </div>
+        <div class="pay-banner info--card">
+            <img src="~@/assets/vip-pay-banner.png""/>
+
+            <div class="pay-banner--text">
+                <div>限时优惠</div>
+                <div>现价：<span style="color:#26D7FC;">￥680/年</span></div>
+                <div>原件：￥960/年</div>
             </div>
-        </div>
-        <div class="weui-btn-area" v-if="!payStep">
-            <btn type="success" @click="dopay">购买</btn>
-        </div>
-        <div class="buttom_con" v-show="payStep">
-            <div class="QRCode_con">
-                <canvas class="QRCode"></canvas>
-            </div>
-            <p>
-                长按识别二维码购买会员
-            </p>
         </div>
 
-        <div class="weui-msg__extra-area">
-            <div class="weui-footer">
-                <p class="weui-footer__links">
-                    <a href="javascript:void(0);" class="weui-footer__link">惠信息</a>
-                </p>
-                <p class="weui-footer__text">© 2018 中惠科技</p>
-            </div>
+        <w-card class="info--card">
+            <div class="info--card__title">套餐权益</div>
+
+            <vip-table></vip-table>
+        </w-card>
+
+        <div class="info--card">
+            <btn type="primary" @click="dopay">购买</btn>
         </div>
     </div>
 </template>
 
 <script>
 import QRCode from 'qrcode'
+import vipTable from '../components/vip-table'
 
 export default {
+    components: {vipTable},
     data () {
         return {
             form: {},
@@ -82,18 +74,15 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-    .price{height:60%; display: table; width:100%;}
-    .price>div{display: table-cell; vertical-align: middle; text-align: center;}
-    .price>div span:nth-child(1){font-size:3em; }
-    .price>div span:nth-child(2){font-size:4em; font-weight: 600;}
+.pay-banner{position:relative;}
+.pay-banner img{width:100%;}
 
-    .user_info__head_con{border-radius: 50%; overflow: hidden; position: relative; width:4.5rem; height:4.5rem; display: inline-block; background: #eee;}
-    .user_info__head_con>img{width:100%; position: absolute; left: 50%; top:50%; transform: translate(-50%, -50%);}
+.pay-banner--text{position:absolute; left:10%; top:50%; transform:translateY(-50%); font-size:16px;}
+.pay-banner--text div:first-child{font-size:20px; color:white;}
+.pay-banner--text div:nth-child(2){color:white;}
+.pay-banner--text div:nth-child(3){position:relative; color:#353535}
+.pay-banner--text div:nth-child(3)::after{content:' '; position:absolute; width:100%; height:1px; background:#353535; left:0; top:50%; transform:rotate(4deg);}
 
-    .user_info__user_name{font-size:1rem;}
+.info--card__title{font-size:17px; color:#353535; text-align:center; font-weight:bold; line-height:2.5em;}
 
-    .buttom_con{text-align: center;}
-    .buttom_con .QRCode_con{box-shadow: 0 2px 12px 0 rgba(0,0,0,.1); display: inline-block; width: 140px; height: 140px;}
-    .buttom_con .QRCode_con>img{width:100%;}
-    .buttom_con p{margin:0.5em;}
 </style>

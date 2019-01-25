@@ -2,27 +2,31 @@
     <div>
         <scroll-loader action="/Api/FaPiao/OrderList" :extra.sync="extraObj" v-model="tableData" ref="loader">
 
-            <div class="weui-panel weui-panel_access">
-                <div class="weui-panel__bd">
+            <template v-for="item in tableData">
+                <w-card class="info--card" @click.native="gotoForm(item)">
 
-                    <template v-for="item in tableData">
-                        <div class="weui-media-box weui-media-box_appmsg" @click="gotoForm(item)">
-                            <div class="weui-media-box__bd">
-                                <h4 class="weui-media-box__title">
-                                    {{item.FkSm}}
+                    <div class="invoice-card--con">
+                        <div class="info-bar">
+                            <div class="invoice-to--card__title" slot="header">
+                                <div>
+                                    {{item.FkSm.split('：')[0]}}
                                     <template v-if="item.FaPiaoGuid">
                                         <i class="weui-icon-success-no-circle"></i>
                                     </template>
-                                </h4>
-                                <p class="weui-media-box__desc">
-                                    支付时间：{{timeFormatter(item.PaymentTime)}}
-                                </p>
+                                </div>
+                                <div>微信支付
+                                    <span style="color:#E05457;">￥{{item.FkJe}}</span>
+                                </div>
+                            </div>
+
+                            <div class="invoice-to--card__body">
+                                支付时间：{{item.PaymentTime}}
                             </div>
                         </div>
-                    </template>
+                    </div>
 
-                </div>
-            </div>
+                </w-card>
+            </template>
 
         </scroll-loader>
     </div>
@@ -86,7 +90,17 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-    .item-info-con_left{width:100%; float:left; margin-right:-80px;}
-    .item-info-con_left>div{margin-right:80px;}
-    .item-info-con_right{width:80px; float:right; text-align:right; color:#909399}
+.invoice-to--card__title{display:flex;}
+.invoice-to--card__title div:first-child{flex:1; font-weight:bold; color:#353535;}
+.invoice-to--card__title div:last-child{font-size:13px; width:10em; text-align:right; color:#666666; font-weight:normal;}
+
+.invoice-to--card__body{font-size: 13px;}
+
+.state-tip{height:70%;}
+
+.invoice-card--con{display:flex; width:100%;}
+.checkbox-bar{width:40px;}
+.info-bar{flex:1;}
+
+.weui-icon-success-no-circle{font-size:14px; color:#09BB07;}
 </style>

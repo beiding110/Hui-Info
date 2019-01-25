@@ -1,85 +1,101 @@
 <template>
-    <scroll-loader>
+    <div>
         <template v-if="$route.params.type=='GongShi'">
-            <div class="weui-form-preview">
+            <w-card class="info--card">
+                <div class="weui-form-preview">
 
-            	<div class="weui-form-preview__hd">
-            		<h1 class="weui-form-preview__value">{{detail.publicity_name}}</h1>
-                    <font class="weui-form-preview__value addtime">{{timeFormatter(detail.bulletin_issue_time)}}</font>
+                	<div class="weui-form-preview__hd">
+                		<h1 class="weui-form-preview__value">{{detail.publicity_name}}</h1>
+                        <font class="weui-form-preview__value addtime">{{timeFormatter(detail.bulletin_issue_time)}}</font>
+                    </div>
+                	<div class="weui-form-preview__bd">
+                        <table-con :data="detail">
+                            <table-row label="所属行业" prop="hyname" :label-width="labelWidth"></table-row>
+                            <table-row label="所属地区" prop="cityname" :label-width="labelWidth"></table-row>
+                        </table-con>
+                    </div>
+
                 </div>
-            	<div class="weui-form-preview__bd">
-                    <table-con :data="detail">
-                        <table-row label="所属行业" prop="hyname" :label-width="labelWidth"></table-row>
-                        <table-row label="所属地区" prop="cityname" :label-width="labelWidth"></table-row>
-                    </table-con>
+            </w-card>
+            <w-card class="info--card">
+                <div class="weui-panel">
+                	<div class="weui-panel__bd">
+                		<div class="weui-media-box weui-media-box_text">
+                			<h4 class="weui-media-box__title">招标内容</h4>
+                			<p class="weui-media-box__desc rich-text__con" v-html="detail.bdcontent"></p>
+                		</div>
+                	</div>
                 </div>
-
-            </div>
-            <div class="weui-panel">
-            	<div class="weui-panel__bd">
-            		<div class="weui-media-box weui-media-box_text">
-            			<h4 class="weui-media-box__title">招标内容</h4>
-            			<p class="weui-media-box__desc rich-text__con" v-html="detail.bdcontent"></p>
-            		</div>
-            	</div>
-            </div>
-            <div class="weui-panel">
-            	<div class="weui-panel__bd">
-            		<div class="weui-media-box weui-media-box_text">
-            			<h4 class="weui-media-box__title">公示内容</h4>
-            			<p class="weui-media-box__desc rich-text__con" v-html="detail.publicity_content"></p>
-            		</div>
-            	</div>
-            </div>
-
-            <div class="weui-form-preview">
-            	<div class="weui-form-preview__bd">
-                    <table-con :data="detail">
-                        <table-row label="公示时间" prop="publicity_start_time" :label-width="labelWidth"></table-row>
-                        <table-row label="公示截止时间" prop="publicity_end_time" :label-width="labelWidth"></table-row>
-
-                        <table-row label="业主单位名称" prop="yezhu" :label-width="labelWidth"></table-row>
-                        <table-row label="招标代理机构名称" prop="zbdlname" :label-width="labelWidth"></table-row>
-                        <table-row label="联系人" prop="dllxrname" :label-width="labelWidth"></table-row>
-                        <table-row label="电话" prop="dltel" :label-width="labelWidth">
-                            <template slot-scope="scope">
-                                <a :href="'tel:'+scope.row">{{scope.row}}</a>
-                            </template>
-                        </table-row>
-                        <table-row label="手机" prop="dlphone" :label-width="labelWidth">
-                            <template slot-scope="scope">
-                                <a :href="'tel:'+scope.row">{{scope.row}}</a>
-                            </template>
-                        </table-row>
-                        <table-row label="电子邮件" prop="dlemail" :label-width="labelWidth"></table-row>
-                    </table-con>
+            </w-card>
+            <w-card class="info--card">
+                <div class="weui-panel">
+                	<div class="weui-panel__bd">
+                		<div class="weui-media-box weui-media-box_text">
+                			<h4 class="weui-media-box__title">公示内容</h4>
+                			<p class="weui-media-box__desc rich-text__con" v-html="detail.publicity_content"></p>
+                		</div>
+                	</div>
                 </div>
-            </div>
+            </w-card>
+            <w-card class="info--card">
+
+                <div class="weui-form-preview">
+                	<div class="weui-form-preview__bd">
+                        <table-con :data="detail">
+                            <table-row label="公示时间" prop="publicity_start_time" :label-width="labelWidth"></table-row>
+                            <table-row label="公示截止时间" prop="publicity_end_time" :label-width="labelWidth"></table-row>
+
+                            <table-row label="业主单位名称" prop="yezhu" :label-width="labelWidth"></table-row>
+                            <table-row label="招标代理机构名称" prop="zbdlname" :label-width="labelWidth"></table-row>
+                            <table-row label="联系人" prop="dllxrname" :label-width="labelWidth"></table-row>
+                            <table-row label="电话" prop="dltel" :label-width="labelWidth">
+                                <template slot-scope="scope">
+                                    <a :href="'tel:'+scope.row">{{scope.row}}</a>
+                                </template>
+                            </table-row>
+                            <table-row label="手机" prop="dlphone" :label-width="labelWidth">
+                                <template slot-scope="scope">
+                                    <a :href="'tel:'+scope.row">{{scope.row}}</a>
+                                </template>
+                            </table-row>
+                            <table-row label="电子邮件" prop="dlemail" :label-width="labelWidth"></table-row>
+                        </table-con>
+                    </div>
+                </div>
+            </w-card>
         </template>
         <template v-else-if="$route.params.type=='GongGao'">
-            <div class="weui-form-preview">
+            <w-card class="info--card">
+                <div class="weui-form-preview">
 
-            	<div class="weui-form-preview__hd">
-            		<h1 class="weui-form-preview__value">{{detail.bulletin_name}}</h1>
-                    <font class="weui-form-preview__value addtime">{{timeFormatter(detail.bulletin_issue_time)}}</font>
+                	<div class="weui-form-preview__hd">
+                		<h1 class="weui-form-preview__value">{{detail.bulletin_name}}</h1>
+                        <font class="weui-form-preview__value addtime">{{timeFormatter(detail.bulletin_issue_time)}}</font>
+                    </div>
+
                 </div>
-
-            </div>
-            <div class="weui-panel">
-            	<div class="weui-panel__bd">
-            		<div class="weui-media-box weui-media-box_text">
-            			<h4 class="weui-media-box__title">公告内容</h4>
-            			<p class="weui-media-box__desc rich-text__con" v-html="detail.bulletin_content"></p>
-            		</div>
-            	</div>
-            </div>
+            </w-card>
+            <w-card class="info--card">
+                <div class="weui-panel">
+                	<div class="weui-panel__bd">
+                		<div class="weui-media-box weui-media-box_text">
+                			<h4 class="weui-media-box__title">公告内容</h4>
+                			<p class="weui-media-box__desc rich-text__con" v-html="detail.bulletin_content"></p>
+                		</div>
+                	</div>
+                </div>
+            </w-card>
         </template>
-    </scroll-loader>
+
+        <collect-star v-model="detail.Collection" :guid="detail.RowGuid"></collect-star>
+    </div>
 </template>
 
 <script>
+import collectStar from '@/views/components/collect-star'
 export default {
     props: ['value'],
+    components: {collectStar},
     data () {
         return {
             detail: {},
@@ -147,6 +163,8 @@ export default {
 .weui-media-box__desc>table{max-width:100%; border:1px solid #F2F6FC;}
 .weui-media-box__desc>table tr{border:1px solid #F2F6FC;}
 .weui-media-box__desc>table tr td{border:1px solid #F2F6FC;}
+
+.info--card.zh-card{padding:0;}
 </style>
 <style>
 .rich-text__con{display: block !important;}

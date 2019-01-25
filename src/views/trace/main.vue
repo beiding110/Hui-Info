@@ -1,11 +1,8 @@
 <template>
     <div class="page">
-        <top-bar></top-bar>
-        <div class="page-content">
-            <keep-alive>
-                <router-view/>
-            </keep-alive>
-        </div>
+        <keep-alive>
+            <router-view/>
+        </keep-alive>
     </div>
 </template>
 

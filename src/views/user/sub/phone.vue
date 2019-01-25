@@ -1,11 +1,15 @@
 <template>
-    <w-form :model="form" ref="form">
-        <form-item label="手机号" placeholder="请输入待绑定手机号" prop="Mobile" v-model="form.Mobile" mobile></form-item>
+    <div>
+        <w-card class="info--card">
+            <w-form :model="form" ref="form">
+                <form-item label="手机号" placeholder="请输入待绑定手机号" prop="Mobile" v-model="form.Mobile" mobile></form-item>
 
-        <div class="weui-btn-area">
-            <btn type="primary" @click="bindMobile">绑定</btn>
-        </div>
-    </w-form>
+                <div class="weui-btn-area">
+                    <btn type="primary" @click="bindMobile">绑定</btn>
+                </div>
+            </w-form>
+        </w-card>
+    </div>
 </template>
 
 <script>

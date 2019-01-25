@@ -1,5 +1,5 @@
 <template>
-    <form class="weui-cells weui-cells_form">
+    <form class="weui-cells_form">
         <slot></slot>
 
         <slot name="btn" :submit="submit"></slot>

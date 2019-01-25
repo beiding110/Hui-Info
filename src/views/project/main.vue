@@ -2,13 +2,13 @@
     <div class="page">
         <search-bar v-model="KeyName" @search="quertData"></search-bar>
         <div class="weui-flex w-sel-search">
-            <div class="weui-flex__item">
+            <div class="weui-flex__item sel-btn__flex">
                 <btn-picker placeholder="地区" v-model="CityCode" @select="quertData" :data="CityData"></btn-picker>
             </div>
-            <div class="weui-flex__item">
+            <div class="weui-flex__item sel-btn__flex">
                 <btn-picker placeholder="行业" v-model="HyCode" @select="quertData" :data="HyData"></btn-picker>
             </div>
-            <div class="weui-flex__item">
+            <div class="weui-flex__item sel-btn__flex">
                 <btn-picker placeholder="阶段" v-model="JdCode" @select="quertData" :data="JdData"></btn-picker>
             </div>
         </div>
@@ -20,6 +20,7 @@
 
 <script>
 import list from '@/views/project/list'
+import getDictionary from '@/js/GetDictionary'
 
 export default {
     components: {
@@ -53,30 +54,12 @@ export default {
         }
     },
     mounted:function(){
-        var that = this;
-
-        this.$get('/Api/Common/GetDictionary', {
-            type: 'City'
-        }, function(data){
-            that.CityData = data;
-        });
-
-        this.$get('/Api/Common/GetDictionary', {
-            type: 'SsHy'
-        }, function(data){
-            that.HyData = data;
-        });
-
-        this.$get('/Api/Common/GetDictionary', {
-            type: 'JzJd'
-        }, function(data){
-            that.JdData = data;
-        });
+        getDictionary.call(this);
     }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
+.weui-flex{background:white;}
 </style>

@@ -68,4 +68,6 @@ export default {
 <style scoped>
     .weui-tab__bd{padding-bottom:54px; position: relative;}
     .weui-bar__item--on>.weui-tabbar__icon>i{color:#007aff;}
+
+    .w-tabbar.weui-tabbar{background-color:white;}
 </style>

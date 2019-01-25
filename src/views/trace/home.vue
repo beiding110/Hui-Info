@@ -1,6 +1,6 @@
 <template>
     <div class="page">
-        <div class="trace-top_con">
+        <!-- <div class="trace-top_con">
             <span class="trace-top_text">
                 <i class="iconfont" style="color:#905DD9;">&#xe636;</i>
                 追踪列表
@@ -11,7 +11,9 @@
         </div>
         <div class="page-content" style="">
             <trace-list></trace-list>
-        </div>
+        </div> -->
+
+        <trace-list></trace-list>
     </div>
 </template>
 

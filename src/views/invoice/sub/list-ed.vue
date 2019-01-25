@@ -2,22 +2,17 @@
     <div>
         <scroll-loader action="/Api/FaPiao/FaPiaoList" :extra.sync="extraObj" v-model="tableData" ref="loader">
 
-            <div class="weui-panel weui-panel_access">
-                <div class="weui-panel__bd">
+            <template v-for="item in tableData">
+                <w-card class="info--card" @click.native="toDetail(item)">
+                    <div class="invoice-to--card__title" slot="header">
+                        {{item.FpType}}-{{item.Je}}
+                    </div>
 
-                    <template v-for="item in tableData">
-                        <div class="weui-media-box weui-media-box_appmsg" @click="toDetail(item)">
-                            <div class="weui-media-box__bd">
-                                <h4 class="weui-media-box__title">{{item.FpType}}-{{item.Je}}</h4>
-                                <p class="weui-media-box__desc">
-                                    申请时间：{{timeFormatter(item.AddTime)}}
-                                </p>
-                            </div>
-                        </div>
-                    </template>
-
-                </div>
-            </div>
+                    <div class="invoice-to--card__body">
+                        申请时间：{{item.AddTime}}
+                    </div>
+                </w-card>
+            </template>
 
         </scroll-loader>
     </div>
@@ -59,7 +54,7 @@ export default {
                 invoicedInfo: item
             });
             this.$router.push({
-                path: '../detail',
+                path: './detail',
                 query: {
                     FaPiaoGuid: item.FaPiaoGuid
                 }
@@ -80,7 +75,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-    .item-info-con_left{width:100%; float:left; margin-right:-80px;}
-    .item-info-con_left>div{margin-right:80px;}
-    .item-info-con_right{width:80px; float:right; text-align:right; color:#909399}
+.invoice-to--card__title{display:flex;}
+
+.invoice-to--card__body{font-size: 13px;}
+
+.state-tip{height:70%;}
 </style>

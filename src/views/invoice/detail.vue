@@ -1,36 +1,40 @@
 <template>
-    <w-form :model="form" ref="form" class="invoice__form">
-        <form-item label="发票类型">
-            {{form.FpType}}
-        </form-item>
-        <form-item label="单位名称">
-            {{form.DwMc}}
-        </form-item>
-        <form-item label="统一社会信用代码（税号）">
-            {{form.XinYongCode}}
-        </form-item>
-        <form-item label="地址">
-            {{form.Address}}
-        </form-item>
-        <form-item label="电话">
-            {{form.DianHua}}
-        </form-item>
-        <form-item label="开户行">
-            {{form.KaiHuHang}}
-        </form-item>
-        <form-item label="账号">
-            {{form.YinHangZhangHao}}
-        </form-item>
-        <form-item label="金额">
-            {{form.Je}} 元
-        </form-item>
-        <form-item label="电子邮箱">
-            {{form.Email}}
-        </form-item>
-        <form-item label="备注">
-            {{form.Detail}}
-        </form-item>
-    </w-form>
+    <div>
+        <w-card class="info--card">
+            <w-form :model="form" ref="form" class="invoice__form">
+                <form-item label="发票类型">
+                    {{form.FpType}}
+                </form-item>
+                <form-item label="单位名称">
+                    {{form.DwMc}}
+                </form-item>
+                <form-item label="统一社会信用代码（税号）">
+                    {{form.XinYongCode}}
+                </form-item>
+                <form-item label="地址">
+                    {{form.Address}}
+                </form-item>
+                <form-item label="电话">
+                    {{form.DianHua}}
+                </form-item>
+                <form-item label="开户行">
+                    {{form.KaiHuHang}}
+                </form-item>
+                <form-item label="账号">
+                    {{form.YinHangZhangHao}}
+                </form-item>
+                <form-item label="金额">
+                    {{form.Je}} 元
+                </form-item>
+                <form-item label="电子邮箱">
+                    {{form.Email}}
+                </form-item>
+                <form-item label="备注">
+                    {{form.Detail}}
+                </form-item>
+            </w-form>
+        </w-card>
+    </div>
 </template>
 
 <script>

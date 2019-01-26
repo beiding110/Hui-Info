@@ -3,7 +3,13 @@
         <scroll-loader :action="url" :extra.sync="extraObj" v-model="tableData" ref="loader" :lazy="lazy">
 
             <template v-for="(item, index) in tableData">
-                <w-card class="info--card" @click.native="toDetail(item, index)">
+                <w-card
+                class="info--card"
+                @click.native="toDetail(item, index)"
+                :key="index"
+                v-touch:hold="itemHold"
+                v-ncmenu
+                :data-guid="item.RowGuid">
                     <w-badge slot="header" is-dot :hidden="!!item.IsRead">
                         <div class="info--card__header">
                             <span>{{item.Title}}</span>
@@ -86,6 +92,30 @@ export default {
             item.IsRead = 1;
             this.tableData.splice(index, 1, item);
             this.$router.push('/detail/project/'+item.RowGuid+'/'+item.Category);
+        },
+        itemHold(dom, e) {
+            e.stopPropagation();
+            e.preventDefault();
+
+            let guid = dom.dataset.guid;
+
+            $.actions({
+                actions: [{
+                    text: "收藏/取消收藏该项",
+                    onClick: () => {
+                        this.$get('/Api/Collection/SetCollectState', {
+                            id: guid
+                        }, (data, res) => {
+                            this.$store.commit('setState',{
+                                collectSign: true
+                            });
+
+                            app.ShowMsg(res.Msg);
+                        })
+                    }
+                }]
+            });
+            return false;
         }
     },
     created: function () {

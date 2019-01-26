@@ -13,6 +13,7 @@ export default new Vuex.Store({
         traceItem: {},
 
         IsVip: true,
+        IsTry: true,
         userInfo: {},
 
         reMobile: false,

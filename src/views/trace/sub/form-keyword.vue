@@ -87,7 +87,7 @@ export default {
         queryInfo() {
             this.form.RowGuid = this.getQuery('type') === 'new' ? '' : this.getQuery('type');
 
-            if(this.form.RowGuid != 'new'){
+            if(!!this.form.RowGuid && this.form.RowGuid != 'new'){
                 this.$get('/Api/DingYue/GetDetail', {
                     id: this.form.RowGuid
                 }, (data) => {

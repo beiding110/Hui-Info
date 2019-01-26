@@ -4,6 +4,8 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import store from '@/store'
+import VueTouch from 'vue-touchjs';
+import Directives from '@/js/directive';
 
 import $ from 'jquery'
 
@@ -26,6 +28,8 @@ $(function() {
 });
 
 Vue.use(myWeui)
+Vue.use(VueTouch)
+Vue.use(Directives)
 
 /* eslint-disable no-new */
 new Vue({

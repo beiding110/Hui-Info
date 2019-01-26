@@ -42,7 +42,7 @@ export default {
     activated: function(){
         var that = this;
 
-        if(!this.$store.state.IsVip){
+        if(!this.$store.state.IsVip && !this.$store.state.IsTry){
             this.$router.replace('/msg/error/抱歉/您是非会员，无权限查看此内容');
         }
     },

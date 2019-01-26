@@ -146,6 +146,10 @@ export default (function(owner){
                         IsVip: !!obj.IsVip
                     });
 
+                    that.$store.commit('setState', {
+                        IsTry: !!obj.IsTry
+                    });
+
                     if(/{|}|\[|\]/.test(obj.Data) && typeof obj.Data == 'string'){
                         callback(JSON.parse(obj.Data), obj);
                     }else{
@@ -207,7 +211,7 @@ export default (function(owner){
     *** type 消息类型
     ******************/
     owner.ShowMsg = function(msg, type) {
-        this.toast(msg);
+        $.toast(msg);
     }
 
     owner.showConform = function(content, callback) {

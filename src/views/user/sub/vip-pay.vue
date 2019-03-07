@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="pay-banner info--card">
+        <!-- <div class="pay-banner info--card">
             <img src="~@/assets/vip-pay-banner.png""/>
 
             <div class="pay-banner--text">
@@ -8,12 +8,20 @@
                 <div>现价：<span style="color:#26D7FC;">￥680/年</span></div>
                 <div>原件：￥960/年</div>
             </div>
-        </div>
+        </div> -->
 
         <w-card class="info--card">
-            <div class="info--card__title">套餐权益</div>
+            <!-- <div class="info--card__title">套餐权益</div> -->
 
             <vip-table></vip-table>
+        </w-card>
+
+        <w-card class="info--card">
+            <div class="info--card__title">请选择会员服务</div>
+
+            <template>
+                <price-card v-model="payId"></price-card>
+            </template>
         </w-card>
 
         <div class="info--card">
@@ -25,23 +33,36 @@
 <script>
 import QRCode from 'qrcode'
 import vipTable from '../components/vip-table'
+import priceCard from '../components/price-card'
 
 export default {
-    components: {vipTable},
+    components: {vipTable, priceCard},
     data () {
         return {
             form: {},
-            payStep: 0
+            payStep: 0,
+
+            payId: ''
         }
     },
     methods:{
         dopay: function() {
             var that = this;
-            this.$get('/Api/User/GetZhiFuUrl', {
-                OpenID: this.$store.state.srcOpenid || ''
+            // this.$get('/Api/User/GetZhiFuUrl', {
+            //     OpenID: this.$store.state.srcOpenid || ''
+            // }, function(data){
+            //     // that.payStep = 1;
+            //     // that.crearQRcode(data);
+            //     window.location.replace(data);
+            // })
+            //
+            if(!this.payId) {
+                app.ShowMsgBox('请选择会员服务');
+                return;
+            }
+            this.$get('/Api/Payment/GetPayUrl', {
+                id: this.payId
             }, function(data){
-                // that.payStep = 1;
-                // that.crearQRcode(data);
                 window.location.replace(data);
             })
         },
@@ -84,5 +105,4 @@ export default {
 .pay-banner--text div:nth-child(3)::after{content:' '; position:absolute; width:100%; height:1px; background:#353535; left:0; top:50%; transform:rotate(4deg);}
 
 .info--card__title{font-size:17px; color:#353535; text-align:center; font-weight:bold; line-height:2.5em;}
-
 </style>

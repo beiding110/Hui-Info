@@ -43,8 +43,8 @@
         <div class="td">
             <img src="~@/assets/vip/icon-vip-zl.png" class="icon-intable" />
             <span>
-                追踪信息提醒
-                （需关注“惠招标”公众号）
+                追踪信息提醒<br />
+                <font class="info-tip">（需关注“惠招标”公众号）</font>
             </span>
         </div>
         <div class="td">-</div>
@@ -82,5 +82,5 @@ export default {
 .td .iconfont{display:inline-block; margin-right:.5em;}
 
 .icon-intable{width:1.2em;}
-
+.info-tip{font-size:12px;}
 </style>

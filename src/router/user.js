@@ -18,6 +18,12 @@ export default {
             component: function(){return import(/*webpackChunkName:+ 'user'*/ '@/views/user/sub/vip-pay')},
         },
         {
+            path: 'paysuccess',
+            name: 'huiinfo-user-paysuccess',
+            meta: {title: '惠信息·用户·购买成功'},
+            component: function(){return import(/*webpackChunkName:+ 'user'*/ '@/views/user/sub/vip-pay-res')},
+        },
+        {
             path: 'share/:openid',
             name: 'huiinfo-user-share',
             meta: {title: '惠信息·用户·分享'},

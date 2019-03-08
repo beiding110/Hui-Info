@@ -15,7 +15,7 @@
                 <p class="weui-footer__links">
                     <a href="javascript:void(0);" class="weui-footer__link">惠信息</a>
                 </p>
-                <p class="weui-footer__text">© 2018 中惠科技</p>
+                <p class="weui-footer__text">© 2019 中惠科技</p>
             </div>
         </div>
     </div>

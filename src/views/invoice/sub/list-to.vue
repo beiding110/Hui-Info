@@ -98,7 +98,7 @@ export default {
                 invoiceInfo: item
             });
             this.$router.push({
-                path: '../form'
+                path: './form'
             });
         },
         itemHold(dom, e) {

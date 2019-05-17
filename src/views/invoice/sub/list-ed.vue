@@ -5,11 +5,17 @@
             <template v-for="item in tableData">
                 <w-card class="info--card" @click.native="toDetail(item)">
                     <div class="invoice-to--card__title" slot="header">
+                        【{{item.FpHsBj === '0' ? '未开票' : '已开票'}}】
+
                         {{item.FpType}}-{{item.Je}}
                     </div>
 
                     <div class="invoice-to--card__body">
                         申请时间：{{item.AddTime}}
+                    </div>
+
+                    <div class="invoice-to--card__body" v-if="item.FpHsBj === '1'">
+                        开票时间：{{item.FpHsTime}}
                     </div>
                 </w-card>
             </template>

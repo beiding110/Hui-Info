@@ -48,6 +48,10 @@ export default {
             var that = this;
 
             if(this.form.KeyName) {
+                if(!this.testKeyName()) {
+                    return;
+                };
+
                 this.$post('/Api/DingYue/DingYueManager', this.form, (data) => {
                     that.$store.commit('setState',{
                         traceSign: true
@@ -94,6 +98,18 @@ export default {
                     this.form = data
                 })
             };
+        },
+        testKeyName() {
+            if(/[^\u4e00-\u9fa50-9a-zA-Z ]/.test(this.form.KeyName)) {
+                app.ShowMsgBox('关键字内容请勿包含标点符号及特殊字符，多个关键字请使用“空格”隔开，如：“工程 医疗 设备”');
+                return false;
+            };
+            return true
+        }
+    },
+    watch: {
+        'form.KeyName': function (n) {
+            this.testKeyName();
         }
     },
     mounted:function(){

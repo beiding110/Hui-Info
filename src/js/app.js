@@ -179,6 +179,8 @@ export default (function(owner){
                         }else{
                             owner.ShowMsgBox(obj.Msg)
                         }
+                    }else{
+                        owner.ShowMsgBox(obj.Msg)
                     }
                 }
             },

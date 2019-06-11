@@ -6,8 +6,11 @@
 
         <div class="trace-detail__infotip">
             <div class="iconfont icon-zuobiao"></div>
-            今日更新
-            <font class="infotip-num">{{addToday}}</font>
+            今日更新：
+            招标信息
+            <font class="infotip-num">{{addToday.Bidding}}</font>
+            条，项目信息
+            <font class="infotip-num">{{addToday.Project}}</font>
             条
         </div>
 
@@ -33,7 +36,7 @@ export default {
         return {
             extra:{},
 
-            addToday: 0,
+            addToday: {},
             form: {},
 
             dateObj: {

@@ -57,6 +57,8 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+    .weui-icon-search{color:#68BFA6;}
+
     .weui-search-bar__form{border-radius:5px; overflow:hidden;}
     .weui-search-bar{z-index:10; background-color: #fff;}
     .weui-search-bar__cancel-btn{color:#85D5BC;}

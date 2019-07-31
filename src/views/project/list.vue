@@ -136,7 +136,7 @@ export default {
     .item-info-con_left>div{margin-right:80px;}
     .item-info-con_right{width:80px; float:right; text-align:right; color:#909399}
 
-    .info-card{margin-right:1em;}
+    .info-card{margin-right:.7em;}
     .footer-tags{float:left; margin-bottom:.2em;}
 
     .price{color:#E05457; font-weight:bold;}

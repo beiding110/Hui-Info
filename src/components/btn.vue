@@ -40,7 +40,7 @@ export default {
     .weui-btn+.weui-btn{margin-top:0; margin-bottom:5px;}
 
     .weui-btn[class*="we-btn_"]{color:white;}
-    .weui-btn.we-btn_primary{background: #905DD9; border-color: #905DD9;}
+    .weui-btn.we-btn_primary{background: #1F80E6; border-color: #1F80E6;}
     .weui-btn.we-btn_success{background: #67C23A; border-color: #67C23A;}
     .weui-btn.we-btn_info{background: #909399; border-color: #909399;}
     .weui-btn.we-btn_warning{background: #E6A23C; border-color: #E6A23C;}

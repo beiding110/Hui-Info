@@ -19,30 +19,30 @@ var router = new Router({
             path: '/home',
             name: 'huiinfo',
             component: home,
-            meta: {alive: true, title: '惠信息'},
+            meta: {alive: true, title: '欢迎'},
             children: [
                 {
                     path: 'bidding',
                     name: 'huiinfo-bidding',
-                    meta: {title: '惠信息·招标'},
+                    meta: {title: '招标'},
                     component: function(){return import(/*webpackChunkName: 'bidding'*/ '@/views/bidding/main')},
                 },
                 {
                     path: 'project',
                     name: 'huiinfo-project',
-                    meta: {title: '惠信息·项目'},
+                    meta: {title: '项目'},
                     component: function(){return import(/*webpackChunkName: 'project'*/ '@/views/project/main')},
                 },
                 {
                     path: 'trace',
                     name: 'huiinfo-trace',
-                    meta: {title: '惠信息·追踪'},
+                    meta: {title: '追踪'},
                     component: function(){return import(/*webpackChunkName: 'trace'*/ '@/views/trace/home')},
                 },
                 {
                     path: 'user',
                     name: 'huiinfo-user',
-                    meta: {title: '惠信息·我的'},
+                    meta: {title: '我的'},
                     component: function(){return import(/*webpackChunkName: 'user'*/ '@/views/user/main')},
                 }
             ]
@@ -76,7 +76,7 @@ var router = new Router({
         {
             path: '/msg/:type/:title/:text',
             name: 'huiinfo-msg',
-            meta: {title: '惠信息·提示'},
+            meta: {title: '提示'},
             props: true,
             component: function(){return import(/*webpackChunkName: 'msg'*/ '@/views/home/msg')}
         },

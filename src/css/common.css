@@ -1,10 +1,11 @@
 @font-face {
   font-family: 'iconfont';  /* project id 748609 */
-  src: url('//at.alicdn.com/t/font_748609_yt4tej8ve5l.eot');
-  src: url('//at.alicdn.com/t/font_748609_yt4tej8ve5l.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_748609_yt4tej8ve5l.woff') format('woff'),
-  url('//at.alicdn.com/t/font_748609_yt4tej8ve5l.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_748609_yt4tej8ve5l.svg#iconfont') format('svg');
+  src: url('//at.alicdn.com/t/font_748609_0mml0pakbt5k.eot');
+  src: url('//at.alicdn.com/t/font_748609_0mml0pakbt5k.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_748609_0mml0pakbt5k.woff2') format('woff2'),
+  url('//at.alicdn.com/t/font_748609_0mml0pakbt5k.woff') format('woff'),
+  url('//at.alicdn.com/t/font_748609_0mml0pakbt5k.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_748609_0mml0pakbt5k.svg#iconfont') format('svg');
 }
 
 .iconfont {font-family:"iconfont" !important;font-size:16px;font-style:normal;-webkit-font-smoothing:antialiased;-webkit-text-stroke-width:0.2px;-moz-osx-font-smoothing:grayscale;}
@@ -24,11 +25,11 @@ html, body, #app{height: 100%; overflow: hidden;}
 .w-tab .weui-navbar__item.weui-bar__item--on{background:white; color:#36c8a1; position:relative;}
 .w-tab .weui-navbar__item.weui-bar__item--on:before{content:' '; position:absolute; bottom:0; left:50%; top:auto; right:auto; width:1em; height:4px; border:none; background-color:#36c8a1; transform:translate(-50%,-50%); border-radius:2px;}
 
-.w-tab.w-tab_primary .weui-navbar__item.weui-bar__item--on{color:#BC86D6;}
-.w-tab.w-tab_primary .weui-navbar__item.weui-bar__item--on:before{background-color:#BC86D6; width:4em;}
+.w-tab.w-tab_primary .weui-navbar__item.weui-bar__item--on{color:#1F80E6;}
+.w-tab.w-tab_primary .weui-navbar__item.weui-bar__item--on:before{background-color:#1F80E6; width:4em;}
 
-.w-tabbar>.weui-bar__item--on>.weui-tabbar__icon>i.iconfont{color:#BC86D6;}
-.w-tabbar>.weui-tabbar__item.weui-bar__item--on .weui-tabbar__label{color:#BC86D6;}
+.w-tabbar>.weui-bar__item--on>.weui-tabbar__icon>i.iconfont{color:#1F80E6;}
+.w-tabbar>.weui-tabbar__item.weui-bar__item--on .weui-tabbar__label{color:#1F80E6;}
 
 .w-sel-search .weui-flex__item{position:relative;}
 .w-sel-search .weui-flex__item + .weui-flex__item::before{content:' '; position:absolute; width:1px; height:1em; background-color:#e5e5e5; left:0; top:50%; transform:translate(-50%,-50%);}
@@ -38,8 +39,8 @@ html, body, #app{height: 100%; overflow: hidden;}
 .weui-badge.city{background:#E6A23C;}
 .weui-badge.type{background:#a74bde;}
 
-.toolbar .picker-button{color:#905dd9;}
-.weui-dialog__btn.primary{color:#905dd9;}
+.toolbar .picker-button{color:#1F80E6;}
+.weui-dialog__btn.primary{color:#1F80E6;}
 
 /* 201901 */
 .sel-btn__flex{position:relative; padding:0 .5em;}

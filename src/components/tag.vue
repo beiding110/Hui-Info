@@ -28,10 +28,11 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.zh-tag{font-size: 14px; padding:.2em .5em; border-radius:2px;}
+.zh-tag{font-size: 14px; padding:.1em .8em; border-radius:3px; color:white;}
 
-.zh-tag--primary{color:#4368E0; background:rgba(246,247,254,1);}
-.zh-tag--info{color:#9934CA; background:rgba(253,248,255,1);}
-.zh-tag--warn{color:#D36D18; background:rgba(253,249,244,1);}
+.zh-tag--primary{background:#1F80E6;}
+.zh-tag--info{background:#67BEA5;}
+.zh-tag--warn{background:#ECA355;}
+.zh-tag--danger{background:#FE7270;}
 
 </style>

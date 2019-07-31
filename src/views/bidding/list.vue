@@ -27,13 +27,8 @@
                         <div class="info--body__right">{{timeFormatter(item.AddTime)}}</div>
                     </div>
                     <div slot="footer" class="info--card__footer">
-                        <div class="info--footer__left">
-                            <span class="iconfont">&#xe615;</span>
-                            {{item.cityname}}
-                        </div>
-                        <div class="info--footer__right">
-                            <w-tag>{{item.TypeName}}</w-tag>
-                        </div>
+                        <w-tag class="info-card footer-tags" type="info">{{item.cityname}}</w-tag>
+                        <w-tag class="info-card footer-tags" type="danger">{{item.TypeName}}</w-tag>
                     </div>
                 </w-card>
             </template>
@@ -132,4 +127,7 @@ export default {
     .item-info-con_left{width:100%; float:left; margin-right:-80px;}
     .item-info-con_left>div{margin-right:80px;}
     .item-info-con_right{width:80px; float:right; text-align:right; color:#909399}
+
+    .info-card{margin-right:.7em;}
+    .footer-tags{float:left; margin-bottom:.2em;}
 </style>

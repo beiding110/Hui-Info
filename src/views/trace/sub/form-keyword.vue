@@ -44,6 +44,18 @@ export default {
         }
     },
     methods:{
+        resetForm() {
+           this.form = {
+               RowGuid: '',
+               Title: '',
+               TypeCode: '',
+               TypeName: '',
+               CityCode: '',
+               CityName: '',
+               DateRange: 3,
+               KeyName: ''
+           }
+       },
         doSave(callback) {
             var that = this;
 
@@ -97,6 +109,8 @@ export default {
                 }, (data) => {
                     this.form = data
                 })
+            } else {
+                this.resetForm();
             };
         },
         testKeyName() {

@@ -6,7 +6,7 @@
                     <input v-model="search" type="search" placeholder="示例：税务局" class="weui-search-bar__input">
                 </div>
             </form>
-            <a href="javascript:" class="submit-btn" @click="searchHandler">筛选</a>
+            <a href="javascript:" class="submit-btn" @click="searchHandler" :style="{color:search?'#409EFF' : '#aaa'}">筛选</a>
         </div>
 
         <ul class="search-history">
@@ -35,6 +35,8 @@ export default {
     },
     methods:{
         searchHandler() {
+            if(!this.search) return;
+
             var history = this.getLocal('$searchHistory') || [];
 
             if (history.indexOf(this.search) > -1) {

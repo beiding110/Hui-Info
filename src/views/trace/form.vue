@@ -1,24 +1,20 @@
 <template>
     <div>
+        <trace-form-title>
+            定制信息
+        </trace-form-title>
+
         <div class="weui-cells weui-cells_form">
-            <form-item v-model="form.Title" placeholder="请输入追踪标题" label="追踪标题"></form-item>
+            <form-item v-model="form.Title" placeholder="请输入追踪标题" label="追踪标题" required></form-item>
+            <form-item label="关键字" v-model="form.KeyName" placeholder="请输入关键字，英文逗号分隔" required></form-item>
             <!-- <form-item label="招标类型" arrow>
                 <input-picker placeholder="请选择招标类型" v-model="form.TypeCode" :data="TypeData" @select="typeSel"></input-picker>
             </form-item> -->
-            <form-item label="时间段" arrow>
-                <input-picker placeholder="请选择时间段" v-model="form.DateRange" :data="DateData"></input-picker>
+            <form-item label="时间段" arrow required>
+                <input-picker placeholder="请选择时间段" v-model="form.DateRange" :data="DateRangeData"></input-picker>
             </form-item>
-            <form-item label="所属区域" arrow>
+            <form-item label="所属区域" arrow required>
                 <input-picker placeholder="请选择所属区域" v-model="form.CityCode" :data="CityData" @select="citySel"></input-picker>
-            </form-item>
-        </div>
-
-        <div class="weui-cells weui-cells_form">
-            <form-item label="关键字">
-                <template v-for="(item,index) in form.KeyName">
-                    <btn size="mini" @click="editKeyWord(item,index)">{{item}}</btn>
-                </template>
-                <btn size="mini" type="success" icon="&#xe703;" @click="addKeyWord">添加</btn>
             </form-item>
         </div>
 
@@ -29,7 +25,11 @@
 </template>
 
 <script>
+import traceFormTitle from '@/views/trace/components/trace-form-title'
+import getDictionary from '@/js/GetDictionary'
+
 export default {
+    components: { traceFormTitle },
     data () {
         return {
             form: {
@@ -44,7 +44,13 @@ export default {
             },
             CityData: [],
             TypeData: [],
-            DateData: []
+            DateRangeData: []
+        }
+    },
+    computed: {
+        type() {
+            var type = this.getQuery('type');
+            return type === 'new' ? '' : type;
         }
     },
     methods:{
@@ -78,8 +84,8 @@ export default {
         submit: function(){
             var that = this;
             var submitObj = app.clone(this.form);
-            submitObj.RowGuid = this.$route.params.type=='new' ? '' : this.$route.params.type;
-            submitObj.KeyName = submitObj.KeyName.join(',');
+            submitObj.RowGuid = this.type;
+
             this.$post('/Api/DingYue/DingYueManager', submitObj, function(data){
                 that.$store.commit('setState',{
                     traceSign: true
@@ -93,49 +99,25 @@ export default {
         },
         citySel: function(e){
             this.form.CityName = e.label;
+        },
+        queryDetail() {
+            if(this.type){
+                this.$get('/Api/DingYue/GetDetail', {
+                    id: this.type
+                }, (data) => {
+                    data.KeyName = data.KeyName.split(',')
+                    this.form = data;
+                })
+            };
         }
     },
     mounted:function(){
         var that = this;
 
-        this.$get('/Api/Common/GetDictionary', {
-            type: 'City'
-        }, function(data){
-            data.unshift({label: '全部', value: ''});
-            that.CityData = data;
-        });
-
-        // this.$get('/Api/Common/GetDictionary', {
-        //     type: 'GgLx'
-        // }, function(data){
-        //     that.TypeData = data;
-        // });
-
-        this.DateData = [
-            {
-                label: '近三天',
-                value: '3'
-            },{
-                label: '近一周',
-                value: '7'
-            },{
-                label: '近一月',
-                value: '30'
-            }
-        ];
-
-        var that = this;
-        if(this.$route.params.type != 'new'){
-            this.$get('/Api/DingYue/GetDetail', {
-                id: that.$route.params.type
-            }, function(data){
-                data.KeyName = data.KeyName.split(',')
-                that.form = data;
-            })
-        };
+        getDictionary.call(this);
     },
     activated: function(){
-
+        this.queryDetail();
     },
     deactivated: function(){
         this.form = {

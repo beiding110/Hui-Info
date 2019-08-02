@@ -1,46 +1,39 @@
 <template>
-    <div>
-        <div class="top-btn-con">
-            <btn type="primary" @click="toKeyWord">添加订阅</btn>
-        </div>
-        <div class="page-con">
-            <div class="scroller-con">
-                <scroll-loader action="/Api/DingYue/GetDingYueList" v-model="tableData" ref="loader">
-                    <template v-for="(item,index) in tableData">
-                        <div class="trace-list_item">
-                            <div class="trace-list_item_row trace-list_item-title">
-                                {{item.KeyName || '-'}}
-                            </div>
-                            <div class="trace-list_item_row trace-list_item-body">
-                                <div>
-                                    地区：{{item.CityName || '-'}}
-                                </div>
-                                <div>
-                                    时间段：{{item.DateRange ? '近 ' + item.DateRange + ' 天' : '-'}}
-                                </div>
-                                <div>
-                                    定制日期：{{item.AddTime}}
-                                </div>
-                            </div>
-                            <div class="trace-list_item_row trace-list_item-footer">
-                                <span class="btn-text" @click="deleteHandler(item)">
-                                    <i class="iconfont">&#xe603;</i>
-                                    删除
-                                </span>
-                                <span class="btn-text" @click="toKeyWord(item)">
-                                    <i class="iconfont">&#xec88;</i>
-                                    编辑
-                                </span>
-                                <span class="btn-text btn-view" @click="toDetail(item)">
-                                    <i class="iconfont">&#xe61c;</i>
-                                    查看
-                                </span>
-                            </div>
+    <div class="scroller-con">
+        <scroll-loader action="/Api/DingYue/GetDingYueList" v-model="tableData" ref="loader">
+            <template v-for="(item,index) in tableData">
+                <div class="trace-list_item">
+                    <div class="trace-list_item_row trace-list_item-title">
+                        {{item.KeyName || '-'}}
+                    </div>
+                    <div class="trace-list_item_row trace-list_item-body">
+                        <div>
+                            地区：{{item.CityName || '-'}}
                         </div>
-                    </template>
-                </scroll-loader>
-            </div>
-        </div>
+                        <div>
+                            时间段：{{item.DateRange ? '近 ' + item.DateRange + ' 天' : '-'}}
+                        </div>
+                        <div>
+                            定制日期：{{item.AddTime}}
+                        </div>
+                    </div>
+                    <div class="trace-list_item_row trace-list_item-footer">
+                        <span class="btn-text" @click="deleteHandler(item)">
+                            <i class="iconfont">&#xe603;</i>
+                            删除
+                        </span>
+                        <span class="btn-text" @click="toKeyWord(item)">
+                            <i class="iconfont">&#xec88;</i>
+                            编辑
+                        </span>
+                        <span class="btn-text btn-view" @click="toDetail(item)">
+                            <i class="iconfont">&#xe61c;</i>
+                            查看
+                        </span>
+                    </div>
+                </div>
+            </template>
+        </scroll-loader>
     </div>
 </template>
 
@@ -68,7 +61,7 @@ export default {
             // console.log('keyword')
             this.vipTest(() => {
                 this.$router.push({
-                    path: '/trace/form-keyword',
+                    path: '/trace/form',
                     query: {
                         type: row.RowGuid || 'new'
                     }
@@ -111,8 +104,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-    .top-btn-con{padding:10px; background:white; overflow:hidden;}
-    .page-con{position:absolute; top:70px; left:0; right:0; bottom:0; overflow:hidden;}
+
     .scroller-con{position:relative; width:100%; height:100%;}
 
     .weui-cells{margin-top:0;}

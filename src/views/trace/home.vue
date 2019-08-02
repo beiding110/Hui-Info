@@ -1,5 +1,12 @@
 <template>
     <div class="page">
+        <div class="top-btn-con">
+            <btn type="primary" @click="toKeyWord">添加订阅</btn>
+        </div>
+        <div class="page-con">
+            <trace-list ref="list"></trace-list>
+        </div>
+    </div>
         <!-- <div class="trace-top_con">
             <span class="trace-top_text">
                 <i class="iconfont" style="color:#905DD9;">&#xe636;</i>
@@ -12,9 +19,6 @@
         <div class="page-content" style="">
             <trace-list></trace-list>
         </div> -->
-
-        <trace-list></trace-list>
-    </div>
 </template>
 
 <script>
@@ -29,7 +33,9 @@ export default {
         }
     },
     methods:{
-
+        toKeyWord(row) {
+            this.$refs.list.toKeyWord('new');
+        },
     },
     mounted:function(){
 
@@ -44,4 +50,7 @@ export default {
     .trace-top_text{margin:1em; line-height: 44px;}
 
     .weui-btn.weui-btn_mini .iconfont{margin-right:0.3em; font-size:12px;}
+
+    .top-btn-con{padding:10px; background:white; overflow:hidden;}
+    .page-con{position:absolute; top:70px; left:0; right:0; bottom:0; overflow:hidden;}
 </style>

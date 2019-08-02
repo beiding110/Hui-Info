@@ -8,7 +8,7 @@
             </div>
             <label class="weui-search-bar__label">
                 <i class="weui-icon-search"></i>
-                <span>搜索</span>
+                <span>{{model || '搜索'}}</span>
             </label>
         </form>
         <a href="javascript:" class="weui-search-bar__cancel-btn" @click="clearSearchKey">取消</a>

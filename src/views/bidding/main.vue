@@ -20,15 +20,15 @@
 
 <script>
 import list from '@/views/bidding/list'
-import getDictionary from '@/js/GetDictionary'
+import mainMixins from '@/views/mixins/main-mixins'
 
 export default {
+    mixins: [mainMixins],
     components: {
         list
     },
     data () {
         return {
-            KeyName: '',
             CityCode: '',
             TypeCode: '',
             DateRange: '',
@@ -47,16 +47,6 @@ export default {
                 DateRange: this.DateRange
             }
         }
-    },
-    methods:{
-        quertData: function(e){
-            this.$refs.list.reload();
-        }
-    },
-    mounted:function(){
-        var that = this;
-
-        getDictionary.call(this);
     }
 }
 </script>

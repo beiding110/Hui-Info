@@ -20,15 +20,15 @@
 
 <script>
 import list from '@/views/project/list'
-import getDictionary from '@/js/GetDictionary'
+import mainMixins from '@/views/mixins/main-mixins'
 
 export default {
+    mixins: [mainMixins],
     components: {
         list
     },
     data () {
         return {
-            KeyName: '',
             CityCode: '',
             HyCode: '',
             JdCode: '',
@@ -48,14 +48,6 @@ export default {
             }
         }
     },
-    methods:{
-        quertData: function(){
-            this.$refs.list.reload();
-        }
-    },
-    mounted:function(){
-        getDictionary.call(this);
-    }
 }
 </script>
 

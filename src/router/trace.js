@@ -12,7 +12,7 @@ export default //追踪详情列表
             component: function(){return import(/*webpackChunkName: 'trace'*/ '@/views/trace/detail')},
         },
         {
-            path: 'form/:type',
+            path: 'form',
             name: 'trace-add',
             meta: {title: '添加追踪'},
             component: function(){return import(/*webpackChunkName: 'trace'*/ '@/views/trace/form')},

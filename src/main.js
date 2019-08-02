@@ -31,11 +31,19 @@ Vue.use(myWeui)
 Vue.use(VueTouch)
 Vue.use(Directives)
 
+Vue.prototype.vipTest = function (cb) {
+    if(this.$store.state.IsVip || this.$store.state.IsTry) {
+        cb()
+    } else {
+        this.$router.push('/msg/error/抱歉/您是非会员，无权限查看此内容');
+    }
+};
+
 /* eslint-disable no-new */
 new Vue({
-  el: '#app',
-  router,
-  store,
-  components: { App },
-  template: '<App/>'
+    el: '#app',
+    router,
+    store,
+    components: { App },
+    template: '<App/>'
 })

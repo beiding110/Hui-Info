@@ -8,7 +8,7 @@ export default {
         {
             path: 'index',
             name: 'huiinfo-sollect-index',
-            meta: {title: '收藏'},
+            meta: {title: '关注'},
             component: function(){return import(/*webpackChunkName: 'collect'*/ '@/views/collect/index')}
         }
         // {

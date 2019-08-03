@@ -46,10 +46,10 @@ module.exports = {
 
   build: {
     // Template for index.html
-    index: path.resolve(__dirname, '../HuiInfo/index.html'),
+    index: path.resolve(__dirname, '../ggfw/index.html'),
 
     // Paths
-    assetsRoot: path.resolve(__dirname, '../HuiInfo'),
+    assetsRoot: path.resolve(__dirname, '../ggfw'),
     assetsSubDirectory: 'static',
     assetsPublicPath: './',
 

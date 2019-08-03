@@ -37,6 +37,12 @@ export default {
                     url: '/home/bidding/search',
                     color: '#7793e7'
                 }, {
+                    icon: '&#xe609;',
+                    title: '中标企业搜索',
+                    desc: '搜索企业的所有中标信息',
+                    url: '/home/enterprise',
+                    color: '#ea9a62'
+                }, {
                     icon: '&#xe634;',
                     title: '标讯浏览',
                     desc: '查看所有招标信息',

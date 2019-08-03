@@ -1,15 +1,12 @@
 <template>
     <div class="scroller-con">
-        <scroll-loader action="/Api/DingYue/GetDingYueList" v-model="tableData" ref="loader">
+        <scroll-loader action="/Api/DingYue/GetQiYeList" v-model="tableData" ref="loader">
             <template v-for="(item,index) in tableData">
                 <div class="trace-list_item">
                     <div class="trace-list_item_row trace-list_item-title">
-                        {{item.Title || '-'}}
+                        {{item.CompanyName || '-'}}
                     </div>
                     <div class="trace-list_item_row trace-list_item-body">
-                        <div>
-                            关键字：{{item.KeyName || '-'}}
-                        </div>
                         <div>
                             地区：{{item.CityName || '-'}}
                         </div>
@@ -49,7 +46,7 @@ export default {
             // console.log('keyword')
             this.vipTest(() => {
                 this.$router.push({
-                    path: '/trace/form',
+                    path: '/trace/enterprise/form',
                     query: {
                         type: row.RowGuid || 'new'
                     }
@@ -59,7 +56,15 @@ export default {
         toDetail(row) {
             this.$store.commit('setState', {traceItem: row});
             this.$nextTick(() => {
-                this.$router.push('/trace/detail/' + row.RowGuid + '/' + row.CityCode + '/' + row.DateRange + '/' + row.KeyName);
+                this.goto({
+                    path: '/trace/enterprise/detail',
+                    query: {
+                        rowguid: row.RowGuid,
+                        citycode: row.CityCode,
+                        daterange: row.DateRange,
+                        companyname: row.CompanyName
+                    }
+                });
             })
         },
     },

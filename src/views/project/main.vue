@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import list from '@/views/project/list'
+import list from './list'
 import mainMixins from '@/views/mixins/main-mixins'
 
 export default {

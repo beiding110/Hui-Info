@@ -26,7 +26,7 @@
                             <div>
                                 <span>代理机构：{{item.zbdlname}}</span>
                             </div>
-                            <div v-if="item.zbdwname">
+                            <div>
                                 <span>中标单位：{{item.zbdwname}}</span>
                             </div>
                         </div>

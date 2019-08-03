@@ -5,10 +5,11 @@ import store from '@/store'
 import home from './home'
 import detail from './detail'
 
-import user from './user'
-import invoice from './invoice'
-import collect from './collect'
-import trace from './trace'
+import user from './business/user'
+import invoice from './business/invoice'
+import collect from './business/collect'
+import trace from './business/trace'
+import traceEnterprise from './business/trace-enterprise'
 
 Vue.use(Router)
 
@@ -17,11 +18,12 @@ var router = new Router({
         { path: '/', redirect: '/home/bidding' },
         home,
         detail,
-        
-        user,
+
+        user.self,
         invoice,
         collect,
-        trace,
+        trace.self,
+        traceEnterprise.self,
         {
             path: '/msg/:type/:title/:text',
             name: 'huiinfo-msg',

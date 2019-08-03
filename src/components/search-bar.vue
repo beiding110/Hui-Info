@@ -3,12 +3,12 @@
         <form class="weui-search-bar__form">
             <div class="weui-search-bar__box">
                 <i class="weui-icon-search"></i>
-                <input type="search" class="weui-search-bar__input" placeholder="搜索" v-model="model" @keydown="search">
+                <input type="search" class="weui-search-bar__input" :placeholder="placeholder" v-model="model" @keydown="search">
                 <a href="javascript:" class="weui-icon-clear" @click="clearSearchKey"></a>
             </div>
             <label class="weui-search-bar__label">
                 <i class="weui-icon-search"></i>
-                <span>{{model || '搜索'}}</span>
+                <span>{{model || placeholder}}</span>
             </label>
         </form>
         <a href="javascript:" class="weui-search-bar__cancel-btn" @click="clearSearchKey">取消</a>
@@ -17,7 +17,16 @@
 
 <script>
 export default {
-    props: ['value'],
+    props: {
+        value: {
+            type: String,
+            default: ''
+        },
+        placeholder: {
+            type: String,
+            default: '搜索'
+        }
+    },
     data () {
         return {
             searchKey: ''
@@ -42,7 +51,7 @@ export default {
             })
         },
         search(e) {
-            var code = e.code || e.Code
+            var code = e.code || e.Code;
             if(e.keycode == 13 || e.keycode == '13' || e.keyCode == 13 || e.keyCode == '13' || code.toLowerCase()=='enter'){
                 this.$emit('search', this.model);
                 e.preventDefault();

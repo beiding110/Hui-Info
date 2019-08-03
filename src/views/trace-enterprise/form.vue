@@ -1,15 +1,11 @@
 <template>
     <div>
         <trace-form-title>
-            定制信息
+            关注企业
         </trace-form-title>
 
         <div class="weui-cells weui-cells_form">
-            <form-item v-model="form.Title" placeholder="请输入追踪标题" label="追踪标题" required></form-item>
-            <form-item label="关键字" v-model="form.KeyName" placeholder="请输入关键字，英文逗号分隔" required></form-item>
-            <!-- <form-item label="招标类型" arrow>
-                <input-picker placeholder="请选择招标类型" v-model="form.TypeCode" :data="TypeData" @select="typeSel"></input-picker>
-            </form-item> -->
+            <form-item label="企业名称" v-model="form.CompanyName" placeholder="请输入企业名称" required></form-item>
             <form-item label="时间段" arrow required>
                 <input-picker placeholder="请选择时间段" v-model="form.DateRange" :data="DateRangeData"></input-picker>
             </form-item>

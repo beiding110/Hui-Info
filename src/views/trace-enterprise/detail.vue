@@ -1,7 +1,7 @@
 <template>
     <div style="height:100%;">
         <div class="trace-detail__title">
-            {{form.KeyName}}——{{form.CityName}}——{{dateObj[form.DateRange]}}
+            {{form.CompanyName}}
         </div>
 
         <div class="trace-detail__infotip">
@@ -19,9 +19,9 @@
 
 <script>
 import listBidding from '@/views/bidding/list'
-import listProject from '@/views/project/list'
+
 export default {
-    components: {listBidding, listProject},
+    components: {listBidding},
     data () {
         return {
             extra:{},
@@ -39,10 +39,10 @@ export default {
     methods:{
         inPageHandler: function(){
             this.extra = {
-                RowGuid:this.$route.params.guid == 'null' ? '' : this.$route.params.guid,
-                CityCode:this.$route.params.CityCode == 'null' ? '' : this.$route.params.CityCode,
-                DateRange:this.$route.params.DateRange == 'null' ? '' : this.$route.params.DateRange,
-                KeyName:this.$route.params.KeyName == 'null' ? '' : this.$route.params.KeyName
+                RowGuid: this.getQuery('rowguid'),
+                CityCode: this.getQuery('citycode'),
+                DateRange: this.getQuery('daterange'),
+                CompanyName: this.getQuery('companyname')
             }
         },
         reload() {

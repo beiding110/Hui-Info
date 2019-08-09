@@ -84,7 +84,7 @@ export default {
     },
     methods: {
         init() {
-            if(!this.data.length) return;
+            if(!this.data.length || !this.data) return;
 
             var that = this;
 

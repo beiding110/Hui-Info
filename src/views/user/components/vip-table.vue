@@ -44,7 +44,7 @@
             <img src="~@/assets/vip/icon-vip-zl.png" class="icon-intable" />
             <span>
                 追踪信息提醒<br />
-                <font class="info-tip">（需关注“惠招标”公众号）</font>
+                <font class="info-tip">（需关注“标信通”公众号）</font>
             </span>
         </div>
         <div class="td">-</div>

@@ -58,6 +58,8 @@ export default {
     },
     methods:{
         picker_init: function(){
+            if(!this.data || !this.data.length) return;
+
             var that = this;
 
             var data = this.data || [];

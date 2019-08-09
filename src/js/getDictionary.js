@@ -10,6 +10,14 @@ function getCity() {
                 res.unshift({label: '全部', value: ''});
             };
 
+            res.forEach(function(item) {
+                if(item.label) {
+                    item.title = item.label;
+                } else if(item.title) {
+                    item.label = item.title;
+                };
+            });
+
             if(this.CityData !== undefined) {
                 this.CityData = res
             }
@@ -35,6 +43,14 @@ function getGglx() {
             if(res[0].label !== '全部'){
                 res.unshift({label: '全部', value: ''});
             };
+
+            res.forEach(function(item) {
+                if(item.label) {
+                    item.title = item.label;
+                } else if(item.title) {
+                    item.label = item.title;
+                };
+            });
 
             if(this.TypeData !== undefined) {
                 this.TypeData = res
@@ -66,6 +82,14 @@ function getSshy() {
                 res.unshift({label: '全部', value: ''});
             };
 
+            res.forEach(function(item) {
+                if(item.label) {
+                    item.title = item.label;
+                } else if(item.title) {
+                    item.label = item.title;
+                };
+            });
+
             if(this.HyData !== undefined) {
                 this.HyData = res
             }
@@ -91,8 +115,16 @@ function getJzjd() {
                 res.unshift({label: '全部', value: ''});
             };
 
+            res.forEach(function(item) {
+                if(item.label) {
+                    item.title = item.label;
+                } else if(item.title) {
+                    item.label = item.title;
+                };
+            });
+
             if(this.JdData !== undefined) {
-                this.JdData = this.$store.state.dictionary.JdData
+                this.JdData = res;
             }
 
             let dictionary = this.$store.state.dictionary;
@@ -110,9 +142,9 @@ export default function() {
             CityData: [],
             TypeData: [],
             DateRangeData: [
-                {label: '近三天', value: '3'},
-                {label: '近一周', value: '7'},
-                {label: '近一月', value: '30'}
+                {label: '近三天', title: '近三天', value: '3'},
+                {label: '近一周', title: '近一周', value: '7'},
+                {label: '近一月', title: '近一月', value: '30'}
             ],
             HyData: [],
             JdData: []

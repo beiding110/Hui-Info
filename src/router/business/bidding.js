@@ -15,6 +15,16 @@ export default {
             name: 'huiinfo-bidding-search',
             meta: {title: '招标搜索'},
             component: function(){return import(/*webpackChunkName: 'bidding'*/ '@/views/bidding/search')},
+        }, {
+            path: 'bidding/search/advanced',
+            name: 'huiinfo-bidding-search-advanced',
+            meta: {title: '招标高级搜索'},
+            component: function(){return import(/*webpackChunkName: 'bidding'*/ '@/views/bidding/search-advanced')},
+        }, {
+            path: 'bidding/search/res',
+            name: 'huiinfo-bidding-search-res',
+            meta: {title: '招标搜索结果'},
+            component: function(){return import(/*webpackChunkName: 'bidding'*/ '@/views/bidding/main')},
         }
     ],
     detail: [

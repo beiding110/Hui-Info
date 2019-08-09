@@ -9,8 +9,23 @@
             <form-item label="时间段" arrow required>
                 <input-picker placeholder="请选择时间段" v-model="form.DateRange" :data="DateRangeData"></input-picker>
             </form-item>
+            <form-item label="信息类别" arrow required>
+                <w-select
+                multi
+                v-model="form.TypeCode"
+                :name.sync="form.TypeName"
+                :data="TypeData"
+                placeholder="请选择信息类别"></w-select>
+            </form-item>
             <form-item label="所属区域" arrow required>
                 <input-picker placeholder="请选择所属区域" v-model="form.CityCode" :data="CityData" @select="citySel"></input-picker>
+            </form-item>
+            <form-item label="定制状态">
+                <w-switch
+                slot="footer"
+                v-model="form.Shbj"
+                active-value="1"
+                inactive-value="0"></w-switch>
             </form-item>
         </div>
 

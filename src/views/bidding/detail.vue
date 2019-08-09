@@ -1,6 +1,6 @@
 <template>
     <div>
-        <template v-if="$route.params.type=='GongShi'">
+        <template v-if="detailType=='GongShi'">
             <w-card class="info--card">
                 <div class="weui-form-preview">
 
@@ -64,13 +64,13 @@
                 </div>
             </w-card>
         </template>
-        <template v-else-if="$route.params.type=='GongGao'">
+        <template v-else>
             <w-card class="info--card">
                 <div class="weui-form-preview">
 
                 	<div class="weui-form-preview__hd">
-                		<h1 class="weui-form-preview__value">{{detail.bulletin_name}}</h1>
-                        <font class="weui-form-preview__value addtime">{{timeFormatter(detail.bulletin_issue_time)}}</font>
+                		<h1 class="weui-form-preview__value">{{detail.Title}}</h1>
+                        <font class="weui-form-preview__value addtime">{{timeFormatter(detail.PubInWebDate)}}</font>
                     </div>
 
                 </div>
@@ -80,14 +80,14 @@
                 	<div class="weui-panel__bd">
                 		<div class="weui-media-box weui-media-box_text">
                 			<h4 class="weui-media-box__title">公告内容</h4>
-                			<p class="weui-media-box__desc rich-text__con" v-html="detail.bulletin_content"></p>
+                			<p class="weui-media-box__desc rich-text__con" v-html="detail.Content"></p>
                 		</div>
                 	</div>
                 </div>
             </w-card>
         </template>
 
-        <collect-star v-model="detail.Collection" :guid="detail.RowGuid"></collect-star>
+        <collect-star v-model="detail.Collection" :guid="detail.RowGuid" v-if="detailType==='GongGao'"></collect-star>
     </div>
 </template>
 
@@ -111,13 +111,16 @@ export default {
             set: function(val){
                 this.$emit('input', val);
             }
+        },
+        detailType () {
+            return this.getRoute('type');
         }
     },
     methods:{
         queryData: function(){
             var that = this;
             var guid = this.$route.params.guid;
-            var type = this.$route.params.type;
+            var type = this.detailType;
 
             this.$get('/Api/Biding/GetDetail', {
                 id: guid,
@@ -128,6 +131,10 @@ export default {
             })
         },
         timeFormatter: function(time){
+            if(/-/.test(time)) {
+                return time.split(' ')[0];
+            };
+
             try{
                 var yyyy = time.substring(0,4);
                 var MM = time.substring(4,6);

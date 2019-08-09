@@ -9,71 +9,35 @@
             <a href="javascript:" class="submit-btn" @click="searchHandler" :style="{color:search?'#409EFF' : '#aaa'}">筛选</a>
         </div>
 
-        <ul class="search-history">
-            <li class="search-history_item" @click="clearHistoryHandler" v-if="history.length">
-                <i class="iconfont">&#xe603;</i>
-                清空搜索历史
-            </li>
-            <li class="search-history_item" v-for="item in history" @click="clickHistoryHandler(item)">
-                {{item}}
-            </li>
-        </ul>
+        <search-tip v-model="search" ref="searchTip" @select="goListHandler"></search-tip>
     </div>
 </template>
 
 <script>
+import searchTip from './components/search-tip'
 export default {
+    components: {searchTip},
     data () {
         return {
             search: '',
 
-            history: [
-                '税务局',
-                '软件'
-            ]
         }
     },
     methods:{
         searchHandler() {
-            if(!this.search) return;
-
-            var history = this.getLocal('$searchHistory') || [];
-
-            if (history.indexOf(this.search) > -1) {
-                var index = history.indexOf(this.search);
-                history.splice(index, 1);
-            };
-
-            history.unshift(this.search);
-
-            if(history.length === 11) {
-                history.pop();
-            };
-
-            this.history = history;
-            this.setLocal('$searchHistory', history);
-
+            this.$refs.searchTip.searchHandler();
+        },
+        goListHandler() {
             this.goto({
-                path: '/home/bidding',
+                path: '/home/bidding/search/res',
                 query: {
-                    keyname: this.search
+                    KeyName: this.search
                 }
             });
-        },
-        clearHistoryHandler() {
-            this.history = [];
-            this.setLocal('$searchHistory', []);
-        },
-        clickHistoryHandler(key) {
-            this.search = key;
-            this.searchHandler();
-        },
-        getHistory() {
-            this.history = this.getLocal('$searchHistory') || [];
         }
     },
     mounted:function(){
-        this.getHistory();
+
     }
 }
 </script>

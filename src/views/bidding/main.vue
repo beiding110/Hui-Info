@@ -1,7 +1,7 @@
 <template>
     <div class="page">
         <search-bar v-model="KeyName" @search="quertData"></search-bar>
-        <div class="weui-flex w-sel-search">
+        <!-- <div class="weui-flex w-sel-search">
             <div class="weui-flex__item sel-btn__flex">
                 <btn-picker placeholder="地区" v-model="CityCode" @select="quertData" :data="CityData"></btn-picker>
             </div>
@@ -11,8 +11,8 @@
             <div class="weui-flex__item sel-btn__flex">
                 <btn-picker placeholder="时间段" v-model="DateRange" @select="quertData" :data="DateRangeData"></btn-picker>
             </div>
-        </div>
-        <div class="page-content" style="top:88px;">
+        </div> -->
+        <div class="page-content" style="top:44px;">
             <list :extra.sync="extraForm" ref="list"></list>
         </div>
     </div>

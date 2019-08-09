@@ -56,6 +56,8 @@ html, body, #app{height: 100%; overflow: hidden;}
 .info--body__right{display:inline-block; width:6em; text-align:right}
 .info--body__left>view, .info--body__right>view, .info--card__footer{padding:.2em 0;}
 
-.info--card__footer{display:flex;}
+.info--card__footer{overflow:hidden;}
 .info--footer__left, .info--footer__right {flex:1;}
 .info--footer__right{text-align:right;}
+.info--footer__tags{float:left; overflow:hidden; margin-right:6em;}
+.info--footer__time{float:right; width:6em; margin-left:-6em; text-align:right;}

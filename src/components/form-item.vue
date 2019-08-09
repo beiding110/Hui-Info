@@ -11,6 +11,9 @@
                 <input class="weui-input" :type="type || 'text'" :placeholder="placeholder || ''" v-model="model">
             </slot>
         </div>
+        <div class="weui-cell__ft" v-if="$slots.footer">
+            <slot name="footer"></slot>
+        </div>
 
         <label class="error__noti" v-if="!!error">{{error}}</label>
     </div>

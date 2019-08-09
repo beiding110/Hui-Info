@@ -8,6 +8,7 @@ import VueTouch from 'vue-touchjs';
 import Directives from '@/js/directive';
 
 import $ from 'jquery'
+window.$ = $;
 
 import '@/css/weui.css'
 import '@/css/jquery-weui.css'

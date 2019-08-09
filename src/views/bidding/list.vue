@@ -3,40 +3,13 @@
         <scroll-loader :action="url" :extra.sync="extraObj" v-model="tableData" ref="loader" :lazy="lazy">
 
             <template v-for="(item, index) in tableData">
-                <w-card
-                class="info--card"
+                <list-card-item
+                :item="item"
                 @click.native="toDetail(item, index)"
                 :key="index"
                 v-touch:hold="itemHold"
                 v-ncmenu
-                :data-guid="item.RowGuid">
-                    <!-- <w-badge slot="header" is-dot :hidden="!!item.IsRead">
-                        <div class="info--card__header">
-                            <span>{{item.Title}}</span>
-                        </div>
-                    </w-badge> -->
-                    <div class="info--card__header" slot="header">
-                        <span>{{item.Title}}</span>
-                    </div>
-                    <div class="info--card__body">
-                        <div class="info--body__left">
-                            <div>
-                                <span>业主：{{item.yezhu}}</span>
-                            </div>
-                            <div>
-                                <span>代理机构：{{item.zbdlname}}</span>
-                            </div>
-                            <div v-if="item.zbdwname">
-                                <span>中标单位：{{item.zbdwname}}</span>
-                            </div>
-                        </div>
-                        <div class="info--body__right">{{timeFormatter(item.AddTime)}}</div>
-                    </div>
-                    <div slot="footer" class="info--card__footer">
-                        <w-tag class="info-card footer-tags" type="info">{{item.cityname}}</w-tag>
-                        <w-tag class="info-card footer-tags" type="danger">{{item.TypeName}}</w-tag>
-                    </div>
-                </w-card>
+                ></list-card-item>
             </template>
 
         </scroll-loader>
@@ -45,8 +18,11 @@
 
 <script>
 import listMixins from '@/views/mixins/list-mixins'
+import listCardItem from '@/views/bidding/components/list-card-item'
+
 export default {
     mixins: [listMixins],
+    components: {listCardItem},
     props: {
         url: {
             type: String,
@@ -65,10 +41,5 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-    .item-info-con_left{width:100%; float:left; margin-right:-80px;}
-    .item-info-con_left>div{margin-right:80px;}
-    .item-info-con_right{width:80px; float:right; text-align:right; color:#909399}
 
-    .info-card{margin-right:.7em;}
-    .footer-tags{float:left; margin-bottom:.2em;}
 </style>

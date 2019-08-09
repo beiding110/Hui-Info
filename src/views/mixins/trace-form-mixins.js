@@ -1,21 +1,26 @@
 import traceFormTitle from '@/views/trace/components/trace-form-title'
 import getDictionary from '@/js/GetDictionary'
 
+var eptForm = {
+    RowGuid: '',
+    Title: '',
+    TypeCode: '',
+    TypeName: '',
+    CityCode: '',
+    CityName: '',
+    DateRange: '',
+    KeyName: '',
+    CompanyName: '',
+
+    Shbj: '0'
+};
+
 export default {
     components: { traceFormTitle },
     data () {
         return {
-            form: {
-                RowGuid: '',
-                Title: '',
-                TypeCode: '',
-                TypeName: '',
-                CityCode: '',
-                CityName: '',
-                DateRange: '',
-                KeyName: '',
-                CompanyName: ''
-            },
+            form: eptForm,
+
             CityData: [],
             TypeData: [],
             DateRangeData: []
@@ -68,9 +73,6 @@ export default {
                 that.$router.go(-1);
             })
         },
-        typeSel: function(e){
-            this.form.TypeName = e.label;
-        },
         citySel: function(e){
             this.form.CityName = e.label;
         },
@@ -94,16 +96,6 @@ export default {
         this.queryDetail();
     },
     deactivated: function(){
-        this.form = {
-            RowGuid: '',
-            Title: '',
-            TypeCode: '',
-            TypeName: '',
-            CityCode: '',
-            CityName: '',
-            DateRange: '',
-            KeyName: '',
-            CompanyName: ''
-        };
+        this.form = eptForm;
     }
 }

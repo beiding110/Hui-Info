@@ -13,6 +13,11 @@ export default {
             name: 'detail-project',
             component: function(){return import(/*webpackChunkName: 'project'*/ '@/views/project/detail')},
             meta: {alive: true, title: '项目详情'},
+        }, {
+            path: 'project/info',
+            name: 'detail-project-info',
+            component: function(){return import(/*webpackChunkName: 'project'*/ '@/views/project/pro-info')},
+            meta: {alive: true, title: '项目详情'},
         }
     ]
 }

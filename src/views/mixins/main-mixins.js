@@ -3,7 +3,7 @@ import getDictionary from '@/js/GetDictionary'
 export default {
     data () {
         return {
-            KeyName: '' || this.getQuery('keyname'),
+            KeyName: '' || this.getQuery('KeyName'),
         }
     },
     methods:{
@@ -17,12 +17,14 @@ export default {
         getDictionary.call(this);
     },
     activated() {
-        var keyname = this.getQuery('keyname');
-        if(keyname != this.KeyName) {
-            this.KeyName = keyname;
-            this.$nextTick(() => {
-                this.quertData();
-            });
-        }
+        var query = this.getQuery();
+
+        Object.keys(query).forEach(key => {
+            this[key] = query[key];
+        });
+
+        this.$nextTick(() => {
+            this.quertData();
+        });
     }
 }

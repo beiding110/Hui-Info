@@ -33,8 +33,8 @@ export default {
                 {
                     icon: '&#xe62e;',
                     title: '招标搜索',
-                    desc: '按关键字搜索招标信息',
-                    url: '/home/bidding/search',
+                    desc: '按关键字、行业、时间段、地区、类型搜索招标信息',
+                    url: '/home/bidding/search/advanced',
                     color: '#7793e7'
                 }, {
                     icon: '&#xe609;',

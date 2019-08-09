@@ -47,7 +47,6 @@ export default {
     watch: {
         data: {
             handler: function(n, o){
-                $(this.$refs.picker).picker("destroy");
                 this.picker_init();
             },deep: true
         },

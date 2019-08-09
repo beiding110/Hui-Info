@@ -1,12 +1,12 @@
 <template>
-    <list-bidding ref="listbidding" url="/Api/Collection/GetCollectList?type=ZhaoBiao"></list-bidding>
+    <list-gg ref="listgg" url="/Api/Collection/GetCollectList?type=ZhaoBiao"></list-gg>
 </template>
 
 <script>
-import listBidding from '@/views/bidding/list'
+import listGg from './sub/list-gg'
 export default {
     components: {
-        listBidding
+        listGg
     },
     data () {
         return {
@@ -16,7 +16,7 @@ export default {
     methods:{
         inPageHandler: function(){
             if(this.$store.state.collectSign){
-                this.$refs.listbidding.reload();
+                this.$refs.listgg.reload();
 
                 this.$store.commit('setState',{
                     collectSign: false

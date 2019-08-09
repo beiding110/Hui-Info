@@ -10,6 +10,10 @@ import topBar from './top-bar'
 
 import wForm from './w-form'
 import wRadio from './w-radio'
+import wSwitch from './w-switch'
+import wSelect from './w-select'
+import wDatePicker from './w-date-picker'
+
 import wTab from './w-tab'
 import wTabItem from './w-tab-item'
 import card from './card'
@@ -32,6 +36,10 @@ export default{
 
         Vue.component('w-form', wForm);
         Vue.component('w-radio', wRadio);
+        Vue.component('w-switch', wSwitch);
+        Vue.component('w-select', wSelect);
+        Vue.component('w-date-picker', wDatePicker);
+
         Vue.component('w-tab', wTab);
         Vue.component('w-tab-item', wTabItem);
         Vue.component('w-card', card);

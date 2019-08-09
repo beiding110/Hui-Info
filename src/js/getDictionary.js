@@ -6,7 +6,9 @@ function getCity() {
         this.$get('/Api/Common/GetDictionary', {
             type: 'City',
         }, (res) => {
-            res.unshift({label: '全部', value: ''});
+            if(res[0].label !== '全部'){
+                res.unshift({label: '全部', value: ''});
+            };
 
             if(this.CityData !== undefined) {
                 this.CityData = res
@@ -30,7 +32,9 @@ function getGglx() {
         this.$get('/Api/Common/GetDictionary', {
             type: 'GgLx',
         }, (res) => {
-            res.unshift({label: '全部', value: ''});
+            if(res[0].label !== '全部'){
+                res.unshift({label: '全部', value: ''});
+            };
 
             if(this.TypeData !== undefined) {
                 this.TypeData = res
@@ -58,10 +62,12 @@ function getSshy() {
         this.$get('/Api/Common/GetDictionary', {
             type: 'SsHy',
         }, (res) => {
-            res.unshift({label: '全部', value: ''});
+            if(res[0].label !== '全部'){
+                res.unshift({label: '全部', value: ''});
+            };
 
             if(this.HyData !== undefined) {
-                this.HyData = this.$store.state.dictionary.HyData
+                this.HyData = res
             }
 
             let dictionary = this.$store.state.dictionary;
@@ -81,7 +87,9 @@ function getJzjd() {
         this.$get('/Api/Common/GetDictionary', {
             type: 'JzJd',
         }, (res) => {
-            res.unshift({label: '全部', value: ''});
+            if(res[0].label !== '全部'){
+                res.unshift({label: '全部', value: ''});
+            };
 
             if(this.JdData !== undefined) {
                 this.JdData = this.$store.state.dictionary.JdData

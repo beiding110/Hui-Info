@@ -4,14 +4,14 @@
             <template v-for="(item,index) in tableData">
                 <div class="trace-list_item">
                     <div class="trace-list_item_row trace-list_item-title">
-                        {{item.Title || '-'}}
+                        {{item.KeyName || '-'}}
                     </div>
                     <div class="trace-list_item_row trace-list_item-body">
                         <div>
-                            关键字：{{item.KeyName || '-'}}
+                            地区：{{item.CityName || '-'}}
                         </div>
                         <div>
-                            地区：{{item.CityName || '-'}}
+                            信息类别：{{item.TypeName || '-'}}
                         </div>
                         <div>
                             时间段：{{item.DateRange ? '近 ' + item.DateRange + ' 天' : '-'}}
@@ -29,6 +29,16 @@
                             <i class="iconfont">&#xec88;</i>
                             编辑
                         </span>
+
+                        <w-switch
+                        class="btn-text"
+                        size="small"
+                        active-text="启用"
+                        v-model="item.Shbj"
+                        active-value="1"
+                        inactive-value="0"
+                        @input="switchChangeHandler(item)"></w-switch>
+
                         <span class="btn-text btn-view" @click="toDetail(item)">
                             <i class="iconfont">&#xe61c;</i>
                             查看
@@ -62,6 +72,11 @@ export default {
                 this.$router.push('/trace/detail/' + row.RowGuid + '/' + row.CityCode + '/' + row.DateRange + '/' + row.KeyName);
             })
         },
+        switchChangeHandler(row) {
+            this.$post('/Api/DingYue/DingYueManager', row, data => {
+                app.ShowMsg('修改成功');
+            });
+        }
     },
 }
 </script>

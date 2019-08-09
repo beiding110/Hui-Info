@@ -11,6 +11,9 @@
                             地区：{{item.CityName || '-'}}
                         </div>
                         <div>
+                            信息类别：{{item.TypeName || '-'}}
+                        </div>
+                        <div>
                             时间段：{{item.DateRange ? '近 ' + item.DateRange + ' 天' : '-'}}
                         </div>
                         <div>
@@ -26,6 +29,16 @@
                             <i class="iconfont">&#xec88;</i>
                             编辑
                         </span>
+
+                        <w-switch
+                        class="btn-text"
+                        size="small"
+                        active-text="启用"
+                        v-model="item.Shbj"
+                        active-value="1"
+                        inactive-value="0"
+                        @input="switchChangeHandler(item)"></w-switch>
+
                         <span class="btn-text btn-view" @click="toDetail(item)">
                             <i class="iconfont">&#xe61c;</i>
                             查看
@@ -67,6 +80,11 @@ export default {
                 });
             })
         },
+        switchChangeHandler(row) {
+            this.$post('/Api/DingYue/DingYueManager', row, data => {
+                app.ShowMsg('修改成功');
+            });
+        }
     },
 }
 </script>

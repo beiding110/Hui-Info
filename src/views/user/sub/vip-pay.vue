@@ -10,11 +10,11 @@
             </div>
         </div> -->
 
-        <w-card class="info--card">
-            <!-- <div class="info--card__title">套餐权益</div> -->
+        <!-- <w-card class="info--card">
+            <div class="info--card__title">套餐权益</div>
 
             <vip-table></vip-table>
-        </w-card>
+        </w-card> -->
 
         <w-card class="info--card">
             <div class="info--card__title">请选择会员服务</div>

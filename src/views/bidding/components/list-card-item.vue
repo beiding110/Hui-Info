@@ -5,7 +5,7 @@
         <div class="info--card__header" slot="header">
             <span>{{item.Title}}</span>
         </div>
-        <div class="info--card__body">
+        <!-- <div class="info--card__body">
             <div class="info--body__left">
                 <div>
                     <span>业主：{{item.yezhu}}</span>
@@ -17,7 +17,7 @@
                     <span>中标单位：{{item.zbdwname}}</span>
                 </div>
             </div>
-        </div>
+        </div> -->
         <div slot="footer" class="info--card__footer">
             <div class="info--footer__tags">
                 <w-tag class="info-card footer-tags" type="info">{{item.cityname}}</w-tag>

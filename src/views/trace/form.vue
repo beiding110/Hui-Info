@@ -9,9 +9,9 @@
             <!-- <form-item label="招标类型" arrow>
                 <input-picker placeholder="请选择招标类型" v-model="form.TypeCode" :data="TypeData" @select="typeSel"></input-picker>
             </form-item> -->
-            <form-item label="时间段" arrow required>
+            <!-- <form-item label="时间段" arrow required>
                 <input-picker placeholder="请选择时间段" v-model="form.DateRange" :data="DateRangeData"></input-picker>
-            </form-item>
+            </form-item> -->
             <form-item label="信息类别" arrow required>
                 <w-select
                 multi

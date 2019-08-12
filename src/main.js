@@ -22,15 +22,13 @@ import '@/js/app-supply.js'
 
 import myWeui from '@/components'
 
-Vue.config.productionTip = false
-
-$(function() {
-    FastClick.attach(document.body);
-});
+Vue.config.productionTip = false;
 
 Vue.use(myWeui)
 Vue.use(VueTouch)
 Vue.use(Directives)
+
+FastClick.attach(document.body);
 
 Vue.prototype.vipTest = function (cb) {
     if(this.$store.state.IsVip || this.$store.state.IsTry) {

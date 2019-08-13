@@ -25,6 +25,7 @@
                 <w-tag class="info-card footer-tags" type="warn">{{hyCalc(item.hyname)}}</w-tag>
             </div>
             <div class="info--footer__time">
+                <i class="iconfont">&#xe63b;</i>
                 {{timeBeforeCalc(item.AddTime)}}
             </div>
         </div>
@@ -65,4 +66,7 @@ export default {
 
 .info-card{margin-right:.7em;}
 .footer-tags{float:left; margin-bottom:.2em;}
+
+.info--card{margin:0; padding:1em 2em; position:relative;}
+.info--card::before, .info--card::after{content:''; display:block; width:90%; height:1px; background:#f4f4f4; position:absolute; left:50%; bottom:0; transform:translate(-50%, -50%);}
 </style>

@@ -140,7 +140,7 @@ import Vue from 'vue'
      * @return {String}      计算结果
      */
     owner.timeBeforeCalc = function(time) {
-        time = '2019-08-01 09:40:00';
+        // time = '2019-08-01 09:40:00';
         var oldtime = new Date(time),
             now = new Date(),
             delta = 0,
@@ -161,6 +161,8 @@ import Vue from 'vue'
         } else if(delta / (1000 * 60 * 60 * 24 * 7) < 1) {
             //小于7天
             return Math.ceil(delta / (1000 * 60 * 60 * 24)) + '天前';
+        } else if(oldtime.getFullYear() === now.getFullYear()) {
+            return oldtime.Format('MM-dd');
         } else {
             return / /.test(time) ? time.split(' ')[0] : time;
         }

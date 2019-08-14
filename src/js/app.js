@@ -346,5 +346,25 @@ export default (function(owner){
 		});
     }
 
+    /**
+	 * 遍历型对象混入，将obj混入target
+	 * @param  {Object} obj    待混入的对象
+	 * @param  {Object} target 混入目标对象
+	 * @param  {Boolean} state  是否覆盖混入
+	 * @return {object}        混入后的对象
+	 */
+	owner.mixin = function (obj, target, state) {
+        obj = obj || {};
+		Object.keys(obj).forEach(function (key) {
+			if (state) {
+				target[key] = obj[key];
+			} else {
+				if (!target[key])
+					target[key] = obj[key];
+			}
+		});
+		return target;
+	}
+
     return owner;
 }(window.app={}))

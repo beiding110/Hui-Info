@@ -2,8 +2,11 @@
     <div class="page">
         <div class="top-search-con">
             <img src="~@/assets/bidding-guid-bg.jpg" class="top-search-con_bg"/>
-            <div class="top-search-block search-block" @click="goto('/home/bidding/search')">
-                示例：税务局
+            <div class="top-search-block">
+                <div class="search-block" @click="goto('/home/bidding/search')">
+                    示例：税务局
+                </div>
+                <h2 class="title">标信订阅开启服务定制新时代</h2>
             </div>
         </div>
 
@@ -34,7 +37,7 @@ export default {
                     icon: '&#xe62e;',
                     title: '招标搜索',
                     desc: '按关键字、行业、时间段、地区、类型搜索招标信息',
-                    url: '/home/bidding/search/advanced',
+                    url: '/home/bidding',
                     color: '#7793e7'
                 }, {
                     icon: '&#xe609;',
@@ -42,12 +45,6 @@ export default {
                     desc: '搜索企业的所有中标信息',
                     url: '/home/enterprise',
                     color: '#ea9a62'
-                }, {
-                    icon: '&#xe634;',
-                    title: '标讯浏览',
-                    desc: '查看所有招标信息',
-                    url: '/home/bidding',
-                    color: '#eb7a6f'
                 }
             ]
         }
@@ -65,9 +62,12 @@ export default {
 <style scoped>
     .top-search-con{position:relative;}
     .top-search-con_bg{width:100%;}
-    .top-search-block{font-size:15px; color:#353143; line-height:1em; transform:translate(-50%,-50%); position:absolute; left:50%; top:40%;}
+    .top-search-block{width:90%; max-width:400px; font-size:15px; color:#353143; line-height:1em; transform:translate(-50%,-50%); position:absolute; left:50%; top:45%;}
 
-    .search-block{box-sizing:border-box; width:90%; max-width:400px; border-radius:4px; background:white; margin:0 auto; padding:1em;}
+    .search-block{box-sizing:border-box; border-radius:4px; background:white; margin:0 auto; padding:1em;}
+    .title{font-size:16px; color:#D6E5F8; line-height:2em; text-indent:1.5em; letter-spacing:.1em;}
+
+    .guid-btn.search-block{width:90%; max-width:400px;}
 
     .guid-btn{overflow:hidden; padding:1.5em 1em;}
     .guid-btn + .guid-btn{margin-top:1em;}

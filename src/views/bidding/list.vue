@@ -9,6 +9,7 @@
                 :key="index"
                 v-touch:hold="itemHold"
                 v-ncmenu
+                :bold="bold"
                 ></list-card-item>
             </template>
 
@@ -28,6 +29,10 @@ export default {
             type: String,
             default: '/Api/Biding/GetZhaoBiaoList'
         },
+        bold: {
+            type: String,
+            default: ''
+        }
     },
     methods:{
         toDetail(item, index) {

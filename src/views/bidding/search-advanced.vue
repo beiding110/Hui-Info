@@ -56,7 +56,7 @@ export default {
             this.$refs.searchTip.searchHandler();
         },
         goListHandler() {
-            this.goto({
+            this.$router.replace({
                 path: '/home/bidding/search/res',
                 query: this.form
             });
@@ -64,6 +64,8 @@ export default {
     },
     mounted:function(){
         getDictionary.call(this);
+
+        console.log(this.$router)
     }
 }
 </script>

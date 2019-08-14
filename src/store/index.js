@@ -23,7 +23,7 @@ export default new Vuex.Store({
         invoiceInfo: {},//申请发票的订单信息
         invoicedInfo: {},//已开票发票信息
 
-        dictionary: {}
+        dictionary: {},
     },
     mutations: {
         setState: function(state, n){

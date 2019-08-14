@@ -4,6 +4,7 @@ import formItem from './form-item'
 import inputPicker from './input-picker'
 import scrollLoader from './scroll-loader'
 import searchBar from './search-bar'
+import searchTop from './search-top'
 import table from './table'
 import tableRow from './table-row'
 import topBar from './top-bar'
@@ -29,6 +30,7 @@ export default{
         Vue.component('input-picker', inputPicker);
         Vue.component('scroll-loader', scrollLoader);
         Vue.component('search-bar', searchBar);
+        Vue.component('search-top', searchTop);
         Vue.component('table-con', table);
         Vue.component('table-row', tableRow);
         Vue.component('top-bar', topBar);

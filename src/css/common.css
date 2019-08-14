@@ -13,6 +13,8 @@
 *{}
 body{font-size: 14px; background-color:#F4F4F4}
 html, body, #app{height: 100%; overflow: hidden;}
+
+input:focus{outline:none;}
 /* #app>div{min-height:100%; height:auto;} */
 
 .page{position: relative; height:100%; overflow:auto;}
@@ -48,7 +50,7 @@ html, body, #app{height: 100%; overflow: hidden;}
 
 .info--card{display:block; margin:8px; color:#666666;}
 
-.info--card__header{overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
+.info--card__header{font-weight:normal}
 
 .info--card__body{display:flex;}
 .info--body__left{flex:1; overflow:hidden;}
@@ -59,5 +61,5 @@ html, body, #app{height: 100%; overflow: hidden;}
 .info--card__footer{overflow:hidden;}
 .info--footer__left, .info--footer__right {flex:1;}
 .info--footer__right{text-align:right;}
-.info--footer__tags{float:left; overflow:hidden; margin-right:6em;}
-.info--footer__time{float:right; width:6em; margin-left:-6em; text-align:right; line-height:22px;}
+.info--footer__tags{float:left; overflow:hidden; margin-right:7em;}
+.info--footer__time{float:right; width:7em; margin-left:-7em; text-align:right; line-height:22px;}

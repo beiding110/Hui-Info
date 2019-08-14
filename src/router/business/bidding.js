@@ -24,7 +24,7 @@ export default {
             path: 'bidding/search/res',
             name: 'huiinfo-bidding-search-res',
             meta: {title: '招标搜索结果'},
-            component: function(){return import(/*webpackChunkName: 'bidding'*/ '@/views/bidding/main')},
+            component: function(){return import(/*webpackChunkName: 'bidding'*/ '@/views/bidding/search-main')},
         }
     ],
     detail: [

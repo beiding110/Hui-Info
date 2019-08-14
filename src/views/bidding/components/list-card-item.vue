@@ -3,7 +3,7 @@
     class="info--card"
     :data-guid="item.RowGuid">
         <div class="info--card__header" slot="header">
-            <span>{{item.Title}}</span>
+            <span v-html="titleBoldHandler(item.Title)"></span>
         </div>
         <!-- <div class="info--card__body">
             <div class="info--body__left">
@@ -35,8 +35,14 @@
 <script>
 export default {
     props: {
-        item: Object,
-        default: () => ({})
+        item: {
+            type: Object,
+            default: () => ({})
+        },
+        bold: {
+            type: String,
+            default: ''
+        }
     },
     data () {
         return {
@@ -50,6 +56,11 @@ export default {
             } else {
                 return str;
             }
+        },
+        titleBoldHandler(str) {
+            if(!this.bold) return str;
+
+            return str.replace(new RegExp(this.bold, 'g'), '<font style="font-weight:bold; color:#1f80e6;">'+this.bold+'</font>')
         }
     },
     mounted:function(){
@@ -68,5 +79,7 @@ export default {
 .footer-tags{float:left; margin-bottom:.2em;}
 
 .info--card{margin:0; padding:1em 2em; position:relative;}
-.info--card::before, .info--card::after{content:''; display:block; width:90%; height:1px; background:#f4f4f4; position:absolute; left:50%; bottom:0; transform:translate(-50%, -50%);}
+.info--card::before{content:''; display:block; width:90%; height:1px; background:#f4f4f4; position:absolute; left:50%; transform:translate(-50%, -50%);}
+.info--card::before{top:0;}
+/* .info--card::after{bottom:0;} */
 </style>

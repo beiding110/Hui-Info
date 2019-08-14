@@ -84,6 +84,9 @@ export default {
                     // data.KeyName = data.KeyName.split(',')
                     this.form = data;
                 })
+            } else {
+                var query = this.getQuery();
+                app.mixin(query, this.form);
             };
         }
     },

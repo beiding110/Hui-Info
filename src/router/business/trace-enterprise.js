@@ -13,15 +13,15 @@ export default {
         children: [
             {
                 path: 'detail',
-                name: 'trace-detail',
+                name: 'trace-enterprise-detail',
                 meta: {title: '关注企业详情'},
                 component: function(){return import(/*webpackChunkName: 'trace-enterpeise'*/ '@/views/trace-enterprise/detail')},
             }, {
                 path: 'form',
-                name: 'trace-add',
+                name: 'trace-enterprise-add',
                 meta: {title: '添加关注'},
                 component: function(){return import(/*webpackChunkName: 'trace-enterpeise'*/ '@/views/trace-enterprise/form')},
-            },
+            }
         ]
     }
 }

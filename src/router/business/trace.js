@@ -16,25 +16,17 @@ export default {
                 name: 'trace-detail',
                 meta: {title: '订阅详情'},
                 component: function(){return import(/*webpackChunkName: 'trace'*/ '@/views/trace/detail')},
-            },
-            {
+            }, {
                 path: 'form',
                 name: 'trace-add',
                 meta: {title: '添加订阅'},
                 component: function(){return import(/*webpackChunkName: 'trace'*/ '@/views/trace/form')},
+            }, {
+                path: 'setting',
+                name: 'trace-setting',
+                meta: {title: '推送设置'},
+                component: function(){return import(/*webpackChunkName: 'trace'*/ '@/views/trace/setting')},
             },
-            {
-                path: 'form-keyword',
-                name: 'trace-add-keyword',
-                meta: {title: '添加订阅关键字'},
-                component: function(){return import(/*webpackChunkName: 'trace'*/ '@/views/trace/sub/form-keyword')},
-            },
-            {
-                path: 'form-settings',
-                name: 'trace-add-settings',
-                meta: {title: '添加订阅设置'},
-                component: function(){return import(/*webpackChunkName: 'trace'*/ '@/views/trace/sub/form-settings')},
-            }
         ]
     }
 }

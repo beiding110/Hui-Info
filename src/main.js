@@ -19,6 +19,7 @@ import FastClick from 'jquery-weui/dist/lib/fastclick'
 import '@/css/common.css'
 import app from '@/js/app.js'
 import '@/js/app-supply.js'
+import '@/js/sys.js'
 
 import myWeui from '@/components'
 
@@ -29,14 +30,6 @@ Vue.use(VueTouch)
 Vue.use(Directives)
 
 FastClick.attach(document.body);
-
-Vue.prototype.vipTest = function (cb) {
-    if(this.$store.state.IsVip || this.$store.state.IsTry) {
-        cb()
-    } else {
-        this.$router.push('/msg/error/抱歉/您是非会员，无权限查看此内容');
-    }
-};
 
 /* eslint-disable no-new */
 new Vue({

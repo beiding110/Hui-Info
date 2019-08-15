@@ -1,15 +1,15 @@
 <template>
     <div style="height:100%;">
         <div class="trace-detail__title">
-            {{form.KeyName}}——{{form.CityName}}——{{dateObj[form.DateRange]}}
+            根据您设置的关键词：{{form.KeyName}}，为您预览30天之内的信息，点击标题可查看详情。
         </div>
 
-        <div class="trace-detail__infotip">
+        <!-- <div class="trace-detail__infotip">
             <div class="iconfont icon-zuobiao"></div>
             今日更新：
             <font class="infotip-num">{{addToday.Bidding}}</font>
             条
-        </div>
+        </div> -->
 
         <div style="height:calc(100% - 80px); position:relative; overflow:hidden;">
             <list-bidding ref="listbidding" url="/Api/Biding/GetDingYueList" :extra.sync="extra" lazy></list-bidding>
@@ -89,12 +89,12 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.trace-detail__title{height:44px; background:white; text-align:center; font-size:15px; line-height:44px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; padding:0 2em;}
+.trace-detail__title{height:44px; background:white; font-size:14px; padding:1em 2em; color:#333333; border-bottom:1px solid #dddddd;}
 
 .trace-detail__infotip{color:#353535; padding:.5em 1em;}
 .trace-detail__infotip .iconfont{display:inline-block; color:#FC965C; margin-right:10px;}
 .trace-detail__infotip .infotip-num{color:#46BB97;}
 
-.trace-detail__list-con{height:calc(100% - 80px); width:100%;}
+.trace-detail__list-con{height:calc(100% - 72px); width:100%;}
 
 </style>

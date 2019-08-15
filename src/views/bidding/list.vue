@@ -10,7 +10,11 @@
                 v-touch:hold="itemHold"
                 v-ncmenu
                 :bold="bold"
-                ></list-card-item>
+                >
+                    <slot name='hyname' :row="item" slot="hyname">
+
+                    </slot>
+                </list-card-item>
             </template>
 
         </scroll-loader>
@@ -32,6 +36,10 @@ export default {
         bold: {
             type: String,
             default: ''
+        },
+        noHyname: {
+            type: Boolean,
+            default: false
         }
     },
     methods:{

@@ -3,7 +3,9 @@
         <div class="weui-cell__hd">
             <label class="weui-label">
                 <font v-if="$attrs.required || $attrs.required===''" class="required__star">*</font>
-                {{label}}
+                <slot name="label">
+                    {{label}}
+                </slot>
             </label>
         </div>
         <div class="weui-cell__bd">

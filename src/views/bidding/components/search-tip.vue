@@ -32,14 +32,23 @@ export default {
         historyMaxLength: {
             type: Number,
             default: 5
+        },
+        storeKey: {
+            type: String,
+            default: '$searchHistory'
+        },
+        traceUrl: {//追踪列表地址
+            type: String,
+            default: '/Api/DingYue/GetDingYueList'
+        },
+        traceKey: {//追踪关键字字段
+            type: String,
+            default: 'KeyName'
         }
     },
     data () {
         return {
-            history: [
-                '税务局',
-                '软件'
-            ],
+            history: [],
             trace: []
         }
     },
@@ -55,7 +64,7 @@ export default {
     },
     methods:{
         searchHandler() {
-            var history = this.getLocal('$searchHistory') || [];
+            var history = this.getLocal(this.storeKey) || [];
 
             if (history.indexOf(this.search) > -1) {
                 var index = history.indexOf(this.search);
@@ -69,27 +78,29 @@ export default {
             };
 
             this.history = history;
-            this.setLocal('$searchHistory', history);
+            this.setLocal(this.storeKey, history);
 
             this.$emit('select', this.search);
         },
         clearHistoryHandler() {
             this.history = [];
-            this.setLocal('$searchHistory', []);
+            this.setLocal(this.storeKey, []);
         },
         clickHistoryHandler(key) {
             this.search = key;
-            this.searchHandler();
+            this.$nextTick(() => {
+                this.searchHandler();
+            });
         },
         getHistory() {
-            this.history = this.getLocal('$searchHistory') || [];
+            this.history = this.getLocal(this.storeKey) || [];
         },
 
         getTraceKeyWord() {
-            this.$get('/Api/DingYue/GetDingYueList', {
+            this.$get(this.traceUrl, {
                 PageIndex: 1
             }, data => {
-                this.trace = data.map(item => item.KeyName);
+                this.trace = data.map(item => item[this.traceKey]);
             });
         }
     },

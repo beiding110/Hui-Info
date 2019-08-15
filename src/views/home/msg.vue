@@ -8,6 +8,7 @@
         <div class="weui-msg__opr-area">
             <p class="weui-btn-area">
                 <btn type="primary" @click="$router.go(-1)">返 回</btn>
+                <btn type="success" @click="gotoVip">购买会员</btn>
             </p>
         </div>
         <div class="weui-msg__extra-area">
@@ -42,7 +43,9 @@ export default {
         }
     },
     methods:{
-
+        gotoVip() {
+            this.goto('/user/vippay')
+        }
     },
     mounted:function(){
 
@@ -52,5 +55,6 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
+.weui-btn-area{display:flex;}
+.weui-btn-area .weui-btn{flex:1; margin-bottom:0;}
 </style>

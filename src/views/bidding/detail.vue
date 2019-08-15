@@ -5,8 +5,19 @@
                 <div class="weui-form-preview">
 
                 	<div class="weui-form-preview__hd">
-                		<h1 class="weui-form-preview__value">{{detail.publicity_name}}</h1>
-                        <font class="weui-form-preview__value addtime">{{timeFormatter(detail.bulletin_issue_time)}}</font>
+                        <div class="text-title">
+                            {{detail.publicity_name}}
+                        </div>
+
+                        <div>
+                            <w-tag class="info-card footer-tags" type="info">{{detail.cityname}}</w-tag>
+                            <w-tag class="info-card footer-tags" type="danger">{{detail.TypeName}}</w-tag>
+                            <w-tag class="info-card footer-tags" type="warn">{{detail.hyname}}</w-tag>
+                            <span class="addtime">
+                                <i class="iconfont">&#xe63b;</i>
+                                {{timeBeforeCalc(timeFormatter(detail.bulletin_issue_time))}}
+                            </span>
+                        </div>
                     </div>
                 	<div class="weui-form-preview__bd">
                         <table-con :data="detail">
@@ -69,25 +80,34 @@
                 <div class="weui-form-preview">
 
                 	<div class="weui-form-preview__hd">
-                		<h1 class="weui-form-preview__value">{{detail.Title}}</h1>
-                        <font class="weui-form-preview__value addtime">{{timeFormatter(detail.PubInWebDate)}}</font>
-                    </div>
+                		<div class="text-title">
+                            {{detail.Title}}
+                        </div>
 
+                        <div>
+                            <w-tag class="info-card footer-tags" type="info">{{detail.cityname}}</w-tag>
+                            <w-tag class="info-card footer-tags" type="danger">{{detail.TypeName}}</w-tag>
+                            <w-tag class="info-card footer-tags" type="warn">{{detail.hyname}}</w-tag>
+                            <font class="addtime">
+                                <i class="iconfont">&#xe63b;</i>
+                                {{timeBeforeCalc(detail.PubInWebDate)}}
+                            </font>
+
+                            <collect-star v-model="detail.Collection" :guid="detail.RowGuid" class="btn-collect"></collect-star>
+                        </div>
+                    </div>
                 </div>
             </w-card>
             <w-card class="info--card">
                 <div class="weui-panel">
                 	<div class="weui-panel__bd">
                 		<div class="weui-media-box weui-media-box_text">
-                			<h4 class="weui-media-box__title">公告内容</h4>
                 			<p class="weui-media-box__desc rich-text__con" v-html="detail.Content"></p>
                 		</div>
                 	</div>
                 </div>
             </w-card>
         </template>
-
-        <collect-star v-model="detail.Collection" :guid="detail.RowGuid" v-if="detailType==='GongGao'"></collect-star>
     </div>
 </template>
 
@@ -172,10 +192,15 @@ export default {
 .weui-media-box__desc>table tr td{border:1px solid #F2F6FC;}
 
 .info--card.zh-card{padding:0;}
+
+.text-title{color:#3F3F3F; line-height:2em; font-size:16px; font-weight:bold;}
+.btn-collect{float:right;}
 </style>
+
 <style>
-.rich-text__con{display: block !important;}
-.rich-text__con table{width: 100% !important; border-collapse:collapse; border:none; table-layout: fixed; display: block;}
-.rich-text__con table td{max-width: 100% !important; border: 1px solid #F2F6FC;}
+.rich-text__con{display: block !important; color:#3F3F3F;}
+.rich-text__con *{font-size:14px !important; line-height:1.5em !important; text-align:justify;}
+.rich-text__con table{width: 100% !important; border-collapse:collapse; border:none; table-layout:fixed; display:block;}
+.rich-text__con table td{max-width: 100% !important; border: 1px solid #DBDBDB;}
 .rich-text__con table tr td:first-child{ }
 </style>

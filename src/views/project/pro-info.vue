@@ -4,7 +4,10 @@
             <div class="weui-form-preview">
 
                 <div class="weui-form-preview__hd">
-                    <h1 class="weui-form-preview__value">{{detail.Title}}</h1>
+                    <div class="btn-collect">
+                        <collect-star v-model="detail.Collection" :guid="detail.RowGuid"></collect-star>
+                    </div>
+                    <div class="text-title">{{detail.Title}}</div>
                 </div>
 
             </div>
@@ -15,6 +18,13 @@
             </form-item>
 
             <form-item label="开标提醒">
+                <template slot="label">
+                    <span class="label-icon">
+                        <i class="iconfont color-success">&#xe6c5;</i>
+                        开标提醒
+                    </span>
+                </template>
+
                 <w-switch
                 slot="footer"
                 v-model="form.Scbj"
@@ -23,6 +33,13 @@
                 @input="togglePush"></w-switch>
             </form-item>
             <form-item label="提醒时间" arrow>
+                <template slot="label">
+                    <span class="label-icon">
+                        <i class="iconfont color-warn">&#xe6a4;</i>
+                        提醒时间
+                    </span>
+                </template>
+
                 <w-date-picker v-model="form.PushTime"></w-date-picker>
                 <!-- <w-select
                 v-model="form.PushTime"
@@ -32,18 +49,20 @@
         </w-card>
 
         <w-card class="info--card">
-            <div class="weui-media-box weui-media-box_appmsg" v-for="item in ggList" @click="toDetail(item)">
-                <div class="weui-media-box__hd">
-                    <img class="weui-media-box__thumb" src="~@/assets/icon/icon-flow-dot.png">
+            <template v-for="item in ggList" @click="toDetail(item)">
+                <div class="flow-item">
+                    <div class="flow-item_left">
+                        <div>
+                            {{timeToMMdd(item.AddTime)}}
+                        </div>
+                        <w-tag type="info">{{item.TypeName}}</w-tag>
+                    </div>
+                    <div class="flow-item_right">
+                        {{item.Title}}
+                    </div>
                 </div>
-                <div class="weui-media-box__bd">
-                    <h4 class="weui-media-box__title">{{item.TypeName}}</h4>
-                    <p class="weui-media-box__desc">{{item.AddTime}}</p>
-                </div>
-            </div>
+            </template>
         </w-card>
-
-        <collect-star v-model="detail.Collection" :guid="detail.RowGuid"></collect-star>
     </div>
 </template>
 
@@ -137,6 +156,9 @@ export default {
             hm.push(time.slice(10,12));
 
             return date.join('-') + ' ' + hm.join(':');
+        },
+        timeToMMdd(str) {
+            return new Date(str).Format('MM-dd');
         }
     },
     mounted: function(){
@@ -157,10 +179,21 @@ export default {
 .weui-media-box__desc>table tr td{border:1px solid #F2F6FC;}
 
 .info--card.zh-card{padding:0;}
-</style>
-<style>
-.rich-text__con{display: block !important;}
-.rich-text__con table{width: 100% !important; border-collapse:collapse; border:none; table-layout: fixed; display: block;}
-.rich-text__con table td{max-width: 100% !important; border: 1px solid #F2F6FC;}
-.rich-text__con table tr td:first-child{ }
+
+.text-title{color:#3F3F3F; line-height:2em; font-size:16px; font-weight:bold; margin-right:6em;}
+.btn-collect{float:right; width:6em; margin-left:-6em; text-align:center;}
+
+.color-success{color:#67bea5;}
+.color-warn{color:#eca355;}
+.label-icon .iconfont{font-size:18px;}
+
+.flow-item{padding:1em;}
+.flow-item_left{width:6em; text-align:center; margin-right:-6em; float:left; position:relative;}
+.flow-item_left:before, .flow-item_left:after{content:''; display:block; background:#DDDDDD; position:absolute;}
+.flow-item_left:before{width:1px; right:0; top:-1em; bottom:-1em;}
+.flow-item_left:after{width:.8em; height:.8em; top:.5em; right:-5px; border-radius:50%;}
+.flow-item_right{margin-left:6em; padding-left:1em;}
+
+.flow-item:first-child .flow-item_left:before{top:.5em;}
+.flow-item:last-child .flow-item_left:before{bottom:auto; height:2em;}
 </style>

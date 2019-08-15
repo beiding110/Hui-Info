@@ -1,11 +1,15 @@
 import Vue from 'vue'
 
 (function(owner) {
-    owner.vipTest = function (cb) {
+    owner.vipTest = function (cb, flag) {
         if(this.$store.state.IsVip || this.$store.state.IsTry) {
-            cb()
+            cb && cb()
         } else {
-            this.$router.push('/msg/error/抱歉/您是非会员，无权限查看此内容');
+            if(flag) {
+                this.$router.push('/msg/error/抱歉/您是非会员，无权限查看此内容');
+            } else {
+                this.$router.replace('/msg/error/抱歉/您是非会员，无权限查看此内容');
+            };
         }
     };
 

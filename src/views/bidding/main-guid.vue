@@ -41,9 +41,9 @@ export default {
                     color: '#7793e7'
                 }, {
                     icon: '&#xe609;',
-                    title: '中标企业搜索',
-                    desc: '搜索企业的所有中标信息',
-                    url: '/home/enterprise',
+                    title: '企业搜索',
+                    desc: '搜索企业作为招标人、招标代理、中标单位、投标人情况下的项目信息',
+                    url: '/home/enterprise/search',
                     color: '#ea9a62'
                 }
             ]

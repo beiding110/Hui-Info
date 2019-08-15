@@ -4,15 +4,19 @@
             {{form.CompanyName}}
         </div>
 
-        <div class="trace-detail__infotip">
+        <!-- <div class="trace-detail__infotip">
             <div class="iconfont icon-zuobiao"></div>
             今日更新：
             <font class="infotip-num">{{addToday.Bidding}}</font>
             条
-        </div>
+        </div> -->
 
-        <div style="height:calc(100% - 80px); position:relative; overflow:hidden;">
-            <list-bidding ref="listbidding" url="/Api/Biding/GetDingYueList" :extra.sync="extra" lazy></list-bidding>
+        <div class="trace-detail__list-con" style="position:relative; overflow:hidden;">
+            <list-bidding ref="listbidding" url="/Api/Biding/GetDingYueList" :extra.sync="extra" lazy no-hyname>
+                <template slot="hyname" slot-scope="scope">
+                    <w-tag class="info-card footer-tags" type="primary" v-if="scope.row.zbjg !== '-1'">{{scope.row.zbjg}}万 </w-tag>
+                </template>
+            </list-bidding>
         </div>
     </div>
 </template>
@@ -70,9 +74,7 @@ export default {
 
     },
     activated: function(){
-        if(!this.$store.state.IsVip && !this.$store.state.IsTry){
-            this.$router.replace('/msg/error/抱歉/您是非会员，无权限查看此内容');
-        }
+        this.vipTest();
 
         this.inPageHandler();
 
@@ -95,6 +97,6 @@ export default {
 .trace-detail__infotip .iconfont{display:inline-block; color:#FC965C; margin-right:10px;}
 .trace-detail__infotip .infotip-num{color:#46BB97;}
 
-.trace-detail__list-con{height:calc(100% - 80px); width:100%;}
+.trace-detail__list-con{height:calc(100% - 44px); width:100%;}
 
 </style>

@@ -6,8 +6,9 @@
                 <list-card-item
                 :item="item"
                 :key="index"
-                @click.native="toDetail(item, index)"
-                ></list-card-item>
+                @click.native="toDetail(item, index)">
+                    <span slot="typename"></span>
+                </list-card-item>
             </template>
 
         </scroll-loader>

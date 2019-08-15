@@ -22,6 +22,9 @@
             <div class="weui-flex__item sel-btn__flex">
                 <btn-picker placeholder="类型" v-model="form.TypeCode" :data="TypeData"></btn-picker>
             </div>
+            <div class="weui-flex__item sel-btn__flex">
+                <btn-picker placeholder="来源" v-model="form.Source" :data="SourceData"></btn-picker>
+            </div>
         </div>
 
         <search-tip v-model="form.KeyName" ref="searchTip" @select="goListHandler"></search-tip>
@@ -43,12 +46,15 @@ export default {
                 CityCode: '',
                 HyCode: '',
                 DateRange: '',
+
+                Source: ''
             },
 
             HyData: [],
             CityData: [],
             TypeData: [],
             DateRangeData: [],
+            SourceData: [],
         }
     },
     methods:{
@@ -64,8 +70,6 @@ export default {
     },
     mounted:function(){
         getDictionary.call(this);
-
-        console.log(this.$router)
     }
 }
 </script>
@@ -78,4 +82,6 @@ export default {
 .weui-search-bar:before, .weui-search-bar:after{content:none}
 
 .submit-btn{margin-left:10px; line-height:28px; color:#409EFF; white-space:nowrap; display:block;}
+
+.w-sel-search{border-bottom:1px solid #dddddd;}
 </style>

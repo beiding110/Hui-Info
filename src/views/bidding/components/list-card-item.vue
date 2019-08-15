@@ -20,9 +20,15 @@
         </div> -->
         <div slot="footer" class="info--card__footer">
             <div class="info--footer__tags">
-                <w-tag class="info-card footer-tags" type="info">{{item.cityname}}</w-tag>
-                <w-tag class="info-card footer-tags" type="danger">{{item.TypeName}}</w-tag>
-                <w-tag class="info-card footer-tags" type="warn">{{hyCalc(item.hyname)}}</w-tag>
+                <slot name="cityname">
+                    <w-tag class="info-card footer-tags" type="info">{{item.cityname}}</w-tag>
+                </slot>
+                <slot name="typename">
+                    <w-tag class="info-card footer-tags" type="danger">{{item.TypeName}}</w-tag>
+                </slot>
+                <slot name="hyname">
+                    <w-tag class="info-card footer-tags" type="warn">{{hyCalc(item.hyname)}}</w-tag>
+                </slot>
             </div>
             <div class="info--footer__time">
                 <i class="iconfont">&#xe63b;</i>

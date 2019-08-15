@@ -1,8 +1,8 @@
 <template>
-    <fixed-btn
-    :iconfont="value ? '&#xe606;' : '&#xe607;'"
-    :class="value ? 'collected' : 'collect'"
-    @click="tapHandler"></fixed-btn>
+    <span @click="tapHandler" :class="value ? 'collected' : 'collect'">
+        <i class="iconfont" v-html="iconText"></i>
+        {{collectText}}
+    </span>
 </template>
 
 <script>
@@ -30,6 +30,12 @@ export default {
             set(e) {
                 this.$emit('input', e)
             }
+        },
+        iconText() {
+            return this.value ? '&#xe606;' : '&#xe607;'
+        },
+        collectText() {
+            return this.value ? '已关注' : '关注项目'
         }
     },
     methods:{
@@ -53,6 +59,6 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.collect{color:#353535;}
-.collected{color:#353535;}
+.collect{color:#F8CE69;}
+.collected{color:#F8CE69;}
 </style>

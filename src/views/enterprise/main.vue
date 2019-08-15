@@ -2,7 +2,7 @@
     <div class="page">
         <search-bar v-model="CompanyName" @search="quertData" placeholder="企业名称"></search-bar>
         <div class="page-content" style="top:44px;">
-            <list :extra.sync="extraForm" ref="list"></list>
+            <list :extra.sync="extraForm" ref="list" :bold="CompanyName"></list>
         </div>
     </div>
 </template>
@@ -20,7 +20,7 @@ export default {
         return {
             CompanyName: '',
             CityCode: '',
-            TypeCode: '2',
+            TypeCode: '',
             DateRange: '',
 
             CityData: [],

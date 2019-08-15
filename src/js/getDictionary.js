@@ -136,6 +136,16 @@ function getJzjd() {
     }
 }
 
+//数据来源
+function getSource() {
+    this.SourceData = this.$store.state.dictionary.SourceData
+}
+
+//企业类型
+function qyType() {
+    this.QyType = this.$store.state.dictionary.QyTypeData
+}
+
 export default function() {
     this.$store.commit('setState',{
         dictionary: Object.keys(this.$store.state.dictionary).length > 0 ? this.$store.state.dictionary : {
@@ -146,8 +156,16 @@ export default function() {
                 {label: '近一周', title: '近一周', value: '7'},
                 {label: '近一月', title: '近一月', value: '30'}
             ],
+            SourceData: [
+                {label: '河北省招标投标公共服务平台', title: '河北省招标投标公共服务平台', value: '河北省招标投标公共服务平台'},
+            ],
             HyData: [],
-            JdData: []
+            JdData: [],
+            QyTypeData: [
+                {label: '招标代理机构', title: '招标代理机构', value: '招标代理机构'},
+                {label: '招标人', title: '招标人', value: '招标人'},
+                {label: '中标单位', title: '中标单位', value: '中标单位'}
+            ]
         }
     });
 
@@ -157,4 +175,5 @@ export default function() {
     getDateRange.call(this);
     getSshy.call(this);
     getJzjd.call(this);
+    getSource.call(this);
 }

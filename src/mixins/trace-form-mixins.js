@@ -3,15 +3,23 @@ import getDictionary from '@/js/GetDictionary'
 
 var eptForm = {
     RowGuid: '',
+//追踪标题
     Title: '',
+//信息类型
     TypeCode: '',
     TypeName: '',
+//区域
     CityCode: '',
     CityName: '',
+//时间段
     DateRange: '',
+//企业类型
+    QyType: '',
+//关键字
     KeyName: '',
+//企业名称
     CompanyName: '',
-
+//是否启用
     Shbj: '0'
 };
 

@@ -1,7 +1,9 @@
 <template>
     <div style="height:100%;">
         <div class="trace-detail__title">
-            根据您设置的关键词：{{form.KeyName}}，为您预览30天之内的信息，点击标题可查看详情。
+            根据您设置的关键词：{{extra.KeyName}}，为您预览30天之内的信息，点击标题可查看详情。
+
+            <span class="btn-to-setting" @click="toSetting">订阅设置</span>
         </div>
 
         <!-- <div class="trace-detail__infotip">
@@ -19,21 +21,17 @@
 
 <script>
 import listBidding from '@/views/bidding/list'
-import listProject from '@/views/project/list'
+
+import './css/detail.css'
+
 export default {
-    components: {listBidding, listProject},
+    components: {listBidding},
     data () {
         return {
             extra:{},
 
             addToday: {},
             form: {},
-
-            dateObj: {
-                3: '近三天',
-                7: '近一周',
-                30: '近一月',
-            }
         }
     },
     methods:{
@@ -61,6 +59,14 @@ export default {
             }, (data) => {
                 this.form = data;
             })
+        },
+        toSetting() {
+            this.goto({
+                path: '/trace/form',
+                query: {
+                    type: this.extra.RowGuid
+                }
+            })
         }
     },
     mounted:function(){
@@ -70,14 +76,11 @@ export default {
 
     },
     activated: function(){
-        if(!this.$store.state.IsVip && !this.$store.state.IsTry){
-            this.$router.replace('/msg/error/抱歉/您是非会员，无权限查看此内容');
-        }
-
         this.inPageHandler();
 
         this.queryAddToday();
         this.form = this.$store.state.traceItem;
+        
         this.$nextTick(()=>{
             this.reload();
         });
@@ -89,12 +92,5 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.trace-detail__title{height:44px; background:white; font-size:14px; padding:1em 2em; color:#333333; border-bottom:1px solid #dddddd;}
-
-.trace-detail__infotip{color:#353535; padding:.5em 1em;}
-.trace-detail__infotip .iconfont{display:inline-block; color:#FC965C; margin-right:10px;}
-.trace-detail__infotip .infotip-num{color:#46BB97;}
-
-.trace-detail__list-con{height:calc(100% - 72px); width:100%;}
 
 </style>

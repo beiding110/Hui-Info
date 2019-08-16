@@ -20,13 +20,11 @@ export default {
     },
     methods:{
         gotoSetting() {
-            this.vipTest(() => {
-                this.goto({
-                    path: '/trace/setting',
-                    query: {
-                        ProjectID: this.type
-                    }
-                })
+            this.goto({
+                path: '/trace/setting',
+                query: {
+                    ProjectID: this.type
+                }
             })
         }
     },

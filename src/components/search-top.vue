@@ -62,9 +62,7 @@ export default {
             this.isFocus = false;
         },
         screenHandler() {
-            this.vipTest(() => {
-                this.goto('/home/bidding/search/advanced');
-            });
+            this.goto('/home/bidding/search/advanced');
         }
     },
     mounted:function(){

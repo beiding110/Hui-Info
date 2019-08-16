@@ -32,7 +32,9 @@ export default {
             path: 'bidding/:guid/:type',
             name: 'detail-bidding',
             component: function(){return import(/*webpackChunkName: 'bidding'*/ '@/views/bidding/detail')},
-            meta: {alive: true, title: '招标详情'},
+            meta: {
+                alive: true, title: '招标详情'
+            },
         }
     ]
 }

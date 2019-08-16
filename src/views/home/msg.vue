@@ -56,5 +56,5 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .weui-btn-area{display:flex;}
-.weui-btn-area .weui-btn{flex:1; margin-bottom:0;}
+.weui-btn-area .weui-btn{flex:1; margin-bottom:0 !important;}
 </style>

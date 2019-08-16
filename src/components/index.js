@@ -1,4 +1,5 @@
 import btnPicker from './btn-picker'
+import btnPopPicker from './btn-pop-picker'
 import btn from './btn'
 import formItem from './form-item'
 import inputPicker from './input-picker'
@@ -21,10 +22,12 @@ import card from './card'
 import badge from './badge'
 import tag from './tag'
 import fixedBtn from './fixed-btn'
+import wPopup from './popup'
 
 export default{
     install: function(Vue){
         Vue.component('btn-picker', btnPicker);
+        Vue.component('btn-pop-picker', btnPopPicker);
         Vue.component('btn', btn);
         Vue.component('form-item', formItem);
         Vue.component('input-picker', inputPicker);
@@ -47,5 +50,6 @@ export default{
         Vue.component('w-card', card);
         Vue.component('w-badge', badge);
         Vue.component('w-tag', tag);
+        Vue.component('w-popup', wPopup)
     }
 }

@@ -1,7 +1,7 @@
 <template>
     <div style="height:100%;">
         <div class="trace-detail__title">
-            {{form.CompanyName}}
+            {{extra.CompanyName}}
         </div>
 
         <!-- <div class="trace-detail__infotip">
@@ -14,7 +14,9 @@
         <div class="trace-detail__list-con" style="position:relative; overflow:hidden;">
             <list-bidding ref="listbidding" url="/Api/Biding/GetDingYueList" :extra.sync="extra" lazy no-hyname>
                 <template slot="hyname" slot-scope="scope">
-                    <w-tag class="info-card footer-tags" type="primary" v-if="scope.row.zbjg !== '-1'">{{scope.row.zbjg}}万 </w-tag>
+                    <w-tag class="info-card footer-tags" type="primary" v-if="scope.row.zbjg !== '-1'">
+                        {{scope.row.zbjg}}万
+                    </w-tag>
                 </template>
             </list-bidding>
         </div>
@@ -24,6 +26,8 @@
 <script>
 import listBidding from '@/views/bidding/list'
 
+import '@/views/trace/css/detail.css'
+
 export default {
     components: {listBidding},
     data () {
@@ -32,12 +36,6 @@ export default {
 
             addToday: {},
             form: {},
-
-            dateObj: {
-                3: '近三天',
-                7: '近一周',
-                30: '近一月',
-            }
         }
     },
     methods:{
@@ -74,8 +72,6 @@ export default {
 
     },
     activated: function(){
-        this.vipTest();
-
         this.inPageHandler();
 
         this.queryAddToday();
@@ -91,11 +87,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.trace-detail__title{height:44px; background:white; text-align:center; font-size:15px; line-height:44px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; padding:0 2em;}
-
-.trace-detail__infotip{color:#353535; padding:.5em 1em;}
-.trace-detail__infotip .iconfont{display:inline-block; color:#FC965C; margin-right:10px;}
-.trace-detail__infotip .infotip-num{color:#46BB97;}
+.trace-detail__title{text-align:center; font-size:15px; line-height:44px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; padding:0 2em;}
 
 .trace-detail__list-con{height:calc(100% - 44px); width:100%;}
 

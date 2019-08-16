@@ -1,150 +1,77 @@
-//所属地市
-function getCity() {
-    if(this.$store.state.dictionary.CityData.length > 0) {
-        this.CityData = this.$store.state.dictionary.CityData
-    } else {
-        this.$get('/Api/Common/GetDictionary', {
-            type: 'City',
-        }, (res) => {
-            if(res[0].label !== '全部'){
-                res.unshift({label: '全部', value: ''});
-            };
+function funFactory(dataKey, type) {
+    if(type) {
+        return function() {
+            if(this.$store.state.dictionary[dataKey].length > 0) {
+                this[dataKey] = this.$store.state.dictionary[dataKey]
+            } else {
+                this.$get('/Api/Common/GetDictionary', {
+                    type: type,
+                }, (res) => {
+                    res = res || [];
 
-            res.forEach(function(item) {
-                if(item.label) {
-                    item.title = item.label;
-                } else if(item.title) {
-                    item.label = item.title;
-                };
-            });
+                    if(res.length) {
+                        if(res[0].label !== '全部'){
+                            res.unshift({label: '全部', value: ''});
+                        };
+                    } else {
+                        res.unshift({label: '全部', value: ''});
+                    };
 
-            if(this.CityData !== undefined) {
-                this.CityData = res
+                    res.forEach(function(item) {
+                        if (item.label) {
+                            item.title = item.label;
+                        } else if (item.title) {
+                            item.label = item.title;
+                        };
+                    });
+
+                    //向data中数据赋值
+                    if(this[dataKey] !== undefined) {
+                        this[dataKey] = res
+                    };
+
+                    //更新store中的dictionary内容
+                    let dictionary = this.$store.state.dictionary;
+                    dictionary[dataKey] = res;
+                    this.$store.commit('setState',{
+                        'dictionary': dictionary
+                    });
+
+                });
             }
-
-            let dictionary = this.$store.state.dictionary;
-            dictionary.CityData = res;
-            this.$store.commit('setState',{
-                'dictionary': dictionary
-            });
-
-        });
+        }
+    } else {
+        return function() {
+            //向data中数据赋值
+            if(this[dataKey] !== undefined) {
+                this[dataKey] = this.$store.state.dictionary[dataKey]
+            };
+        }
     }
-}
+};
+
+
+
+//所属地市
+var getCity = funFactory('CityData', 'City');
 
 //公告类型
-function getGglx() {
-    if(this.$store.state.dictionary.TypeData.length > 0) {
-        this.TypeData = this.$store.state.dictionary.TypeData
-    } else {
-        this.$get('/Api/Common/GetDictionary', {
-            type: 'GgLx',
-        }, (res) => {
-            if(res[0].label !== '全部'){
-                res.unshift({label: '全部', value: ''});
-            };
-
-            res.forEach(function(item) {
-                if(item.label) {
-                    item.title = item.label;
-                } else if(item.title) {
-                    item.label = item.title;
-                };
-            });
-
-            if(this.TypeData !== undefined) {
-                this.TypeData = res
-            };
-
-            let dictionary = this.$store.state.dictionary;
-            dictionary.TypeData = res;
-            this.$store.commit('setState',{
-                'dictionary': dictionary
-            });
-        });
-    }
-}
+var getGglx = funFactory('TypeData', 'GgLx');
 
 //时间段
-function getDateRange() {
-    this.DateRangeData = this.$store.state.dictionary.DateRangeData
-}
+var getDateRange = funFactory('DateRangeData');
 
 //所属行业
-function getSshy() {
-    if(this.$store.state.dictionary.HyData.length > 0) {
-        this.HyData = this.$store.state.dictionary.HyData
-    } else {
-        this.$get('/Api/Common/GetDictionary', {
-            type: 'SsHy',
-        }, (res) => {
-            if(res[0].label !== '全部'){
-                res.unshift({label: '全部', value: ''});
-            };
-
-            res.forEach(function(item) {
-                if(item.label) {
-                    item.title = item.label;
-                } else if(item.title) {
-                    item.label = item.title;
-                };
-            });
-
-            if(this.HyData !== undefined) {
-                this.HyData = res
-            }
-
-            let dictionary = this.$store.state.dictionary;
-            dictionary.HyData = res;
-            this.$store.commit('setState',{
-                'dictionary': dictionary
-            });
-        });
-    }
-}
+var getSshy = funFactory('HyData', 'SsHy');
 
 //进度
-function getJzjd() {
-    if(this.$store.state.dictionary.JdData.length > 0) {
-        this.JdData = this.$store.state.dictionary.JdData
-    } else {
-        this.$get('/Api/Common/GetDictionary', {
-            type: 'JzJd',
-        }, (res) => {
-            if(res[0].label !== '全部'){
-                res.unshift({label: '全部', value: ''});
-            };
-
-            res.forEach(function(item) {
-                if(item.label) {
-                    item.title = item.label;
-                } else if(item.title) {
-                    item.label = item.title;
-                };
-            });
-
-            if(this.JdData !== undefined) {
-                this.JdData = res;
-            }
-
-            let dictionary = this.$store.state.dictionary;
-            dictionary.JdData = res;
-            this.$store.commit('setState',{
-                'dictionary': dictionary
-            });
-        });
-    }
-}
+var getJzjd = funFactory('JdData', 'JzJd');
 
 //数据来源
-function getSource() {
-    this.SourceData = this.$store.state.dictionary.SourceData
-}
+var getSource = funFactory('SourceData');
 
 //企业类型
-function qyType() {
-    this.QyType = this.$store.state.dictionary.QyTypeData
-}
+var getQyType = funFactory('QyTypeData');
 
 export default function() {
     this.$store.commit('setState',{
@@ -176,4 +103,5 @@ export default function() {
     getSshy.call(this);
     getJzjd.call(this);
     getSource.call(this);
+    getQyType.call(this);
 }

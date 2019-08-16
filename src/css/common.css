@@ -50,7 +50,7 @@ input:focus{outline:none;}
 .sel-btn__flex{position:relative; padding:0 .5em;}
 /* .sel-btn__flex + .sel-btn__flex::before{content:' '; display:block; position:absolute; width:1px; height:40%; background:rgba(226,226,226,1); left:0; top:50%; transform:translateY(-50%); z-index:10;} */
 
-.info--card{display:block; margin:8px; color:#666666;}
+.info--card{display:block; margin:8px; color:#666666; overflow:hidden;}
 
 .info--card__header{font-weight:normal}
 

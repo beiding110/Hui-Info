@@ -13,9 +13,9 @@
                         <div>
                             信息类别：{{item.TypeName || '-'}}
                         </div>
-                        <div>
+                        <!-- <div>
                             时间段：{{item.DateRange ? '近 ' + item.DateRange + ' 天' : '-'}}
-                        </div>
+                        </div> -->
                         <div>
                             定制日期：{{item.AddTime}}
                         </div>
@@ -56,15 +56,12 @@ export default {
     mixins: [traceListMixins],
     methods:{
         toKeyWord(row) {
-            // console.log('keyword')
-            this.vipTest(() => {
-                this.$router.push({
-                    path: '/trace/enterprise/form',
-                    query: {
-                        type: row.RowGuid || 'new'
-                    }
-                })
-            })
+            this.$router.push({
+                path: '/trace/enterprise/form',
+                query: {
+                    type: row.RowGuid || 'new'
+                }
+            });
         },
         toDetail(row) {
             this.$store.commit('setState', {traceItem: row});

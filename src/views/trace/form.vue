@@ -48,6 +48,5 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-    .weui-cells_form{margin-top:0;}
     .weui-cells_form+.weui-cells_form{margin-top:1.17647059em}
 </style>

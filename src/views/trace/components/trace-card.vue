@@ -67,24 +67,15 @@ export default {
         }
     },
     methods:{
-        vipTest(cb) {
-            if(this.$store.state.IsVip || this.$store.state.IsTry) {
-                cb()
-            } else {
-                this.$router.push('/msg/error/抱歉/您是非会员，无权限查看此内容');
-            }
-        },
         toSetting(e) {
             function navHandler(RowGuid) {
-                this.vipTest(() => {
-                    var search = {
-                        type: RowGuid ? RowGuid : (this.data.RowGuid || 'new')
-                    };
+                var search = {
+                    type: RowGuid ? RowGuid : (this.data.RowGuid || 'new')
+                };
 
-                    this.$router.push({
-                        path: '/trace/form-settings',
-                        query: search
-                    })
+                this.$router.push({
+                    path: '/trace/form-settings',
+                    query: search
                 })
             }
 
@@ -95,17 +86,14 @@ export default {
             }
         },
         toKeyWord() {
-            // console.log('keyword')
-            this.vipTest(() => {
-                if(this.readonly) {
-                    this.$router.push({
-                        path: '/trace/form-keyword',
-                        query: {
-                            type: this.data.RowGuid || 'new'
-                        }
-                    })
-                }
-            })
+            if(this.readonly) {
+                this.$router.push({
+                    path: '/trace/form-keyword',
+                    query: {
+                        type: this.data.RowGuid || 'new'
+                    }
+                })
+            }
         },
         toDetail(e) {
             if(!this.model) return;

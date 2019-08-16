@@ -1,0 +1,9 @@
+.trace-detail__title{height:44px; background:white; font-size:14px; padding:1em; color:#333333; border-bottom:1px solid #dddddd;}
+
+.trace-detail__infotip{color:#353535; padding:.5em 1em;}
+.trace-detail__infotip .iconfont{display:inline-block; color:#FC965C; margin-right:10px;}
+.trace-detail__infotip .infotip-num{color:#46BB97;}
+
+.trace-detail__list-con{height:calc(100% - 72px); width:100%;}
+
+.btn-to-setting{float:right; color:#1f80e6;}

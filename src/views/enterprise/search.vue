@@ -16,6 +16,9 @@
 
 <script>
 import searchTip from '@/views/bidding/components/search-tip'
+
+import '@/views/bidding/css/search.css'
+
 export default {
     components: {searchTip},
     data () {
@@ -45,13 +48,5 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.page{overflow:hidden;}
-.page, .weui-search-bar{background:white;}
-.weui-search-bar__box{padding-left:1em; padding-right:1em;}
-.weui-search-bar:before, .weui-search-bar:after{content:none}
 
-.submit-btn{margin-left:10px; line-height:28px; color:#409EFF; white-space:nowrap; display:block;}
-
-.search-history{text-align:center;}
-.search-history_item{color:#a1a1a1; margin:1em; list-style:none;}
 </style>

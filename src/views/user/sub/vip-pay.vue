@@ -10,12 +10,6 @@
             </div>
         </div> -->
 
-        <!-- <w-card class="info--card">
-            <div class="info--card__title">套餐权益</div>
-
-            <vip-table></vip-table>
-        </w-card> -->
-
         <w-card class="info--card">
             <div class="info--card__title">请选择会员服务</div>
 
@@ -27,6 +21,15 @@
         <div class="info--card">
             <btn type="primary" @click="dopay">购买</btn>
         </div>
+
+        <w-card class="info--card">
+            <div class="info--card__title">
+                <i class="iconfont">&#xe602;</i>
+                VIP会员权益
+            </div>
+
+            <vip-table></vip-table>
+        </w-card>
     </div>
 </template>
 
@@ -105,4 +108,5 @@ export default {
 .pay-banner--text div:nth-child(3)::after{content:' '; position:absolute; width:100%; height:1px; background:#353535; left:0; top:50%; transform:rotate(4deg);}
 
 .info--card__title{font-size:17px; color:#353535; text-align:center; font-weight:bold; line-height:2.5em;}
+.info--card__title .iconfont{color:#FBE524;}
 </style>

@@ -26,11 +26,9 @@ export default {
     },
     methods: {
         goTraceHandler() {
-            this.vipTest(() => {
-                this.goto({
-                    path: this.tfUrl,
-                    query: this.getQuery()
-                });
+            this.goto({
+                path: this.tfUrl,
+                query: this.getQuery()
             });
         },
         closeHandler() {

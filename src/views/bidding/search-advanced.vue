@@ -11,13 +11,13 @@
 
         <div class="weui-flex w-sel-search">
             <div class="weui-flex__item sel-btn__flex">
-                <btn-picker placeholder="行业" v-model="form.HyCode" :data="HyData"></btn-picker>
+                <btn-pop-picker placeholder="行业" v-model="form.HyCode" :data="HyData" top="89px"></btn-pop-picker>
             </div>
             <div class="weui-flex__item sel-btn__flex">
                 <btn-picker placeholder="时间段" v-model="form.DateRange" :data="DateRangeData"></btn-picker>
             </div>
             <div class="weui-flex__item sel-btn__flex">
-                <btn-picker placeholder="地区" v-model="form.CityCode" :data="CityData"></btn-picker>
+                <btn-pop-picker placeholder="地区" v-model="form.CityCode" :data="CityData" top="89px"></btn-pop-picker>
             </div>
             <div class="weui-flex__item sel-btn__flex">
                 <btn-picker placeholder="类型" v-model="form.TypeCode" :data="TypeData"></btn-picker>

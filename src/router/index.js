@@ -32,18 +32,36 @@ var router = new Router({
             component: function(){return import(/*webpackChunkName: 'msg'*/ '@/views/home/msg')}
         },
     ]
-})
+});
 
-router.beforeEach(function(to, from, next){
+function vipTest (cb, next) {
+    if(store.state.IsVip || store.state.IsTry) {
+        cb && cb()
+    } else {
+        next('/msg/error/抱歉/您是非会员，无权限查看此内容');
+    };
+};
+
+function setDocTitle (to, from, next) {
     if (to.name) {
         $.closeModal();//关闭弹框
         $.hideLoading();
         document.title = to.meta.title;
         store.commit('setState', {
             docTitle: to.meta.title
-        })
-    }
+        });
+    };
     next();
+};
+
+router.beforeEach(function(to, from, next){
+    if(to.meta.vip) {
+        vipTest(() => {
+            setDocTitle(to, from, next);
+        }, next);
+    } else {
+        setDocTitle(to, from, next);
+    };
 })
 
 export default router

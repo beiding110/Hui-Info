@@ -20,6 +20,13 @@
             <form-item label="所属区域" arrow required>
                 <input-picker placeholder="请选择所属区域" v-model="form.CityCode" :data="CityData" @select="citySel"></input-picker>
             </form-item>
+            <form-item label="企业类型" arrow required>
+                <w-select
+                multi
+                v-model="form.QyType"
+                :data="QyTypeData"
+                placeholder="请选择企业类型"></w-select>
+            </form-item>
             <form-item label="定制状态">
                 <w-switch
                 slot="footer"
@@ -39,12 +46,16 @@
 import traceFormMixins from '@/mixins/trace-form-mixins'
 
 export default {
-    mixins: [traceFormMixins]
+    mixins: [traceFormMixins],
+    data () {
+        return {
+            QyTypeData: []
+        }
+    }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-    .weui-cells_form{margin-top:0;}
     .weui-cells_form+.weui-cells_form{margin-top:1.17647059em}
 </style>

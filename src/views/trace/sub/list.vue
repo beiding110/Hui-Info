@@ -51,7 +51,7 @@
 </template>
 
 <script>
-import traceListMixins from '@/views/mixins/trace-list-mixins'
+import traceListMixins from '@/mixins/trace-list-mixins'
 export default {
     mixins: [traceListMixins],
     methods:{

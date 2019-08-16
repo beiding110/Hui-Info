@@ -164,7 +164,7 @@ export default {
         }
     },
     mounted: function(){
-        this.queryData();
+        // this.queryData();
     },
     activated: function(){
         this.queryData();

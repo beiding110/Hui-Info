@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import listMixins from '@/views/mixins/list-mixins'
+import listMixins from '@/mixins/list-mixins'
 import listCardItem from '@/views/bidding/components/list-card-item'
 
 export default {

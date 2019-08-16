@@ -1,6 +1,6 @@
 <template>
     <search-res-main>
-        <main-page></main-page>
+        <main-page lazy></main-page>
     </search-res-main>
 </template>
 

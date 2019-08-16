@@ -1,6 +1,6 @@
 <template>
     <div class="page">
-        <search-top v-model="KeyName" @search="quertData"></search-top>
+        <search-top v-model="searchName" @search="quertData" @input="searchInputHandler"></search-top>
         <!-- <div class="weui-flex w-sel-search">
             <div class="weui-flex__item sel-btn__flex">
                 <btn-picker placeholder="地区" v-model="CityCode" @select="quertData" :data="CityData"></btn-picker>
@@ -12,40 +12,48 @@
                 <btn-picker placeholder="时间段" v-model="DateRange" @select="quertData" :data="DateRangeData"></btn-picker>
             </div>
         </div> -->
-        <div class="page-content" style="top:44px;">
-            <list :extra.sync="extraForm" ref="list" :bold="KeyName"></list>
+
+        <bar-search-type @select="typeSelHandler" v-model="searchKey"></bar-search-type>
+
+        <div class="page-content" style="top:84px;">
+            <list :extra.sync="extraForm" ref="list" :bold="extraForm.KeyName" :lazy="lazy"></list>
         </div>
     </div>
 </template>
 
 <script>
 import list from '../list'
-import mainMixins from '@/views/mixins/main-mixins'
+import barSearchType from './bar-search-type'
+import mainMixins from '@/mixins/main-mixins'
 
 export default {
     mixins: [mainMixins],
     components: {
-        list
+        list,
+        barSearchType
     },
     data () {
         return {
-            CityCode: '',
-            TypeCode: '',
-            DateRange: '',
-
-            CityData: [],
-            TypeData: [],
-            DateRangeData: []
+            searchKey: 'KeyName',
+            searchName: ''
         }
     },
-    computed: {
-        extraForm: function(){
-            return {
-                KeyName: this.KeyName,
-                CityCode: this.CityCode,
-                TypeCode: this.TypeCode,
-                DateRange: this.DateRange
-            }
+    methods: {
+        typeSelHandler(e) {
+            var oldName = this.extraForm[this.searchKey];
+            this.extraForm.KeyName = '';
+            this.extraForm.Content = '';
+
+            this.searchKey = e.value;
+
+            this.extraForm[this.searchKey] = oldName;
+
+            this.$nextTick(() => {
+                this.quertData();
+            });
+        },
+        searchInputHandler(e) {
+            this.extraForm[this.searchKey] = e;
         }
     }
 }

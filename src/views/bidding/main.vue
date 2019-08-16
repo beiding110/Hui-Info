@@ -1,5 +1,5 @@
 <template>
-    <main-page></main-page>
+    <main-page lazy></main-page>
 </template>
 
 <script>

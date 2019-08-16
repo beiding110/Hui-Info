@@ -39,7 +39,7 @@
 </template>
 
 <script>
-import traceFormMixins from '@/views/mixins/trace-form-mixins'
+import traceFormMixins from '@/mixins/trace-form-mixins'
 
 export default {
     mixins: [traceFormMixins]

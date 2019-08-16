@@ -49,7 +49,7 @@
 </template>
 
 <script>
-import listMixins from '@/views/mixins/list-mixins'
+import listMixins from '@/mixins/list-mixins'
 export default {
     mixins: [listMixins],
     props: {

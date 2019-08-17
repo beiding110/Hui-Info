@@ -1,5 +1,5 @@
 <template>
-    <div class="page">
+    <div class="page page_search">
         <div class="weui-search-bar weui-search-bar_focusing ">
             <form class="weui-search-bar__form">
                 <div class="weui-search-bar__box">

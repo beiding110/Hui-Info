@@ -1,7 +1,10 @@
 <template>
     <div class="w-search-top">
         <div class="w-search-con" :class="searchConFocus">
-            <input class="w-search-input" v-model="model" @focus="focusHandler" @blur="blurHandler" type="search" :placeholder="placeholder"/>
+            <input class="w-search-input" type="search"
+            v-model="model"
+            :placeholder="placeholder"
+            @focus="focusHandler" @blur="blurHandler" @keydown="search"/>
             <i class="weui-icon-search search-icon" v-if="isFocus" @click="searchHandler"></i>
         </div>
         <span class="search-btn" v-if="!isFocus" @click="screenHandler">筛选</span>

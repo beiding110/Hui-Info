@@ -66,7 +66,14 @@ export default {
         titleBoldHandler(str) {
             if(!this.bold) return str;
 
-            return str.replace(new RegExp(this.bold, 'g'), '<font style="font-weight:bold; color:#1f80e6;">'+this.bold+'</font>')
+            var boldArr = this.bold.split(' ');
+
+            boldArr.forEach((item) => {
+                if(item)
+                    str = str.replace(new RegExp(item, 'g'), '<font style="font-weight:bold; color:#1f80e6;">' + item + '</font>')
+            })
+
+            return str;
         }
     },
     mounted:function(){

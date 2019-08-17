@@ -1,9 +1,9 @@
-.page{overflow:hidden;}
-.page, .weui-search-bar{background:white;}
-.weui-search-bar__box{padding-left:1em; padding-right:1em;}
-.weui-search-bar:before, .weui-search-bar:after{content:none}
+.page_search.page{overflow:hidden;}
+.page_search.page, .page_search .weui-search-bar{background:white;}
+.page_search .weui-search-bar__box{padding-left:1em; padding-right:1em;}
+.page_search .weui-search-bar:before, .page_search .weui-search-bar:after{content:none}
 
-.submit-btn{margin-left:10px; line-height:28px; color:#409EFF; white-space:nowrap; display:block;}
+.page_search .submit-btn{margin-left:10px; line-height:28px; color:#409EFF; white-space:nowrap; display:block;}
 
-.search-history{text-align:center;}
-.search-history_item{color:#a1a1a1; margin:1em; list-style:none;}
+.page_search .search-history{text-align:center;}
+.page_search .search-history_item{color:#a1a1a1; margin:1em; list-style:none;}

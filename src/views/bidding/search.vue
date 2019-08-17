@@ -1,5 +1,5 @@
 <template>
-    <div class="page">
+    <div class="page page_search">
         <search-top v-model="search" @search="searchHandler" placeholder="示例：税务局"></search-top>
 
         <search-tip v-model="search" ref="searchTip" @select="goListHandler"></search-tip>

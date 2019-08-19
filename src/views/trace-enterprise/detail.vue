@@ -26,16 +26,17 @@
 <script>
 import listBidding from '@/views/bidding/list'
 
+import traceDetailMixins from '@/mixins/trace-detail-mixins'
+import searchResMainMixins from '@/mixins/search-res-main-mixins'
+
 import '@/views/trace/css/detail.css'
 
 export default {
+    mixins: [traceDetailMixins, searchResMainMixins('enterpriseTraceDetailCache', 'extra')],
     components: {listBidding},
     data () {
         return {
-            extra:{},
 
-            addToday: {},
-            form: {},
         }
     },
     methods:{
@@ -47,23 +48,8 @@ export default {
                 CompanyName: this.getQuery('companyname')
             }
         },
-        reload() {
-            this.$refs.listbidding.reload();
-        },
-        queryAddToday() {
-            this.$get('/Api/DingYue/GetTodayNum', {
-                id: this.extra.RowGuid
-            }, (data) => {
-                this.addToday = data
-            })
-        },
-        queryInfo() {
-            this.$get('/Api/DingYue/GetDetail', {
-                id: this.extra.RowGuid
-            }, (data) => {
-                this.form = data;
-            })
-        }
+
+
     },
     mounted:function(){
 
@@ -72,13 +58,7 @@ export default {
 
     },
     activated: function(){
-        this.inPageHandler();
 
-        this.queryAddToday();
-        this.form = this.$store.state.traceItem;
-        this.$nextTick(()=>{
-            this.reload();
-        });
     },
     deactivated: function(){
     }

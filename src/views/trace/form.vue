@@ -12,7 +12,7 @@
             <!-- <form-item label="时间段" arrow required>
                 <input-picker placeholder="请选择时间段" v-model="form.DateRange" :data="DateRangeData"></input-picker>
             </form-item> -->
-            <form-item label="信息类别" arrow required>
+            <form-item label="信息类别" arrow>
                 <w-select
                 multi
                 v-model="form.TypeCode"
@@ -20,7 +20,7 @@
                 :data="TypeData"
                 placeholder="请选择信息类别"></w-select>
             </form-item>
-            <form-item label="所属区域" arrow required>
+            <form-item label="所属区域" arrow>
                 <input-picker placeholder="请选择所属区域" v-model="form.CityCode" :data="CityData" @select="citySel"></input-picker>
             </form-item>
             <form-item label="定制状态">

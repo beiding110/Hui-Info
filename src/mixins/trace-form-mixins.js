@@ -102,9 +102,11 @@ export default {
         var that = this;
 
         getDictionary.call(this);
+
+        this.queryDetail();
     },
     activated: function(){
-        this.queryDetail();
+
     },
     deactivated: function(){
         this.form = eptForm;

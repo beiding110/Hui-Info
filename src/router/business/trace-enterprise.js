@@ -2,19 +2,19 @@ export default {
     home: [{
         path: 'trace/enterprise',
         name: 'huiinfo-trace-enterprise',
-        meta: {title: '关注企业'},
+        meta: {title: '关注企业', alive: true},
         component: function(){return import(/*webpackChunkName: 'trace-enterpeise'*/ '@/views/trace-enterprise/home')},
     }],
     self: {
         path: '/trace/enterprise',
         name: 'trace-enterprise-list',
         meta: {title: '关注企业详情列表'},
-        component: function(){return import(/*webpackChunkName: 'trace-enterpeise'*/ '@/views/trace-enterprise/main')},
+        component: function(){return import(/*webpackChunkName: 'trace-enterpeise'*/ '@/views/home/home')},
         children: [
             {
                 path: 'detail',
                 name: 'trace-enterprise-detail',
-                meta: {title: '关注企业详情'},
+                meta: {title: '关注企业详情', alive: true},
                 component: function(){return import(/*webpackChunkName: 'trace-enterpeise'*/ '@/views/trace-enterprise/detail')},
             }, {
                 path: 'form',

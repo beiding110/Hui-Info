@@ -1,5 +1,5 @@
 <template>
-    <list-gg ref="listgg" url="/Api/Collection/GetCollectList?type=ZhaoBiao"></list-gg>
+    <list-gg ref="listgg"></list-gg>
 </template>
 
 <script>

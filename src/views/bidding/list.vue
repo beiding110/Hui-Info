@@ -42,7 +42,13 @@ export default {
         toDetail(item, index) {
             item.IsRead = 1;
             this.tableData.splice(index, 1, item);
-            this.$router.push('/detail/bidding/'+item.RowGuid+'/'+item.Category);
+            this.goto({
+                path: '/detail/bidding',
+                query: {
+                    RowGuid: item.RowGuid,
+                    Category: item.Category
+                }
+            });
         }
     },
 }

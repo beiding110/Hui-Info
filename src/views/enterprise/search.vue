@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import searchTip from '@/views/bidding/components/search-tip'
+import searchTip from '@/views/bidding-search/components/search-tip'
 
 import '@/views/bidding/css/search.css'
 

@@ -1,11 +1,11 @@
 <template>
-    <div class="page">
-        <router-view/>
-    </div>
+    <router-view/>
 </template>
 
 <script>
+
 export default {
+    components:{},
     data () {
         return {
 
@@ -15,12 +15,6 @@ export default {
 
     },
     mounted:function(){
-
-    },
-    activated: function(){
-
-    },
-    deactivated: function(){
 
     }
 }

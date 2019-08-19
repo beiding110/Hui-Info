@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import searchTip from './components/search-tip'
+import searchTip from '@/views/bidding-search/components/search-tip'
 import getDictionary from '@/js/GetDictionary'
 
 export default {

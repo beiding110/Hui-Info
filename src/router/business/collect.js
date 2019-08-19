@@ -3,12 +3,12 @@ export default {
     path: '/collect',
     name: 'huiinfo-collect',
     meta: {title: '收藏主页'},
-    component: function(){return import(/*webpackChunkName: 'collect'*/ '@/views/collect/main')},
+    component: function(){return import(/*webpackChunkName: 'collect'*/ '@/views/home/home')},
     children: [
         {
             path: 'index',
             name: 'huiinfo-sollect-index',
-            meta: {title: '关注'},
+            meta: {title: '关注', alive: true},
             component: function(){return import(/*webpackChunkName: 'collect'*/ '@/views/collect/index')}
         }
         // {

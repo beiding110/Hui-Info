@@ -1,14 +1,14 @@
 <template>
     <div id="app">
-        <!-- <transition name="fade-in-linear"> -->
-            <!-- <keep-alive exclude="trace_detail">
-                <router-view/>
-            </keep-alive> -->
-            <keep-alive>
-                <router-view></router-view>
+        <transition name="fade-in-linear">
+            <keep-alive exclude="trace_detail">
+                <router-view v-if="!!$route.meta.alive" key="alive"/>
             </keep-alive>
-            <!-- <router-view v-if="!$route.meta.alive"></router-view> -->
-        <!-- </transition> -->
+        </transition>
+
+        <transition name="fade-in-linear">
+            <router-view v-if="!$route.meta.alive" key="route"></router-view>
+        </transition>
     </div>
 </template>
 

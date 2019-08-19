@@ -1,35 +1,35 @@
 <template>
-    <div>
-        <!-- <div class="pay-banner info--card">
-            <img src="~@/assets/vip-pay-banner.png""/>
+    <div class="page">
+        <div class="scroll-con">
+            <!-- <div class="pay-banner info--card">
+                <img src="~@/assets/vip-pay-banner.png""/>
 
-            <div class="pay-banner--text">
-                <div>限时优惠</div>
-                <div>现价：<span style="color:#26D7FC;">￥680/年</span></div>
-                <div>原件：￥960/年</div>
-            </div>
-        </div> -->
+                <div class="pay-banner--text">
+                    <div>限时优惠</div>
+                    <div>现价：<span style="color:#26D7FC;">￥680/年</span></div>
+                    <div>原件：￥960/年</div>
+                </div>
+            </div> -->
 
-        <w-card class="info--card">
-            <div class="info--card__title">请选择会员服务</div>
+            <w-card class="info--card">
+                <div class="info--card__title">请选择会员服务</div>
 
-            <template>
-                <price-card v-model="payId"></price-card>
-            </template>
-        </w-card>
+                <template>
+                    <price-card v-model="payId"></price-card>
+                </template>
+            </w-card>
 
-        <div class="info--card">
-            <btn type="primary" @click="dopay">购买</btn>
+            <w-card class="info--card">
+                <div class="info--card__title">
+                    <i class="iconfont">&#xe602;</i>
+                    VIP会员权益
+                </div>
+
+                <vip-table></vip-table>
+            </w-card>
         </div>
 
-        <w-card class="info--card">
-            <div class="info--card__title">
-                <i class="iconfont">&#xe602;</i>
-                VIP会员权益
-            </div>
-
-            <vip-table></vip-table>
-        </w-card>
+        <btn type="success" @click="dopay" class="btn-fixed">购买</btn>
     </div>
 </template>
 
@@ -109,4 +109,7 @@ export default {
 
 .info--card__title{font-size:17px; color:#353535; text-align:center; font-weight:bold; line-height:2.5em;}
 .info--card__title .iconfont{color:#FBE524;}
+
+.scroll-con{position:absolute; left:0; top:0; right:0; bottom:46px; overflow:auto;}
+.btn-fixed{position:absolute; bottom:0;}
 </style>

@@ -2,19 +2,19 @@ export default {
     home: [{
         path: 'trace',
         name: 'huiinfo-trace',
-        meta: {title: '招标订阅'},
+        meta: {title: '招标订阅', alive: true},
         component: function(){return import(/*webpackChunkName: 'trace'*/ '@/views/trace/home')},
     }],
     self: {
         path: '/trace',
         name: 'trace-list',
         meta: {title: '订阅详情列表'},
-        component: function(){return import(/*webpackChunkName: 'trace'*/ '@/views/trace/main')},
+        component: function(){return import(/*webpackChunkName: 'trace'*/ '@/views/home/home')},
         children: [
             {
                 path: 'detail/:guid/:CityCode/:DateRange/:KeyName',
                 name: 'trace-detail',
-                meta: {title: '订阅详情'},
+                meta: {title: '订阅详情', alive: true},
                 component: function(){return import(/*webpackChunkName: 'trace'*/ '@/views/trace/detail')},
             }, {
                 path: 'form',

@@ -31,22 +31,27 @@ export default {
     methods:{
         quertData: function(e){
             this.$refs.list.reload();
+        },
+        reQuery() {
+            var query = this.getQuery();
+
+            Object.keys(query).forEach(key => {
+                this.extraForm[key] = query[key];
+            });
+
+            this.$nextTick(() => {
+                this.quertData();
+            });
         }
     },
     mounted:function(){
         var that = this;
 
         getDictionary.call(this);
+
+        this.reQuery();
     },
     activated() {
-        var query = this.getQuery();
 
-        Object.keys(query).forEach(key => {
-            this.extraForm[key] = query[key];
-        });
-
-        this.$nextTick(() => {
-            this.quertData();
-        });
     }
 }

@@ -133,13 +133,13 @@ export default {
             }
         },
         detailType () {
-            return this.getRoute('type');
+            return this.getQuery('Category');
         }
     },
     methods:{
         queryData: function(){
             var that = this;
-            var guid = this.$route.params.guid;
+            var guid = this.getQuery('RowGuid');
             var type = this.detailType;
 
             this.$get('/Api/Biding/GetDetail', {
@@ -164,10 +164,10 @@ export default {
         }
     },
     mounted: function(){
-        // this.queryData();
+        this.queryData();
     },
     activated: function(){
-        this.queryData();
+        // this.queryData();
     },
     deactivated: function(){
         this.detail = {};

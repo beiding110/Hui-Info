@@ -1,14 +1,17 @@
 <template>
     <search-res-main>
-        <main-page lazy></main-page>
+        <main-page lazy ref="mainPage"></main-page>
     </search-res-main>
 </template>
 
 <script>
-import searchResMain from '@/views/bidding/components/search-res-main'
-import mainPage from './components/main'
+import searchResMain from '@/views/bidding-search/components/search-res-main'
+import mainPage from '@/views/bidding/components/main'
+
+import searchResMainMixins from '@/mixins/search-res-main-mixins'
 
 export default {
+    mixins: [searchResMainMixins('biddingSearchCache')],
     components: {
         searchResMain,
         mainPage
@@ -18,6 +21,9 @@ export default {
         }
     },
     methods: {
+
+    },
+    activated() {
 
     }
 }

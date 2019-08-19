@@ -7,9 +7,9 @@
 </template>
 
 <script>
-import searchTip from './components/search-tip'
+import searchTip from '@/views/bidding-search/components/search-tip'
 
-import './css/search.css'
+import '@/views/bidding/css/search.css'
 
 export default {
     components: {searchTip},

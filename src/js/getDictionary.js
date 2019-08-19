@@ -71,7 +71,7 @@ var getJzjd = funFactory('JdData', 'JzJd');
 var getSource = funFactory('SourceData');
 
 //企业类型
-var getQyType = funFactory('QyTypeData');
+var getDanWeiType = funFactory('DanWeiTypeData');
 
 export default function() {
     this.$store.commit('setState',{
@@ -88,7 +88,7 @@ export default function() {
             ],
             HyData: [],
             JdData: [],
-            QyTypeData: [
+            DanWeiTypeData: [
                 {label: '招标代理机构', title: '招标代理机构', value: '招标代理机构'},
                 {label: '招标人', title: '招标人', value: '招标人'},
                 {label: '中标单位', title: '中标单位', value: '中标单位'}
@@ -103,5 +103,5 @@ export default function() {
     getSshy.call(this);
     getJzjd.call(this);
     getSource.call(this);
-    getQyType.call(this);
+    getDanWeiType.call(this);
 }

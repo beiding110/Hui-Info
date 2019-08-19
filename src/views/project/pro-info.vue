@@ -49,8 +49,8 @@
         </w-card>
 
         <w-card class="info--card">
-            <template v-for="item in ggList" @click="toDetail(item)">
-                <div class="flow-item">
+            <template v-for="item in ggList">
+                <div class="flow-item" @click="toDetail(item)">
                     <div class="flow-item_left">
                         <div>
                             {{timeToMMdd(item.AddTime)}}
@@ -141,7 +141,13 @@ export default {
             });
         },
         toDetail(row) {
-            this.goto('/detail/bidding/'+row.RowGuid+'/'+row.Category);
+            this.goto({
+                path: '/detail/bidding',
+                query: {
+                    RowGuid: row.RowGuid,
+                    Category: row.Category
+                }
+            });
         },
         kbTimeSlicer(time) {
             if(!time) return;

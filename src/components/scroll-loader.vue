@@ -1,5 +1,5 @@
 <template>
-    <div ref="scroll-con" class="scroll-con">
+    <div ref="scroll-con" class="scroll-con" @scroll="storageScroll">
         <div ref="scroll-scroller" class="scroll-scroller">
             <div class="weui-pull-to-refresh__layer" v-if="action">
                 <div class='weui-pull-to-refresh__arrow'></div>
@@ -116,6 +116,20 @@ export default {
         },
         reload: function(){
             $(this.$refs['scroll-con']).pullToRefresh('triggerPullToRefresh');
+        },
+        storageScroll(e) {
+            var obj = {};
+            obj['$scrollCache:' + this.$route.fullPath] = e.target.scrollTop;
+            this.setSession(obj);
+        },
+        setScroll() {
+            var cache = this.getSession('$scrollCache:' + this.$route.fullPath);
+            this.$refs['scroll-con'].scrollTop = cache || 0;
+        },
+        clearStorageScroll() {
+            var obj = {};
+            obj['$scrollCache:' + this.$route.fullPath] = 0;
+            this.setSession(obj);
         }
     },
     mounted:function(){
@@ -128,6 +142,7 @@ export default {
         $(that.$refs['scroll-con']).pullToRefresh().on("pull-to-refresh", function () {
             that.PageIndex = 1;
             that.loadController = true;
+            that.clearStorageScroll();
             that.queryData(0, function(){
                 $(that.$refs['scroll-con']).pullToRefreshDone();
             })
@@ -147,6 +162,7 @@ export default {
     },
     activated: function(){
         // this.reload();
+        this.setScroll();
     },
     deactivated: function(){
 

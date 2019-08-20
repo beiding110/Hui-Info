@@ -17,7 +17,7 @@ export default {
             path: 'project/info',
             name: 'detail-project-info',
             component: function(){return import(/*webpackChunkName: 'project'*/ '@/views/project/pro-info')},
-            meta: {title: '项目详情'},
+            meta: {title: '项目详情', vip: true},
         }
     ]
 }

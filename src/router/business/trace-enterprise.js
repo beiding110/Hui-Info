@@ -14,12 +14,12 @@ export default {
             {
                 path: 'detail',
                 name: 'trace-enterprise-detail',
-                meta: {title: '关注企业详情', alive: true},
+                meta: {title: '关注企业详情', alive: true, vip: true},
                 component: function(){return import(/*webpackChunkName: 'trace-enterpeise'*/ '@/views/trace-enterprise/detail')},
             }, {
                 path: 'form',
                 name: 'trace-enterprise-add',
-                meta: {title: '添加关注'},
+                meta: {title: '添加关注', vip: true},
                 component: function(){return import(/*webpackChunkName: 'trace-enterpeise'*/ '@/views/trace-enterprise/form')},
             }
         ]

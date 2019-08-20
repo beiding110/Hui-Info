@@ -18,12 +18,12 @@ export default {
                 {
                     path: 'advanced',
                     name: 'huiinfo-bidding-search-advanced',
-                    meta: {title: '招标高级搜索'},
+                    meta: {title: '招标高级搜索', vip: true},
                     component: function(){return import(/*webpackChunkName: 'bidding'*/ '@/views/bidding-search/search-advanced')},
                 }, {
                     path: 'res',
                     name: 'huiinfo-bidding-search-res',
-                    meta: {title: '招标搜索结果', alive: true},
+                    meta: {title: '招标搜索结果', alive: true, vip: true},
                     component: function(){return import(/*webpackChunkName: 'bidding'*/ '@/views/bidding-search/search-main')},
                 }, {
                     path: '',

@@ -14,17 +14,17 @@ export default {
             {
                 path: 'detail/:guid/:CityCode/:DateRange/:KeyName',
                 name: 'trace-detail',
-                meta: {title: '订阅详情', alive: true},
+                meta: {title: '订阅详情', alive: true, vip: true},
                 component: function(){return import(/*webpackChunkName: 'trace'*/ '@/views/trace/detail')},
             }, {
                 path: 'form',
                 name: 'trace-add',
-                meta: {title: '添加订阅'},
+                meta: {title: '添加订阅', vip: true},
                 component: function(){return import(/*webpackChunkName: 'trace'*/ '@/views/trace/form')},
             }, {
                 path: 'setting',
                 name: 'trace-setting',
-                meta: {title: '推送设置'},
+                meta: {title: '推送设置', vip: true},
                 component: function(){return import(/*webpackChunkName: 'trace'*/ '@/views/trace/setting')},
             },
         ]

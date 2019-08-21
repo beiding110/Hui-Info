@@ -6,7 +6,8 @@
                 <div class="search-block" @click="goto('/home/bidding/search')">
                     示例：税务局
                 </div>
-                <h2 class="title">标信订阅开启服务定制新时代</h2>
+                <img src="@/assets/bidding-guide-text.png" class="bidding-guide-text"/>
+                <!-- <h2 class="title">标信订阅开启服务定制新时代</h2> -->
             </div>
         </div>
 
@@ -76,4 +77,6 @@ export default {
     .guid-btn_right{margin-left:50px;}
         .guid-btn-title{font-size:16px; margin:4px 0; color:#2d2d2d; font-weight:bold;}
         .guid-btn-des{color:#636363;}
+
+    .bidding-guide-text{height:32px; margin:6px 0 0 12px;}
 </style>

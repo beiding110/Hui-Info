@@ -1,10 +1,17 @@
 export default {
-    home: [{
-        path: 'trace',
-        name: 'huiinfo-trace',
-        meta: {title: '招标订阅', alive: true},
-        component: function(){return import(/*webpackChunkName: 'trace'*/ '@/views/trace/home')},
-    }],
+    home: [
+        {
+            path: 'trace',
+            name: 'huiinfo-trace',
+            meta: {title: '招标订阅', alive: true},
+            component: function(){return import(/*webpackChunkName: 'trace'*/ '@/views/trace/home')},
+        }, {
+            path: 'trace-all',
+            name: 'huiinfo-trace-all',
+            meta: {title: '我的招标订阅', alive: true},
+            component: function(){return import(/*webpackChunkName: 'trace'*/ '@/views/trace/all')},
+        },
+    ],
     self: {
         path: '/trace',
         name: 'trace-list',

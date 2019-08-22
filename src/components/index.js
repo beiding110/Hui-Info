@@ -1,6 +1,7 @@
 import btnPicker from './btn-picker'
 import btnPopPicker from './btn-pop-picker'
 import btn from './btn'
+import btnFixed from './btn-fixed'
 import formItem from './form-item'
 import inputPicker from './input-picker'
 import scrollLoader from './scroll-loader'
@@ -29,6 +30,7 @@ export default{
         Vue.component('btn-picker', btnPicker);
         Vue.component('btn-pop-picker', btnPopPicker);
         Vue.component('btn', btn);
+        Vue.component('w-btn-fixed', btnFixed);
         Vue.component('form-item', formItem);
         Vue.component('input-picker', inputPicker);
         Vue.component('scroll-loader', scrollLoader);

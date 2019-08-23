@@ -1,9 +1,6 @@
 <template>
     <div class="page">
         <div class="top-btn-con">
-            <div class="trace-enterprice-tip">
-                您在此可以填写关注的代理机构、业主单位、竞争对手企业名称的招标、中标等情况
-            </div>
             <btn-to-setting type="enterprice"></btn-to-setting>
             <btn type="primary" @click="toKeyWord">添加订阅</btn>
         </div>
@@ -42,7 +39,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-    .page-con{top:188px;}
+    .page-con{top:123px;}
 
     .trace-enterprice-tip{background:#f4f4f8;padding:1em; font-size:13px; font-weight:bold;}
 </style>

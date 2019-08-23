@@ -14,7 +14,7 @@
         <div class="trace-detail__list-con" style="position:relative; overflow:hidden;">
             <list-bidding ref="listbidding" url="/Api/Biding/GetDingYueList" :extra.sync="extra" lazy no-hyname>
                 <template slot="hyname" slot-scope="scope">
-                    <w-tag class="info-card footer-tags" type="primary" v-if="scope.row.zbjg !== '-1'">
+                    <w-tag class="info-card footer-tags" type="primary" v-if="scope.row.zbjg !== '-1'" style="float:left;">
                         {{scope.row.zbjg}}万
                     </w-tag>
                 </template>

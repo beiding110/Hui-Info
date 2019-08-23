@@ -40,9 +40,9 @@ export default {
         },
         toDetail (row) {
             this.goto({
-                path: '/home/enterprise',
+                path: '/trace/enterprise/detail',
                 query: {
-                    CompanyName: row.DWCNNAME
+                    companyname: row.DWCNNAME
                 }
             })
         }

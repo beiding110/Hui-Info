@@ -8,8 +8,8 @@
         </div>
         <div slot="footer" class="info--card__footer">
             <div class="info--footer__tags">
-                <w-tag class="info-card footer-tags" type="info">{{item.DWAREANAME}}</w-tag>
-                <w-tag class="info-card footer-tags" type="danger">{{item.XZQYNAME}}</w-tag>
+                <w-tag class="info-card footer-tags" type="info">{{item.DWTYPETEXT}}</w-tag>
+                <w-tag class="info-card footer-tags" type="danger">{{item.XZQYNAME}}-{{item.DWAREANAME}}</w-tag>
                 <w-tag class="info-card footer-tags" type="warn">{{item.HYTYPENAME}}</w-tag>
             </div>
         </div>
@@ -34,25 +34,7 @@ export default {
         }
     },
     methods:{
-        hyCalc(str) {
-            if(/\//.test(str)) {
-                return str.split('/')[0];
-            } else {
-                return str;
-            }
-        },
-        titleBoldHandler(str) {
-            if(!this.bold) return str;
 
-            var boldArr = this.bold.split(' ');
-
-            boldArr.forEach((item) => {
-                if(item)
-                    str = str.replace(new RegExp(item, 'g'), '<font style="font-weight:bold; color:#1f80e6;">' + item + '</font>')
-            })
-
-            return str;
-        }
     },
     mounted:function(){
 

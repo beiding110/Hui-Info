@@ -6,4 +6,4 @@
 
 .trace-detail__list-con{height:calc(100% - 72px); width:100%;}
 
-.btn-to-setting{float:right; color:#1f80e6;}
+.trace-detail__title .btn-to-setting{float:right; color:#1f80e6;}

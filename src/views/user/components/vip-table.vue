@@ -4,7 +4,7 @@
         <div class="th">功能</div>
         <div class="th">描述</div>
         <div class="th">VIP会员</div>
-        <div class="th">普通会员</div>
+        <div class="th">免费会员</div>
     </div>
 
     <template v-for="item in table">

@@ -102,7 +102,7 @@
                 <div class="weui-panel">
                 	<div class="weui-panel__bd">
                 		<div class="weui-media-box weui-media-box_text">
-                			<p class="weui-media-box__desc rich-text__con" v-html="detail.Content"></p>
+                			<p class="weui-media-box__desc rich-text__con" v-html="contentTableToMobileGg(detail.Content)"></p>
                 		</div>
                 	</div>
                 </div>
@@ -161,6 +161,44 @@ export default {
                 var dd = time.substring(6,8);
                 return yyyy + '-' + MM + '-' + dd;
             }catch(e){}
+        },
+        contentTableToMobileGg (str) {
+            var patt_table = new RegExp("<table.*?>((?:.|\n)+?)<\/table>","g"),
+        		patt_td = new RegExp("<td.*?>((?:.|\n)+?)<\/td>","g");
+
+        	var res_teble, res_td;
+
+        	while ((res_teble = patt_table.exec(str)) != null)  {
+
+        		var res_arr = [], counter = 1;
+        		var tablebody = res_teble[1];
+
+        		while ((res_td = patt_td.exec(tablebody)) != null)  {
+        			// console.log(res_td)
+
+        			if(counter % 2) {
+        				res_arr.push({});
+        				res_arr[res_arr.length - 1].label = res_td[1];
+        			} else {
+        				res_arr[res_arr.length - 1].value = res_td[1];
+        			}
+
+        			counter ++;
+        		};
+
+        		var rebuild_str = '<div class="table-rebuild">';
+        		res_arr.forEach(function(item) {
+        			rebuild_str += ('<div class="table-row">' +
+        				'<div class="table-label">' + item.label + '</div>' +
+        				'<div class="table-value">' + item.value + '</div>' +
+        			'</div>')
+        		});
+        		rebuild_str += '</div>';
+
+        		str = str.replace(res_teble[0], rebuild_str);
+        	};
+
+            return str
         }
     },
     mounted: function(){
@@ -198,9 +236,15 @@ export default {
 </style>
 
 <style>
-.rich-text__con{display: block !important; color:#3F3F3F;}
+.rich-text__con{display: block !important; color:#3F3F3F !important;}
 .rich-text__con *{font-size:14px !important; line-height:1.5em !important; text-align:justify;}
 .rich-text__con table{width: 100% !important; border-collapse:collapse; border:none; table-layout:fixed; display:block;}
 .rich-text__con table td{max-width: 100% !important; border: 1px solid #DBDBDB;}
 .rich-text__con table tr td:first-child{ }
+
+.rich-text__con .table-rebuild{}
+.rich-text__con .table-row{overflow:hidden; border:1px solid #2c3e50;}
+.rich-text__con .table-label, .rich-text__con .table-value{float:left; padding:.5em; box-sizing:border-box;}
+.rich-text__con .table-label{width:8em;}
+.rich-text__con .table-value{width:calc(100% - 8em); border-left:1px solid #2c3e50;}
 </style>

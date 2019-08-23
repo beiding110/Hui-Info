@@ -14,17 +14,17 @@
                 <btn-pop-picker placeholder="行业" v-model="form.HyCode" :data="HyData" top="89px"></btn-pop-picker>
             </div>
             <div class="weui-flex__item sel-btn__flex">
-                <btn-picker placeholder="时间段" v-model="form.DateRange" :data="DateRangeData"></btn-picker>
+                <btn-pop-picker placeholder="时间段" v-model="form.DateRange" :data="DateRangeData" top="89px"></btn-pop-picker>
             </div>
             <div class="weui-flex__item sel-btn__flex">
                 <btn-pop-picker placeholder="地区" v-model="form.CityCode" :data="CityData" top="89px"></btn-pop-picker>
             </div>
             <div class="weui-flex__item sel-btn__flex">
-                <btn-picker placeholder="类型" v-model="form.TypeCode" :data="TypeData"></btn-picker>
+                <btn-pop-picker placeholder="类型" v-model="form.TypeCode" :data="TypeData" top="89px"></btn-pop-picker>
             </div>
-            <div class="weui-flex__item sel-btn__flex">
+            <!-- <div class="weui-flex__item sel-btn__flex">
                 <btn-picker placeholder="来源" v-model="form.Source" :data="SourceData"></btn-picker>
-            </div>
+            </div> -->
         </div>
 
         <search-tip v-model="form.KeyName" ref="searchTip" @select="goListHandler"></search-tip>

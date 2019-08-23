@@ -53,6 +53,7 @@ input:focus{outline:none;}
 .info--card{display:block; margin:8px; color:#666666; overflow:hidden;}
 
 .info--card__header{font-weight:normal}
+.info--card__header.is-read{color:#A1A1A1;}
 
 .info--card__body{display:flex;}
 .info--body__left{flex:1; overflow:hidden;}

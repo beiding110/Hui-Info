@@ -2,7 +2,7 @@
     <w-card
     class="info--card"
     :data-guid="item.RowGuid">
-        <div class="info--card__header" slot="header">
+        <div class="info--card__header" slot="header" :class="{'is-read': !!item.IsRead}">
             <span v-html="titleBoldHandler(item.Title)"></span>
         </div>
         <!-- <div class="info--card__body">

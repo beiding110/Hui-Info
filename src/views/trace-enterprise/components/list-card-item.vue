@@ -2,7 +2,7 @@
     <w-card
     class="info--card"
     :data-guid="item.RowGuid">
-        <div class="info--card__header" slot="header">
+        <div class="info--card__header" slot="header" :class="{'is-read': !!item.IsRead}">
             <i class="iconfont icon-qiye">&#xe609;</i>
             {{item.DWCNNAME}}
         </div>

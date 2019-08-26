@@ -101,7 +101,10 @@ export default {
         },
         dataPreCal: function(val){
             var data = val.slice(0);
-            data.unshift({label: '全部', value: ''});
+            if(data.length && data[0].label !== '全部'){
+                data.unshift({label: '全部', value: ''});
+            };
+            
             this.newData = data;
 
             $(this.$refs.picker).picker("destroy");

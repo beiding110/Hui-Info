@@ -1,100 +1,77 @@
-//所属地市
-function getCity() {
-    if(this.$store.state.dictionary.CityData.length > 0) {
-        this.CityData = this.$store.state.dictionary.CityData
-    } else {
-        this.$get('/Api/Common/GetDictionary', {
-            type: 'City',
-        }, (res) => {
-            res.unshift({label: '全部', value: ''});
+function funFactory(dataKey, type) {
+    if(type) {
+        return function() {
+            if(this.$store.state.dictionary[dataKey].length > 0) {
+                this[dataKey] = this.$store.state.dictionary[dataKey]
+            } else {
+                this.$get('/Api/Common/GetDictionary', {
+                    type: type,
+                }, (res) => {
+                    res = res || [];
 
-            if(this.CityData !== undefined) {
-                this.CityData = res
+                    if(res.length) {
+                        if(res[0].label !== '全部'){
+                            res.unshift({label: '全部', value: ''});
+                        };
+                    } else {
+                        res.unshift({label: '全部', value: ''});
+                    };
+
+                    res.forEach(function(item) {
+                        if (item.label) {
+                            item.title = item.label;
+                        } else if (item.title) {
+                            item.label = item.title;
+                        };
+                    });
+
+                    //向data中数据赋值
+                    if(this[dataKey] !== undefined) {
+                        this[dataKey] = res
+                    };
+
+                    //更新store中的dictionary内容
+                    let dictionary = this.$store.state.dictionary;
+                    dictionary[dataKey] = res;
+                    this.$store.commit('setState',{
+                        'dictionary': dictionary
+                    });
+
+                });
             }
-
-            let dictionary = this.$store.state.dictionary;
-            dictionary.CityData = res;
-            this.$store.commit('setState',{
-                'dictionary': dictionary
-            });
-
-        });
+        }
+    } else {
+        return function() {
+            //向data中数据赋值
+            if(this[dataKey] !== undefined) {
+                this[dataKey] = this.$store.state.dictionary[dataKey]
+            };
+        }
     }
-}
+};
+
+
+
+//所属地市
+var getCity = funFactory('CityData', 'City');
 
 //公告类型
-function getGglx() {
-    if(this.$store.state.dictionary.TypeData.length > 0) {
-        this.TypeData = this.$store.state.dictionary.TypeData
-    } else {
-        this.$get('/Api/Common/GetDictionary', {
-            type: 'GgLx',
-        }, (res) => {
-            res.unshift({label: '全部', value: ''});
-
-            if(this.TypeData !== undefined) {
-                this.TypeData = res
-            };
-
-            let dictionary = this.$store.state.dictionary;
-            dictionary.TypeData = res;
-            this.$store.commit('setState',{
-                'dictionary': dictionary
-            });
-        });
-    }
-}
+var getGglx = funFactory('TypeData', 'GgLx');
 
 //时间段
-function getDateRange() {
-    this.DateRangeData = this.$store.state.dictionary.DateRangeData
-}
+var getDateRange = funFactory('DateRangeData');
 
 //所属行业
-function getSshy() {
-    if(this.$store.state.dictionary.HyData.length > 0) {
-        this.HyData = this.$store.state.dictionary.HyData
-    } else {
-        this.$get('/Api/Common/GetDictionary', {
-            type: 'SsHy',
-        }, (res) => {
-            res.unshift({label: '全部', value: ''});
-
-            if(this.HyData !== undefined) {
-                this.HyData = this.$store.state.dictionary.HyData
-            }
-
-            let dictionary = this.$store.state.dictionary;
-            dictionary.HyData = res;
-            this.$store.commit('setState',{
-                'dictionary': dictionary
-            });
-        });
-    }
-}
+var getSshy = funFactory('HyData', 'SsHy');
 
 //进度
-function getJzjd() {
-    if(this.$store.state.dictionary.JdData.length > 0) {
-        this.JdData = this.$store.state.dictionary.JdData
-    } else {
-        this.$get('/Api/Common/GetDictionary', {
-            type: 'JzJd',
-        }, (res) => {
-            res.unshift({label: '全部', value: ''});
+var getJzjd = funFactory('JdData', 'JzJd');
 
-            if(this.JdData !== undefined) {
-                this.JdData = this.$store.state.dictionary.JdData
-            }
+//数据来源
+var getSource = funFactory('SourceData');
 
-            let dictionary = this.$store.state.dictionary;
-            dictionary.JdData = res;
-            this.$store.commit('setState',{
-                'dictionary': dictionary
-            });
-        });
-    }
-}
+//企业类型
+var getDanWeiType = funFactory('DanWeiTypeData');
 
 export default function() {
     this.$store.commit('setState',{
@@ -102,12 +79,20 @@ export default function() {
             CityData: [],
             TypeData: [],
             DateRangeData: [
-                {label: '近三天', value: '3'},
-                {label: '近一周', value: '7'},
-                {label: '近一月', value: '30'}
+                {label: '近三天', title: '近三天', value: '3'},
+                {label: '近一周', title: '近一周', value: '7'},
+                {label: '近一月', title: '近一月', value: '30'}
+            ],
+            SourceData: [
+                {label: '河北省招标投标公共服务平台', title: '河北省招标投标公共服务平台', value: '河北省招标投标公共服务平台'},
             ],
             HyData: [],
-            JdData: []
+            JdData: [],
+            DanWeiTypeData: [
+                {label: '招标代理机构', title: '招标代理机构', value: '招标代理机构'},
+                {label: '招标人', title: '招标人', value: '招标人'},
+                {label: '中标单位', title: '中标单位', value: '中标单位'}
+            ]
         }
     });
 
@@ -117,4 +102,6 @@ export default function() {
     getDateRange.call(this);
     getSshy.call(this);
     getJzjd.call(this);
+    getSource.call(this);
+    getDanWeiType.call(this);
 }

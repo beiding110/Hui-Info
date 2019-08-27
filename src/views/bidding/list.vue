@@ -10,7 +10,7 @@
                 :key="index"
                 v-touch:hold="itemHold"
                 v-ncmenu
-                :bold="bold"
+                :bold="bold || item.searchkey"
                 >
                     <slot name='hyname' :row="item" slot="hyname">
 
@@ -47,7 +47,8 @@ export default {
                 path: '/detail/bidding',
                 query: {
                     RowGuid: item.RowGuid,
-                    Category: item.Category
+                    Category: item.Category,
+                    searchKey: item.searchkey
                 }
             });
         }

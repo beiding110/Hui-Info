@@ -5,9 +5,7 @@
                 <div class="weui-form-preview">
 
                 	<div class="weui-form-preview__hd">
-                        <div class="text-title">
-                            {{detail.publicity_name}}
-                        </div>
+                        <div class="text-title" v-html="fontReplacer(this.searchKey, detail.publicity_name)"></div>
 
                         <div>
                             <w-tag class="info-card footer-tags" type="info">{{detail.cityname}}</w-tag>
@@ -43,7 +41,7 @@
                 	<div class="weui-panel__bd">
                 		<div class="weui-media-box weui-media-box_text">
                 			<h4 class="weui-media-box__title">公示内容</h4>
-                			<p class="weui-media-box__desc rich-text__con" v-html="detail.publicity_content"></p>
+                			<p class="weui-media-box__desc rich-text__con" v-html="fontReplacer(this.searchKey, detail.publicity_content)"></p>
                 		</div>
                 	</div>
                 </div>
@@ -90,7 +88,7 @@
                             <w-tag class="info-card footer-tags" type="warn">{{detail.hyname}}</w-tag>
                             <font class="addtime">
                                 <i class="iconfont">&#xe63b;</i>
-                                {{timeBeforeCalc(detail.PubInWebDate)}}
+                                {{timeBeforeCalc(timeFormatter(detail.PubInWebDate))}}
                             </font>
 
                             <collect-star v-model="detail.Collection" :guid="detail.RowGuid" class="btn-collect"></collect-star>
@@ -102,7 +100,8 @@
                 <div class="weui-panel">
                 	<div class="weui-panel__bd">
                 		<div class="weui-media-box weui-media-box_text">
-                			<p class="weui-media-box__desc rich-text__con" v-html="contentTableToMobileGg(detail.Content)"></p>
+                			<p class="weui-media-box__desc rich-text__con"
+                            v-html="fontReplacer(this.searchKey, contentTableToMobileGg(detail.Content))"></p>
                 		</div>
                 	</div>
                 </div>
@@ -134,6 +133,9 @@ export default {
         },
         detailType () {
             return this.getQuery('Category');
+        },
+        searchKey() {
+            return this.getQuery('searchKey');
         }
     },
     methods:{
@@ -145,7 +147,7 @@ export default {
             this.$get('/Api/Biding/GetDetail', {
                 id: guid,
                 type: type
-            }, function(data){
+            }, data => {
                 that.detail = data || {};
                 that.collect = that.detail.Collection;
             })

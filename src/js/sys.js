@@ -48,5 +48,19 @@ import Vue from 'vue'
         } else {
             return oldtime.Format('yyyy-MM-dd');
         }
+    };
+
+    owner.fontReplacer = function(target, str) {
+        if(!str) return '';
+        if(!target) return str;
+
+        var boldArr = target.split(' ');
+
+        boldArr.forEach((item) => {
+            if(item && /^[a-zA-Z0-9\u4e00-\u9fa5]+$/.test(item))
+                str = str.replace(new RegExp(item, 'g'), '<font style="font-weight:bold; color:#1f80e6;">' + item + '</font>')
+        })
+
+        return str;
     }
 } (Vue.prototype))

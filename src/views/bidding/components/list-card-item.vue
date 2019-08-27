@@ -74,16 +74,7 @@ export default {
             }
         },
         titleBoldHandler(str) {
-            if(!this.bold) return str;
-
-            var boldArr = this.bold.split(' ');
-
-            boldArr.forEach((item) => {
-                if(item)
-                    str = str.replace(new RegExp(item, 'g'), '<font style="font-weight:bold; color:#1f80e6;">' + item + '</font>')
-            })
-
-            return str;
+            return this.fontReplacer(this.bold, str);
         }
     },
     mounted:function(){

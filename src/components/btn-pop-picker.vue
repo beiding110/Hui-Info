@@ -94,7 +94,7 @@ export default {
 
 .btn-picker{border:none; display: block; height:100%; color:#9B9B9B; margin:0 auto; line-height:44px; text-align:center; font-size:0;}
 .btn-text{text-overflow:ellipsis; overflow:hidden; white-space:nowrap; max-width:calc(100% - 16px); display:inline-block; font-size:14px; vertical-align:top;}
-.btn-picker .iconfont{vertical-align:middle;}
+.btn-picker .iconfont{vertical-align:middle; font-size:12px;}
 
 .btn-pop-picker .weui-popup__overlay{background-color:rgba(0,0,0,0);}
 .btn-pop-picker .weui-popup__modal{background:white; height:auto;}

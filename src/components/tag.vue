@@ -28,7 +28,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.zh-tag{font-size: 12px; padding:.1em .6em; border-radius:3px; color:white; line-height:1.5em}
+.zh-tag{font-size: 12px; padding:.1em .5em; border-radius:3px; color:white; line-height:1.5em}
 
 .zh-tag--primary{background:#1F80E6;}
 .zh-tag--info{background:#67BEA5;}

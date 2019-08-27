@@ -14,7 +14,7 @@
         </div> -->
 
         <div style="height:calc(100% - 80px); position:relative; overflow:hidden;">
-            <list-bidding ref="listbidding" url="/Api/Biding/GetDingYueList" :extra.sync="extra" lazy></list-bidding>
+            <list-bidding ref="listbidding" url="/Api/Biding/GetDingYueList" :extra.sync="extra" lazy :bold="extra.KeyName"></list-bidding>
         </div>
     </div>
 </template>

@@ -163,6 +163,26 @@ export default {
             }catch(e){}
         },
         contentTableToMobileGg (str) {
+
+            function DtableBuilder(obj) {
+                this.init(obj);
+            };
+            DtableBuilder.prototype = {
+                init (obj) {
+                    this.$str = '<div class="table-rebuild"><div class="table-title">' + obj.title + '</div>';
+                },
+                add (item) {
+                    this.$str += ('<div class="table-row">' +
+                        '<div class="table-label">' + item.label + '</div>' +
+                        '<div class="table-value">' + item.value + '</div>' +
+                    '</div>');
+                },
+                print () {
+                    this.$str += '</div>';
+                    return this.$str;
+                }
+            };
+
             var patt_table = new RegExp("<table.*?>((?:.|\n)+?)<\/table>","g"),
         		patt_td = new RegExp("<td.*?>((?:.|\n)+?)<\/td>","g");
 
@@ -186,14 +206,18 @@ export default {
         			counter ++;
         		};
 
-        		var rebuild_str = '<div class="table-rebuild">';
-        		res_arr.forEach(function(item) {
-        			rebuild_str += ('<div class="table-row">' +
-        				'<div class="table-label">' + item.label + '</div>' +
-        				'<div class="table-value">' + item.value + '</div>' +
-        			'</div>')
+        		var rebuild_str = '';
+                var rebuild_str_zbr = new DtableBuilder({title: '招标人'}),
+                    rebuild_str_dl = new DtableBuilder({title: '招标代理机构'});
+        		res_arr.forEach(function(item, index) {
+        			if(!(index % 2)) {
+                        rebuild_str_zbr.add(item);
+                    } else {
+                        rebuild_str_dl.add(item);
+                    }
         		});
-        		rebuild_str += '</div>';
+
+        		rebuild_str = rebuild_str_zbr.print() + rebuild_str_dl.print();
 
         		str = str.replace(res_teble[0], rebuild_str);
         	};
@@ -242,9 +266,10 @@ export default {
 .rich-text__con table td{max-width: 100% !important; border: 1px solid #DBDBDB;}
 .rich-text__con table tr td:first-child{ }
 
-.rich-text__con .table-rebuild{}
-.rich-text__con .table-row{overflow:hidden; border:1px solid #2c3e50;}
-.rich-text__con .table-label, .rich-text__con .table-value{float:left; padding:.5em; box-sizing:border-box;}
+.rich-text__con .table-title{padding:.5em 0; font-weight:bold;}
+.rich-text__con .table-rebuild{border-bottom:1px solid #666;}
+.rich-text__con .table-row{overflow:hidden; border:1px solid #666; border-bottom:0;}
+.rich-text__con .table-label, .rich-text__con .table-value{float:left; padding:.2em .4em; box-sizing:border-box;}
 .rich-text__con .table-label{width:8em;}
-.rich-text__con .table-value{width:calc(100% - 8em); border-left:1px solid #2c3e50;}
+.rich-text__con .table-value{width:calc(100% - 8em); border-left:1px solid #666;}
 </style>

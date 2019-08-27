@@ -1,7 +1,8 @@
 <template>
     <div class="btn-picker_con btn-pop-picker">
-        <div class="btn-picker" @click="show">
-            {{activeItem.label || placeholder}}
+        <div class="btn-picker btn-pop-picker" @click="show">
+            <span class="btn-text">{{activeItem.label || placeholder}}</span>
+            <i class="iconfont">&#xe64a;</i>
         </div>
 
         <div ref="popup" class="weui-popup__container w-pupup">
@@ -88,10 +89,12 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .btn-picker_con{height:44px; position: relative; z-index:10; background:white;}
-.btn-picker_con:before, .btn-picker_con:after{content:' '; display:block; position:absolute; }
+.btn-picker_con:before,{content:' '; display:block; position:absolute; }
 /* .btn-picker_con:before{width:100%; height:1px; background: #e5e5e5; bottom:0; } */
-.btn-picker_con:after{content:' '; border-bottom:1px solid #9B9B9B; border-right:1px solid #9B9B9B; width:0.5em; height:0.5em; right:10%; top:50%; transform: translate(-50%, -50%) rotate(45deg);}
-.btn-picker{border:none; display: block; width:80%; max-width:3em; height:100%; color:#9B9B9B; margin:0 auto; text-overflow:ellipsis; overflow:hidden; white-space:nowrap; line-height:44px;}
+
+.btn-picker{border:none; display: block; height:100%; color:#9B9B9B; margin:0 auto; line-height:44px; text-align:center; font-size:0;}
+.btn-text{text-overflow:ellipsis; overflow:hidden; white-space:nowrap; max-width:calc(100% - 16px); display:inline-block; font-size:14px; vertical-align:top;}
+.btn-picker .iconfont{vertical-align:middle;}
 
 .btn-pop-picker .weui-popup__overlay{background-color:rgba(0,0,0,0);}
 .btn-pop-picker .weui-popup__modal{background:white; height:auto;}

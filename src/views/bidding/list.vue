@@ -5,6 +5,7 @@
             <template v-for="(item, index) in tableData">
                 <list-card-item
                 :item="item"
+                :index="index + 1"
                 @click.native="toDetail(item, index)"
                 :key="index"
                 v-touch:hold="itemHold"

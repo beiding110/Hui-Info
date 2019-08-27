@@ -81,7 +81,7 @@ export default {
             this.$post('/Api/DingYue/DingYueManager', row, data => {
                 app.ShowMsg('修改成功');
 
-                that.$store.commit('setState',{
+                this.$store.commit('setState',{
                     traceSign: true
                 });
             });

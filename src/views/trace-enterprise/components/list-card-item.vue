@@ -7,11 +7,9 @@
             {{item.DWCNNAME}}
         </div>
         <div slot="footer" class="info--card__footer">
-            <div class="info--footer__tags">
-                <w-tag class="info-card footer-tags" type="info">{{item.DWTYPETEXT}}</w-tag>
-                <w-tag class="info-card footer-tags" type="danger">{{item.XZQYNAME}}-{{item.DWAREANAME}}</w-tag>
-                <w-tag class="info-card footer-tags" type="warn">{{item.HYTYPENAME}}</w-tag>
-            </div>
+            <w-tag class="info-card footer-tags" type="info">{{item.DWTYPETEXT}}</w-tag>
+            <w-tag class="info-card footer-tags" type="danger">{{item.XZQYNAME}}-{{item.DWAREANAME}}</w-tag>
+            <w-tag class="info-card footer-tags" type="warn">{{item.HYTYPENAME}}</w-tag>
         </div>
     </w-card>
 </template>

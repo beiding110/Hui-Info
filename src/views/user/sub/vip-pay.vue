@@ -63,11 +63,15 @@ export default {
                 app.ShowMsgBox('请选择会员服务');
                 return;
             }
-            this.$get('/Api/Payment/GetPayUrl', {
-                id: this.payId
-            }, function(data){
-                window.location.replace(data);
-            })
+            // this.$get('/Api/Payment/GetPayUrl', {
+            //     id: this.payId
+            // }, function(data){
+            //     window.location.replace(data);
+            // })
+
+            this.$post('/Api/User/AddOrder', data => {
+                app.wxPay(data, this.$router.replace('/user/paysuccess'));
+            });
         },
         getInfo: function() {
             this.form = this.$store.state.userInfo;

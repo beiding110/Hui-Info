@@ -165,6 +165,7 @@ export default {
             }catch(e){}
         },
         contentTableToMobileGg (str) {
+            if(this.detailType !== 'GongGao') return str;
 
             function DtableBuilder(obj) {
                 this.init(obj);

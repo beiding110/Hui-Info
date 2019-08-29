@@ -48,7 +48,7 @@ export default {
                 query: {
                     RowGuid: item.RowGuid,
                     Category: item.Category,
-                    searchKey: item.searchkey
+                    searchKey: this.extraObj.KeyName || item.searchkey
                 }
             });
         }

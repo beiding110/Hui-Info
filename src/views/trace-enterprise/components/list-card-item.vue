@@ -4,7 +4,7 @@
     :data-guid="item.RowGuid">
         <div class="info--card__header" slot="header" :class="{'is-read': !!item.IsRead}">
             <i class="iconfont icon-qiye">&#xe609;</i>
-            {{item.DWCNNAME}}
+            <font v-html="fontReplacer(item.searchkey, item.DWCNNAME)"></font>
         </div>
         <div slot="footer" class="info--card__footer">
             <w-tag class="info-card footer-tags" type="info">{{item.DWTYPETEXT}}</w-tag>

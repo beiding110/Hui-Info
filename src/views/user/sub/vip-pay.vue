@@ -69,8 +69,12 @@ export default {
             //     window.location.replace(data);
             // })
 
-            this.$post('/Api/User/AddOrder', data => {
-                app.wxPay(data, this.$router.replace('/user/paysuccess'));
+            this.$post('/Api/User/AddOrder', {
+                id: this.payId
+            }, data => {
+                app.wxPay(data, () => {
+                    this.goto('/user/paysuccess')
+                });
             });
         },
         getInfo: function() {

@@ -7,7 +7,7 @@
                 	<div class="weui-form-preview__hd">
                         <div class="text-title" v-html="fontReplacer(this.searchKey, detail.publicity_name)"></div>
 
-                        <div>
+                        <div class="text-sub-title">
                             <w-tag class="info-card footer-tags" type="info">{{detail.cityname}}</w-tag>
                             <w-tag class="info-card footer-tags" type="danger">{{detail.TypeName}}</w-tag>
                             <w-tag class="info-card footer-tags" type="warn">{{detail.hyname}}</w-tag>
@@ -73,6 +73,7 @@
                 </div>
             </w-card>
         </template>
+
         <template v-else>
             <w-card class="info--card">
                 <div class="weui-form-preview">
@@ -82,7 +83,7 @@
                             {{detail.Title}}
                         </div>
 
-                        <div>
+                        <div class="text-sub-title">
                             <w-tag class="info-card footer-tags" type="info">{{detail.cityname}}</w-tag>
                             <w-tag class="info-card footer-tags" type="danger">{{detail.TypeName}}</w-tag>
                             <w-tag class="info-card footer-tags" type="warn">{{detail.hyname}}</w-tag>
@@ -100,7 +101,7 @@
                 <div class="weui-panel">
                 	<div class="weui-panel__bd">
                 		<div class="weui-media-box weui-media-box_text">
-                			<p class="weui-media-box__desc rich-text__con"
+                			<p class="weui-media-box__desc rich-text__con" :class="'rich-text_' + detailType"
                             v-html="fontReplacer(this.searchKey, contentTableToMobileGg(detail.Content))"></p>
                 		</div>
                 	</div>
@@ -112,6 +113,8 @@
 
 <script>
 import collectStar from '@/views/components/collect-star'
+import './style/kaibiaojilu.css'
+
 export default {
     props: ['value'],
     components: {collectStar},
@@ -259,6 +262,7 @@ export default {
 .info--card.zh-card{padding:0;}
 
 .text-title{color:#3F3F3F; line-height:2em; font-size:16px; font-weight:bold;}
+.text-sub-title{overflow:hidden;}
 .btn-collect{float:right;}
 </style>
 

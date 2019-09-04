@@ -11,16 +11,44 @@
 
         <div class="weui-flex w-sel-search">
             <div class="weui-flex__item sel-btn__flex">
-                <btn-pop-picker placeholder="行业" v-model="form.HyCode" :data="HyData" top="89px"></btn-pop-picker>
+                <btn-pop-picker
+                placeholder="行业"
+                v-model="form.HyCode"
+                ref="HyData"
+                :data="HyData"
+                top="89px"
+                @cancle="cancleHandler"
+                @submit="searchHandler"></btn-pop-picker>
             </div>
             <div class="weui-flex__item sel-btn__flex">
-                <btn-pop-picker placeholder="时间段" v-model="form.DateRange" :data="DateRangeData" top="89px"></btn-pop-picker>
+                <btn-pop-picker
+                placeholder="时间段"
+                v-model="form.DateRange"
+                ref="DateRangeData"
+                :data="DateRangeData"
+                top="89px"
+                @cancle="cancleHandler"
+                @submit="searchHandler"></btn-pop-picker>
             </div>
             <div class="weui-flex__item sel-btn__flex">
-                <btn-pop-picker placeholder="地区" v-model="form.CityCode" :data="CityData" top="89px"></btn-pop-picker>
+                <btn-pop-picker
+                placeholder="地区"
+                v-model="form.CityCode"
+                ref="CityData"
+                :data="CityData"
+                top="89px"
+                @cancle="cancleHandler"
+                @submit="searchHandler"></btn-pop-picker>
             </div>
             <div class="weui-flex__item sel-btn__flex">
-                <btn-pop-picker placeholder="类型" v-model="form.TypeCode" :data="TypeData" top="89px"></btn-pop-picker>
+                <btn-pop-picker
+                placeholder="类型"
+                v-model="form.TypeCode"
+                ref="TypeData"
+                :data="TypeData"
+                top="89px"
+                @cancle="cancleHandler"
+                @submit="searchHandler"></btn-pop-picker>
             </div>
             <!-- <div class="weui-flex__item sel-btn__flex">
                 <btn-picker placeholder="来源" v-model="form.Source" :data="SourceData"></btn-picker>
@@ -66,6 +94,12 @@ export default {
                 path: '/home/bidding/search/res',
                 query: this.form
             });
+        },
+        cancleHandler() {
+            var arr = ['HyData', 'DateRangeData', 'CityData', 'TypeData'];
+            arr.forEach(item => {
+                this.$refs[item].reset();
+            })
         }
     },
     mounted:function(){

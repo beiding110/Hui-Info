@@ -20,8 +20,8 @@
                     </template>
                 </div>
                 <div class="pop-picker_btn-con">
-                    <btn class="pop-picker_btn" @click="reset">重置</btn>
-                    <btn class="pop-picker_btn" type="primary" @click="hide">确认</btn>
+                    <btn class="pop-picker_btn" @click="cancleHandler">重置</btn>
+                    <btn class="pop-picker_btn" type="primary" @click="confirmHandler">筛选</btn>
                 </div>
             </div>
         </div>
@@ -67,8 +67,13 @@ export default {
         show() {
             $(this.$refs.popup).popup();
         },
-        hide() {
-            $.closePopup()
+        confirmHandler() {
+            this.$emit('submit');
+            $.closePopup();
+        },
+        cancleHandler() {
+            this.$emit('cancle');
+            $.closePopup();
         },
         reset() {
             this.model = '';

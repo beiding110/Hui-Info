@@ -19,7 +19,7 @@ export default {
         component: function(){return import(/*webpackChunkName: 'trace'*/ '@/views/home/home')},
         children: [
             {
-                path: 'detail/:guid/:CityCode/:DateRange/:KeyName',
+                path: 'detail',
                 name: 'trace-detail',
                 meta: {title: '订阅详情', alive: true, vip: true},
                 component: function(){return import(/*webpackChunkName: 'trace'*/ '@/views/trace/detail')},

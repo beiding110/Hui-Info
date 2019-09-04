@@ -38,10 +38,11 @@ export default {
     methods:{
         inPageHandler: function(){
             this.extra = {
-                RowGuid:this.$route.params.guid == 'null' ? '' : this.$route.params.guid,
-                CityCode:this.$route.params.CityCode == 'null' ? '' : this.$route.params.CityCode,
-                DateRange:this.$route.params.DateRange == 'null' ? '' : this.$route.params.DateRange,
-                KeyName:this.$route.params.KeyName == 'null' ? '' : this.$route.params.KeyName
+                RowGuid: this.getQuery('guid'),
+                CityCode: this.getQuery('CityCode'),
+                DateRange: this.getQuery('DateRange'),
+                KeyName: this.getQuery('KeyName'),
+                TypeCode: this.getQuery('TypeCode')
             }
         },
     },

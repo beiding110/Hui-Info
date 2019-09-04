@@ -69,7 +69,7 @@ export default {
             //     window.location.replace(data);
             // })
 
-            this.$post('/Api/User/AddOrder', {
+            this.$get('/api/Payment/AddOrder', {
                 id: this.payId
             }, data => {
                 app.wxPay(data, () => {

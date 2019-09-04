@@ -66,7 +66,16 @@ export default {
         toDetail(row) {
             this.$store.commit('setState', {traceItem: row});
             this.$nextTick(() => {
-                this.$router.push('/trace/detail/' + row.RowGuid + '/' + row.CityCode + '/' + row.DateRange + '/' + row.KeyName);
+                this.goto({
+                    path: '/trace/detail',
+                    query: {
+                        guid: row.RowGuid,
+                        CityCode: row.CityCode,
+                        DateRange: row.DateRange,
+                        KeyName: row.KeyName,
+                        TypeCode: row.TypeCode
+                    }
+                });
             })
         },
         switchChangeHandler(row) {

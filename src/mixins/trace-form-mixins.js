@@ -20,7 +20,7 @@ var eptForm = {
 //企业名称
     CompanyName: '',
 //是否启用
-    Shbj: '0'
+    Shbj: '1'
 };
 
 export default {

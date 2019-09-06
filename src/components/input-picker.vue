@@ -94,7 +94,7 @@ export default {
                 }
             });
 
-            if(!!this.value){
+            if(!!this.valueMap[this.value]){
                 this.label = this.valueMap[this.value];
             }
         }

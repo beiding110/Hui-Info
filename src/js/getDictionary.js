@@ -89,6 +89,7 @@ export default function() {
             HyData: [],
             JdData: [],
             DanWeiTypeData: [
+                {label: '全部', value: ''},
                 {label: '招标代理机构', title: '招标代理机构', value: '招标代理机构'},
                 {label: '招标人', title: '招标人', value: '招标人'},
                 {label: '中标单位', title: '中标单位', value: '中标单位'}

@@ -8,12 +8,19 @@
                 <div class="up">释放刷新</div>
                 <div class="refresh">正在刷新</div>
             </div>
+
+            <div class="weui-loadmore" style="margin:0.5em auto;" v-if="firstPgLoading">
+                <i class="weui-loading"></i>
+                <span class="weui-loadmore__tips">正在加载</span>
+            </div>
+
             <div>
-                <div id="list" class="demos-content-padded">
+                <div class="demos-content-padded">
                     <slot></slot>
                 </div>
             </div>
-            <div class="weui-loadmore" style="height:20px" v-if="action">
+
+            <div class="weui-loadmore" style="height:20px" v-if="action && pgLoading">
                 <i class="weui-loading" v-if="loadController"></i>
                 <span class="weui-loadmore__tips">{{loadText}}</span>
             </div>
@@ -49,7 +56,7 @@ export default {
         return {
             PageIndex: 1,
             loading: false,
-            loadController: true
+            loadController: true,
         }
     },
     watch: {
@@ -86,6 +93,12 @@ export default {
             }
             queryObj.PageIndex = this.PageIndex;
             return queryObj;
+        },
+        firstPgLoading: function() {
+            return (this.PageIndex === 1 && this.loading)
+        },
+        pgLoading: function() {
+            return (this.PageIndex !== 1 && this.loading)
         }
     },
     methods:{
@@ -115,7 +128,9 @@ export default {
             }
         },
         reload: function(){
-            $(this.$refs['scroll-con']).pullToRefresh('triggerPullToRefresh');
+            this.$nextTick(() => {
+                $(this.$refs['scroll-con']).pullToRefresh('triggerPullToRefresh');
+            })
         },
         storageScroll(e) {
             var obj = {};

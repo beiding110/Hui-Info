@@ -41,7 +41,8 @@
                 	<div class="weui-panel__bd">
                 		<div class="weui-media-box weui-media-box_text">
                 			<h4 class="weui-media-box__title">公示内容</h4>
-                			<p class="weui-media-box__desc rich-text__con" v-html="fontReplacer(this.searchKey, detail.publicity_content)"></p>
+                			<p class="weui-media-box__desc rich-text__con"
+                            v-html="fontReplacer(this.searchKey, richTableToLongTable(detail.publicity_content))"></p>
                 		</div>
                 	</div>
                 </div>
@@ -229,6 +230,23 @@ export default {
         	};
 
             return str
+        },
+        richTableToLongTable(str) {
+            var patt_table = new RegExp("<table.*?>((?:.|\n)+?)<\/table>","g");
+
+        	var res_teble, res_td;
+
+        	while ((res_teble = patt_table.exec(str)) != null)  {
+
+        		var tablebody = res_teble[0],
+                    rebuild_str = '';
+
+        		rebuild_str = '<div class="long-table-scroll-con">' + tablebody + '</div>';
+
+        		str = str.replace(tablebody, rebuild_str);
+        	};
+
+            return str
         }
     },
     mounted: function(){
@@ -279,4 +297,8 @@ export default {
 .rich-text__con .table-label, .rich-text__con .table-value{float:left; padding:.2em .4em; box-sizing:border-box;}
 .rich-text__con .table-label{width:8em;}
 .rich-text__con .table-value{width:calc(100% - 8em); border-left:1px solid #666;}
+
+.long-table-scroll-con{width:100%; overflow:auto;}
+.long-table-scroll-con table{min-width:1000px;}
+.long-table-scroll-con table td{padding:.2em;}
 </style>

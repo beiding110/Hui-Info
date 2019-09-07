@@ -66,10 +66,17 @@ export default {
         },
         screenHandler() {
             this.goto('/home/bidding/search/advanced');
+        },
+        getQueryKey() {
+            var keyword = this.getQuery('KeyName');
+            !!keyword && (this.model = keyword);
         }
     },
-    mounted:function(){
-
+    mounted() {
+        this.getQueryKey();
+    },
+    activated() {
+        this.getQueryKey();
     }
 }
 </script>
@@ -78,7 +85,7 @@ export default {
 <style scoped>
     .w-search-top{height:28px; padding:8px 10px; background:white; display:flex;}
     .w-search-con{width:100%; height:100%; position:relative; border-radius:3px; overflow:hidden; flex:1;}
-        .w-search-input{position:absolute; height:100%; width:100%; border:none; background:#ededed; padding:0 1em; color:#999999; box-sizing:border-box;}
-        .search-icon{position:absolute; color:#67bea5; font-size:20px; right:6px; line-height:28px;}
+        .w-search-input{position:absolute; height:100%; width:100%; border:none; background:#ededed; padding:0 1em; color:#353535; box-sizing:border-box;}
+        .search-icon{position:absolute; color:#37B7CF; font-size:20px; right:6px; line-height:28px;}
     .search-btn{color:#1f80e6; line-height:28px; padding-left:1em; font-weight:bold;}
 </style>

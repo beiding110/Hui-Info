@@ -3,7 +3,7 @@ export default {
         {
             path: 'trace',
             name: 'huiinfo-trace',
-            meta: {title: '招标订阅', alive: true},
+            meta: {title: '招标订阅', alive: true, vip: true},
             component: function(){return import(/*webpackChunkName: 'trace'*/ '@/views/trace/home')},
         }, {
             path: 'trace-all',

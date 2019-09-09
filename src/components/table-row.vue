@@ -35,9 +35,9 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-    .table-row{border: none;}
-    .table-row td{border: 1px solid #F2F6FC; font-size:13px; color:#606266; padding:0.5em;}
-    .table-label{text-align: center; background: #F2F6FC;}
-    .table-data{text-align: left;}
+<style>
+    table.table-con tr.table-row{border: none;}
+    table.table-con .table-row td{border: 1px solid #F2F6FC; font-size:13px; color:#606266; padding:0.5em;}
+    table.table-con td.table-label{text-align: center; background: #F2F6FC;}
+    table.table-con td.table-data{text-align: left;}
 </style>

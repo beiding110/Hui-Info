@@ -279,12 +279,13 @@ export default {
 
 .info--card.zh-card{padding:0;}
 
-.text-title{color:#3F3F3F; line-height:2em; font-size:16px; font-weight:bold;}
 .text-sub-title{overflow:hidden;}
 .btn-collect{float:right;}
 </style>
 
 <style>
+.text-title{color:#3F3F3F; line-height:2em; font-size:16px; font-weight:bold;}
+
 .rich-text__con{display: block !important; color:#3F3F3F !important;}
 .rich-text__con *{font-size:14px !important; line-height:1.5em !important; text-align:justify;}
 .rich-text__con table{width: 100% !important; border-collapse:collapse; border:none; table-layout:fixed; display:block;}

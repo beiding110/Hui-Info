@@ -3,7 +3,7 @@ export default {
         {
             path: 'trace/enterprise',
             name: 'huiinfo-trace-enterprise',
-            meta: {title: '关注企业', alive: true},
+            meta: {title: '关注企业', alive: true, vip: true},
             component: function(){return import(/*webpackChunkName: 'trace-enterpeise'*/ '@/views/trace-enterprise/home')},
         }, {
             path: 'trace/enterprise-all',
@@ -26,7 +26,7 @@ export default {
             }, {
                 path: 'form',
                 name: 'trace-enterprise-add',
-                meta: {title: '添加关注', vip: true},
+                meta: {title: '添加关注', vip: true, vip: true},
                 component: function(){return import(/*webpackChunkName: 'trace-enterpeise'*/ '@/views/trace-enterprise/form')},
             }
         ]

@@ -22,6 +22,6 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-    .table-con{width:100%; table-layout:fixed; border: #F2F6FC;}
+<style>
+    table.table-con{width:100%; table-layout:fixed; border: #F2F6FC;}
 </style>

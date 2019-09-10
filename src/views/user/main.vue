@@ -30,11 +30,11 @@
                         </div>
                     </div>
 
-                    <div class="function__card--group">
-                        <!-- <div class="function__card" @click="$router.push('/user/share/'+form.OpenID)">
+                    <!-- <div class="function__card--group">
+                        <div class="function__card" @click="$router.push('/user/share/'+form.OpenID)">
                             <i class="iconfont">&#xe689;</i>
                             我的分享
-                        </div> -->
+                        </div>
 
                         <div class="function__card" @click="$router.push('/collect/index')">
                             <i class="iconfont" style="color:#FFAC9E;">&#xe607;</i>
@@ -51,7 +51,7 @@
                                 <div>随时开发票，订单不丢失</div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>

@@ -1,13 +1,19 @@
 <template>
     <div class="w-search-top">
-        <div class="w-search-con" :class="searchConFocus">
-            <input class="w-search-input" type="search"
-            v-model="model"
-            :placeholder="placeholder"
-            @focus="focusHandler" @blur="blurHandler" @keydown="search"/>
-            <i class="weui-icon-search search-icon" v-if="isFocus" @click="searchHandler"></i>
+        <div class="w-search-con" :class="searchConFocus" @click="gotoSearch">
+            <template v-if="readonly">
+                <span class="w-search-input">{{placeholder}}</span>
+            </template>
+            <template v-else>
+                <input class="w-search-input" type="search"
+                ref="input"
+                v-model="model"
+                :placeholder="placeholder"
+                @focus="focusHandler" @blur="blurHandler" @keydown="search"/>
+                <i class="weui-icon-search search-icon" v-if="isFocus" @click="searchHandler"></i>
+            </template>
         </div>
-        <span class="search-btn" v-if="!isFocus" @click="screenHandler">筛选</span>
+        <span class="search-btn" v-if="!isFocus && !noBtn" @click="screenHandler">筛选</span>
     </div>
 </template>
 
@@ -26,6 +32,14 @@ export default {
             type: Boolean,
             default: true
         },
+        readonly: {
+            type: Boolean,
+            default: false
+        },
+        noBtn: {
+            type: Boolean,
+            default: false
+        }
     },
     data () {
         return {
@@ -64,12 +78,31 @@ export default {
         blurHandler() {
             this.isFocus = false;
         },
-        screenHandler() {
-            this.goto('/home/bidding/search/advanced');
-        },
         getQueryKey() {
             var keyword = this.getQuery('KeyName');
             !!keyword && (this.model = keyword);
+        },
+        screenHandler() {
+            var query = this.getQuery();
+            this.goto({
+                path: '/home/bidding/search/advanced',
+                query
+            });
+        },
+        gotoSearch(event) {
+            if(this.readonly) {
+                event.preventDefault();
+                event.stopPropagation();
+
+                var query = this.getQuery();
+                this.goto({
+                    path: '/home/bidding/search',
+                    query
+                });
+            };
+        },
+        focus() {
+            this.$refs.input.focus();
         }
     },
     mounted() {
@@ -85,7 +118,7 @@ export default {
 <style scoped>
     .w-search-top{height:28px; padding:8px 10px; background:white; display:flex;}
     .w-search-con{width:100%; height:100%; position:relative; border-radius:3px; overflow:hidden; flex:1;}
-        .w-search-input{position:absolute; height:100%; width:100%; border:none; background:#ededed; padding:0 1em; color:#353535; box-sizing:border-box;}
+        .w-search-input{position:absolute; height:100%; width:100%; border:none; background:#ededed; padding:0 14px; color:#353535; box-sizing:border-box; font-size:14px; line-height:28px;}
         .search-icon{position:absolute; color:#37B7CF; font-size:20px; right:6px; line-height:28px;}
     .search-btn{color:#1f80e6; line-height:28px; padding-left:1em; font-weight:bold;}
 </style>

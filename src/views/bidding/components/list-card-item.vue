@@ -20,19 +20,22 @@
             </div>
         </div> -->
         <div slot="footer" class="info--card__footer">
-            <span class="footer-tags">
+            <div class="info--footer__tags">
+                <span class="list-item-index footer-tags opacity-placeholder" v-if="index">{{index}}.</span>
+                <slot name="cityname">
+                    <w-tag class="info-card footer-tags" type="info">{{item.cityname}}</w-tag>
+                </slot>
+                <slot name="typename">
+                    <w-tag class="info-card footer-tags" type="danger">{{item.TypeName}}</w-tag>
+                </slot>
+                <slot name="hyname">
+                    <w-tag class="info-card footer-tags" type="warn">{{hyCalc(item.hyname)}}</w-tag>
+                </slot>
+            </div>
+            <div class="info--footer__time">
                 <i class="iconfont">&#xe63b;</i>
                 {{timeBeforeCalc(item.AddTime)}}
-            </span>
-            <slot name="hyname">
-                <w-tag class="info-card footer-tags" type="warn">{{hyCalc(item.hyname)}}</w-tag>
-            </slot>
-            <slot name="typename">
-                <w-tag class="info-card footer-tags" type="danger">{{item.TypeName}}</w-tag>
-            </slot>
-            <slot name="cityname">
-                <w-tag class="info-card footer-tags" type="info">{{cityCalc(item.cityname)}}</w-tag>
-            </slot>
+            </div>
         </div>
     </w-card>
 </template>
@@ -90,7 +93,8 @@ export default {
 .item-info-con_right{width:80px; float:right; text-align:right; color:#909399}
 
 .info-card{margin-right:.5em;}
-.footer-tags{float:right; font-size:12px; line-height:1.5em;}
+.info--card__content{flex:1;}
+.footer-tags{float:left; font-size:12px; line-height:1.5em;}
 
 .info--card{margin:0; padding:1em; position:relative;}
 .info--card::before{content:''; display:block; width:90%; height:1px; background:#f4f4f4; position:absolute; left:50%; transform:translate(-50%, -50%);}
@@ -101,4 +105,6 @@ export default {
 .info--card__footer{text-align:right;}
 .list-item-index{padding:0 .2em 0 0;}
 .list-item-title{flex:1;}
+
+.opacity-placeholder{opacity:0; margin-right:4px;}
 </style>

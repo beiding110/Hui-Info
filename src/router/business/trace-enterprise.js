@@ -26,7 +26,7 @@ export default {
             }, {
                 path: 'form',
                 name: 'trace-enterprise-add',
-                meta: {title: '添加关注', vip: true, vip: true},
+                meta: {title: '添加关注'},
                 component: function(){return import(/*webpackChunkName: 'trace-enterpeise'*/ '@/views/trace-enterprise/form')},
             }
         ]

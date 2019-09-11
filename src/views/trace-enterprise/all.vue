@@ -27,6 +27,7 @@
 
 <script>
 import listCardItem from '@/views/trace-enterprise/components/list-card-item'
+import '@/views/trace/css/home.css'
 export default {
     components: {listCardItem},
     data () {

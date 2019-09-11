@@ -4,13 +4,15 @@
 
             <template v-for="(item, index) in tableData">
                 <list-card-item
-                :item="item"
-                @click.native="toDetail(item, index)"
-                :key="index"
-                v-touch:hold="itemHold"
-                v-ncmenu
-                :bold="bold"
-                ></list-card-item>
+                    :index="index + 1"
+                    :item="item"
+                    @click.native="toDetail(item, index)"
+                    :key="index"
+                    v-touch:hold="itemHold"
+                    v-ncmenu
+                    :bold="bold">
+                    <span slot="hyname"></span>
+                </list-card-item>
             </template>
 
         </scroll-loader>

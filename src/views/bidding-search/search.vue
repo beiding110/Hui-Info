@@ -1,6 +1,6 @@
 <template>
     <div class="page page_search">
-        <search-top v-model="search" @search="searchHandler" placeholder="示例：税务局"></search-top>
+        <search-top v-model="search" @search="searchHandler" placeholder="示例：税务局" ref="searchTop"></search-top>
 
         <search-tip v-model="search" ref="searchTip" @select="goListHandler"></search-tip>
     </div>
@@ -16,7 +16,6 @@ export default {
     data () {
         return {
             search: '',
-
         }
     },
     methods:{
@@ -30,10 +29,14 @@ export default {
                     KeyName: this.search
                 }
             });
+        },
+        getQueryInfo() {
+            this.search = this.getQuery('KeyName');
         }
     },
     mounted:function(){
-
+        this.getQueryInfo();
+        this.$refs.searchTop.focus();
     }
 }
 </script>

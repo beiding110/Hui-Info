@@ -26,7 +26,7 @@ export default {
             }, {
                 path: 'form',
                 name: 'trace-add',
-                meta: {title: '添加订阅', vip: true},
+                meta: {title: '添加订阅'},
                 component: function(){return import(/*webpackChunkName: 'trace'*/ '@/views/trace/form')},
             }, {
                 path: 'setting',

@@ -26,7 +26,7 @@
 
                         <div class="function__card" @click="$router.push('/user/vippay')">
                             <i class="iconfont" style="color:#84B2FD;">&#xe602;</i>
-                            获取套餐
+                            VIP会员权益
                         </div>
                     </div>
 
@@ -52,6 +52,24 @@
                             </div>
                         </div>
                     </div> -->
+
+                    <div class="function__card--group">
+                        <div class="function__card" @click="goto('/home/trace/enterprise-all')">
+                            <i class="iconfont" style="color:#59D282;">&#xe609;</i>
+                            <div>
+                                <div>关注的企业</div>
+                                <div>企业信息，一手获得</div>
+                            </div>
+                        </div>
+
+                        <div class="function__card" @click="goto('/collect/index')">
+                            <i class="iconfont" style="color:#FFAC9E;">&#xe607;</i>
+                            <div>
+                                <div>关注的项目</div>
+                                <div>及时找到关注的项目信息</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

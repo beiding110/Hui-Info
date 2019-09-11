@@ -50,11 +50,12 @@ import Vue from 'vue'
         }
     };
 
-    owner.fontReplacer = function(target, str) {
+    owner.fontReplacer = function(target, str, spliter) {
         if(!str) return '';
         if(!target) return str;
 
-        var boldArr = target.split(' ');
+        spliter = spliter || ' ';
+        var boldArr = target.split(spliter);
 
         boldArr.forEach((item) => {
             if(item && /^[a-zA-Z0-9\u4e00-\u9fa5]+$/.test(item))

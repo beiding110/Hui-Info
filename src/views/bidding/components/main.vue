@@ -1,6 +1,6 @@
 <template>
     <div class="page">
-        <search-top v-model="searchName" @search="quertData" @input="searchInputHandler"></search-top>
+        <search-top v-model="searchName" @search="quertData" @input="searchInputHandler" readonly></search-top>
         <!-- <div class="weui-flex w-sel-search">
             <div class="weui-flex__item sel-btn__flex">
                 <btn-picker placeholder="地区" v-model="CityCode" @select="quertData" :data="CityData"></btn-picker>

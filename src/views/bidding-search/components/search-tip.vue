@@ -114,8 +114,8 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.search-history{text-align:center; position:relative; padding:1em 0;}
-.search-history_item{color:#a1a1a1; margin:1em; list-style:none;}
+.search-history{text-align:center; position:relative; padding:.5em 0;}
+.search-history_item{color:#a1a1a1; margin:.5em 1em; list-style:none;}
 
 .search-history + .search-history::before{content:''; display:block; width:90%; height:1px; background:#EFEFF4; position:absolute; top:0; left:5%;;}
 </style>

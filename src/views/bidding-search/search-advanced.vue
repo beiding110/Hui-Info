@@ -87,7 +87,9 @@ export default {
     },
     methods:{
         searchHandler() {
-            this.$refs.searchTip.searchHandler();
+            this.vipTest(() => {
+                this.$refs.searchTip.searchHandler();
+            });
         },
         goListHandler() {
             this.$router.replace({
@@ -100,10 +102,20 @@ export default {
             arr.forEach(item => {
                 this.$refs[item].reset();
             })
+        },
+        getQueryInfo() {
+            var query = this.getQuery();
+            if(!!query) {
+                Object.keys(query).forEach(key => {
+                    this.form[key] = query[key]
+                });
+            };
         }
     },
     mounted:function(){
         getDictionary.call(this);
+
+        this.getQueryInfo();
     }
 }
 </script>

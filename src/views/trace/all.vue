@@ -1,6 +1,7 @@
 <template>
     <div class="page">
-        <search-bar v-model="extraForm.KeyName" @search="quertData"></search-bar>
+        <!-- <search-bar v-model="extraForm.KeyName" @search="quertData"></search-bar> -->
+        <search-top v-model="extraForm.KeyName" @search="quertData" no-btn></search-top>
 
         <div class="page-content" style="top:44px;">
             <list :extra.sync="extraForm" ref="list" :bold="extraForm.KeyName" lazy url="/Api/Biding/GetDingYueZhaoBiaoList"></list>

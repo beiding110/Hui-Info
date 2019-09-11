@@ -40,15 +40,17 @@ export default {
     },
     methods:{
         tapHandler() {
-            this.$get('/Api/Collection/SetCollectState', {
-                id: this.guid
-            }, (data) => {
-                this.model = !this.model
+            this.vipTest(() => {
+                this.$get('/Api/Collection/SetCollectState', {
+                    id: this.guid
+                }, (data) => {
+                    this.model = !this.model
 
-                this.$store.commit('setState',{
-                    collectSign: true
+                    this.$store.commit('setState',{
+                        collectSign: true
+                    });
                 });
-            })
+            });
         }
     },
     mounted:function(){

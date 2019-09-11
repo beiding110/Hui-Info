@@ -1,6 +1,8 @@
 <template>
     <div class="btn-picker_con btn-pop-picker">
-        <div class="btn-picker btn-pop-picker" @click="show">
+        <div class="btn-picker btn-pop-picker"
+        @click="show"
+        :class="{'picker-active': isActive}">
             <span class="btn-text">{{activeItem.label || placeholder}}</span>
             <i class="iconfont">&#xe64a;</i>
         </div>
@@ -50,7 +52,9 @@ export default {
     },
     data () {
         return {
-            activeItem: {}
+            activeItem: {},
+
+            isActive: false
         }
     },
     computed: {
@@ -83,10 +87,28 @@ export default {
             this.activeItem = item;
             this.model = item.value;
             this.$emit('select', item);
+        },
+        displayWatcher() {
+            var switchObj = {
+                block: () => {
+                    this.isActive = true;
+                },
+                none: () => {
+                    this.isActive = false;
+                }
+            }
+            
+            new MutationObserver(mutation => {
+                if(mutation.some(change => change.attributeName === 'style')) {
+                    switchObj[this.$refs.popup.style.display]();
+                }
+            }).observe(this.$refs.popup, {
+                attributes: true
+            });
         }
     },
     mounted:function(){
-
+        this.displayWatcher();
     }
 }
 </script>
@@ -99,7 +121,7 @@ export default {
 
 .btn-picker{border:none; display: block; height:100%; color:#9B9B9B; margin:0 auto; line-height:44px; text-align:center; font-size:0;}
 .btn-text{text-overflow:ellipsis; overflow:hidden; white-space:nowrap; max-width:calc(100% - 16px); display:inline-block; font-size:14px; vertical-align:top;}
-.btn-picker .iconfont{vertical-align:middle; font-size:12px;}
+.btn-picker .iconfont{vertical-align:middle; font-size:12px; translate:.3s;}
 
 .btn-pop-picker .weui-popup__overlay{background-color:rgba(0,0,0,0);}
 .btn-pop-picker .weui-popup__modal{background:white; height:auto;}
@@ -113,4 +135,7 @@ export default {
 
 .pop-picker_btn-con{overflow:hidden; display:flex; position:absolute; bottom:0; left:0; right:0;}
 .pop-picker_btn-con .pop-picker_btn{margin:0 !important;}
+
+.picker-active{color:#67BEA5;}
+.picker-active .iconfont{transform:rotate(180deg); display:inline-block;}
 </style>

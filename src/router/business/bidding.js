@@ -18,7 +18,7 @@ export default {
                 {
                     path: 'advanced',
                     name: 'huiinfo-bidding-search-advanced',
-                    meta: {title: '招标高级搜索', vip: true},
+                    meta: {title: '招标高级搜索'},
                     component: function(){return import(/*webpackChunkName: 'bidding'*/ '@/views/bidding-search/search-advanced')},
                 }, {
                     path: 'res',

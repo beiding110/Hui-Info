@@ -9,6 +9,10 @@
                 <img src="@/assets/bidding-guide-text.png" class="bidding-guide-text"/>
                 <!-- <h2 class="title">标信订阅开启服务定制新时代</h2> -->
             </div>
+
+            <div class="top-search-block banner-advertisement advertisements">
+
+            </div>
         </div>
 
         <template v-for="item in btnArr">
@@ -26,6 +30,10 @@
                 </div>
             </div>
         </template>
+
+        <div class="search-block bottom-advertisement guid-btn advertisements">
+
+        </div>
     </div>
 </template>
 
@@ -79,4 +87,11 @@ export default {
         .guid-btn-des{color:#636363;}
 
     .bidding-guide-text{height:32px; margin:6px 0 0 12px;}
+
+/* 广告部分 */
+    .advertisements{background:rgba(255, 255, 255, .3); border:1px solid rgba(255, 255, 255, .8); position:relative;}
+    .advertisements::before{content:'广告'; position:absolute; left:0; top:0; background:rgba(255, 255, 255, .9); color:#999; font-size:12px; padding:.1em .3em;}
+
+    .banner-advertisement{position:absolute; bottom:6px; z-index:666; height:auto; top:auto; height:60px; transform:translate(-50%);}
+    .bottom-advertisement{height:120px;}
 </style>

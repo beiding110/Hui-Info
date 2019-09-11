@@ -70,16 +70,19 @@ export default {
         },
         submit: function(){
             var that = this;
-            var submitObj = app.clone(this.form);
-            submitObj.RowGuid = this.type;
 
-            this.$post('/Api/DingYue/DingYueManager', submitObj, function(data){
-                that.$store.commit('setState',{
-                    traceSign: true
-                });
+            this.vipTest(() => {
+                var submitObj = app.clone(this.form);
+                submitObj.RowGuid = this.type;
 
-                that.$router.go(-1);
-            })
+                this.$post('/Api/DingYue/DingYueManager', submitObj, function(data){
+                    that.$store.commit('setState',{
+                        traceSign: true
+                    });
+
+                    that.$router.go(-1);
+                })
+            });
         },
         citySel: function(e){
             this.form.CityName = e.label;

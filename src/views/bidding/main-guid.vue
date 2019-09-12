@@ -11,7 +11,7 @@
             </div>
 
             <div class="top-search-block banner-advertisement advertisements">
-
+                <img src="~@sta/advs/340-60.png" />
             </div>
         </div>
 
@@ -32,7 +32,7 @@
         </template>
 
         <div class="search-block bottom-advertisement guid-btn advertisements">
-
+            <img src="~@sta/advs/340-120.png" />
         </div>
     </div>
 </template>
@@ -89,9 +89,10 @@ export default {
     .bidding-guide-text{height:32px; margin:6px 0 0 12px;}
 
 /* 广告部分 */
-    .advertisements{background:rgba(255, 255, 255, .3); border:1px solid rgba(255, 255, 255, .8); position:relative;}
+    .advertisements{background:rgba(255, 255, 255, .3); border:1px solid rgba(255, 255, 255, .8); position:relative; padding:0; border-radius:4px; overflow:hidden;}
     .advertisements::before{content:'广告'; position:absolute; left:0; top:0; background:rgba(255, 255, 255, .9); color:#999; font-size:12px; padding:.1em .3em;}
+    .advertisements img{width:100%; height:100%;}
 
-    .banner-advertisement{position:absolute; bottom:6px; z-index:666; height:auto; top:auto; height:60px; transform:translate(-50%);}
-    .bottom-advertisement{height:120px;}
+    .banner-advertisement{position:absolute; bottom:6px; z-index:666; height:auto; top:auto; max-height:60px; transform:translate(-50%);}
+    .bottom-advertisement{max-height:120px;}
 </style>

@@ -2,7 +2,7 @@
     <div class="w-search-top">
         <div class="w-search-con" :class="searchConFocus" @click="gotoSearch">
             <template v-if="readonly">
-                <span class="w-search-input">{{placeholder}}</span>
+                <span class="w-search-input">{{model || placeholder}}</span>
             </template>
             <template v-else>
                 <input class="w-search-input" type="search"

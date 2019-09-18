@@ -11,10 +11,10 @@ function funFactory(dataKey, type) {
 
                     if(res.length) {
                         if(res[0].label !== '全部'){
-                            res.unshift({label: '全部', value: ''});
+                            res.unshift({label: '全部', value: '', isAll: true});
                         };
                     } else {
-                        res.unshift({label: '全部', value: ''});
+                        res.unshift({label: '全部', value: '', isAll: true});
                     };
 
                     res.forEach(function(item) {
@@ -89,7 +89,7 @@ export default function() {
             HyData: [],
             JdData: [],
             DanWeiTypeData: [
-                {label: '全部', value: ''},
+                {label: '全部', value: '', isAll: true},
                 {label: '招标代理机构', title: '招标代理机构', value: '招标代理机构'},
                 {label: '招标人', title: '招标人', value: '招标人'},
                 {label: '中标单位', title: '中标单位', value: '中标单位'}

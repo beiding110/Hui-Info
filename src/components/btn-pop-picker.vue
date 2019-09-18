@@ -97,7 +97,7 @@ export default {
                     this.isActive = false;
                 }
             }
-            
+
             new MutationObserver(mutation => {
                 if(mutation.some(change => change.attributeName === 'style')) {
                     switchObj[this.$refs.popup.style.display]();
@@ -136,6 +136,6 @@ export default {
 .pop-picker_btn-con{overflow:hidden; display:flex; position:absolute; bottom:0; left:0; right:0;}
 .pop-picker_btn-con .pop-picker_btn{margin:0 !important;}
 
-.picker-active{color:#67BEA5;}
+.picker-active{color:#409EFF;}
 .picker-active .iconfont{transform:rotate(180deg); display:inline-block;}
 </style>

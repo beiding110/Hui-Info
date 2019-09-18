@@ -4,14 +4,10 @@
             <img src="~@/assets/bidding-guid-bg.jpg" class="top-search-con_bg"/>
             <div class="top-search-block">
                 <div class="search-block" @click="goto('/home/bidding/search')">
-                    示例：税务局
+                    搜索
                 </div>
                 <img src="@/assets/bidding-guide-text.png" class="bidding-guide-text"/>
                 <!-- <h2 class="title">标信订阅开启服务定制新时代</h2> -->
-            </div>
-
-            <div class="top-search-block banner-advertisement advertisements">
-                <img src="~@sta/advs/340-60.png" />
             </div>
         </div>
 

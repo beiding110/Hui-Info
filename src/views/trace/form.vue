@@ -18,7 +18,8 @@
                 v-model="form.TypeCode"
                 :name.sync="form.TypeName"
                 :data="TypeData"
-                placeholder="请选择信息类别"></w-select>
+                noFirst
+                placeholder="全部信息类别"></w-select>
             </form-item>
             <form-item label="所属区域" arrow>
                 <input-picker placeholder="请选择所属区域" v-model="form.CityCode" :data="CityData" @select="citySel"></input-picker>

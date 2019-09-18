@@ -92,7 +92,7 @@ export default {
 .item-info-con_left>div{margin-right:80px;}
 .item-info-con_right{width:80px; float:right; text-align:right; color:#909399}
 
-.info-card{margin-right:.5em;}
+.info-card{margin-right:.3em;}
 .info--card__content{flex:1;}
 .footer-tags{float:left; font-size:12px; line-height:1.5em;}
 

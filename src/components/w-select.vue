@@ -35,6 +35,10 @@ export default {
                 label: 'label',
                 value: 'value'
             })
+        },
+        noFirst: {
+            type: Boolean,
+            default: false
         }
     },
     data () {
@@ -86,15 +90,21 @@ export default {
         init() {
             if(!this.data.length || !this.data) return;
 
-            var that = this;
+            var that = this,
+                items = this.data.map((item) => ({
+                    title: item[this.props.label],
+                    value: item[this.props.value],
+                    isAll: item.isAll
+                }));
+
+            if(this.noFirst) {
+                items.shift();
+            };
 
             $(this.$refs.wSelect).select({
                 title: this.title,
                 multi: this.multi,
-                items: this.data.map((item) => ({
-                    title: item[this.props.label],
-                    value: item[this.props.value]
-                })),
+                items: items,
                 onChange(e) {
                     that.model = e.values;
                     that.modelName = e.titles;

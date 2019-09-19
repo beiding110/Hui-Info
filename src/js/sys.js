@@ -1,15 +1,18 @@
 import Vue from 'vue'
+import dialogVip from '@/components-sys/dialog-vip'
 
 (function(owner) {
     owner.vipTest = function (cb, flag) {
         if(this.$store.state.IsVip || this.$store.state.IsTry) {
             cb && cb()
         } else {
-            if(flag) {
-                this.$router.push('/msg/error/抱歉/您是非会员，无权限查看此内容');
-            } else {
-                this.$router.replace('/msg/error/抱歉/您是非会员，无权限查看此内容');
-            };
+            owner.showDialogVip(() => {
+                if(flag) {
+                    this.$router.push('/msg/error/抱歉/您是非会员，无权限查看此内容');
+                } else {
+                    this.$router.replace('/msg/error/抱歉/您是非会员，无权限查看此内容');
+                };
+            });
         }
     };
 
@@ -63,5 +66,14 @@ import Vue from 'vue'
         })
 
         return str;
-    }
+    };
+
+    var DialogVip = Vue.extend(dialogVip);
+    var dialogVipComponent = new DialogVip().$mount();
+    owner.showDialogVip = function(callback) {
+        document.querySelector('body').appendChild(dialogVipComponent.$el);
+        dialogVipComponent.show({
+            callback
+        });
+    };
 } (Vue.prototype))

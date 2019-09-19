@@ -26,6 +26,7 @@
                 multi
                 v-model="form.DanWeiType"
                 :data="DanWeiTypeData"
+                noFirst
                 placeholder="全部企业类型"></w-select>
             </form-item>
             <form-item label="定制状态">

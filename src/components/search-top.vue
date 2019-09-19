@@ -39,7 +39,7 @@ export default {
         noBtn: {
             type: Boolean,
             default: false
-        }
+        },
     },
     data () {
         return {

@@ -87,9 +87,11 @@ export default {
             this.setLocal(this.storeKey, []);
         },
         clickHistoryHandler(key) {
-            this.search = key;
-            this.$nextTick(() => {
-                this.searchHandler();
+            this.vipTest(() => {
+                this.search = key;
+                this.$nextTick(() => {
+                    this.searchHandler();
+                });
             });
         },
         getHistory() {

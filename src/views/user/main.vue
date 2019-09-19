@@ -35,15 +35,6 @@
                             <i class="iconfont">&#xe689;</i>
                             我的分享
                         </div>
-
-                        <div class="function__card" @click="$router.push('/collect/index')">
-                            <i class="iconfont" style="color:#FFAC9E;">&#xe607;</i>
-                            <div>
-                                <div>我的收藏</div>
-                                <div>及时找到关注的信息</div>
-                            </div>
-                        </div>
-
                         <div class="function__card" @click="$router.push('/invoice/index')">
                             <i class="iconfont" style="color:#59D282;">&#xe601;</i>
                             <div>
@@ -68,6 +59,13 @@
                                 <div>关注的项目</div>
                                 <div>及时找到关注的项目信息</div>
                             </div>
+                        </div>
+                    </div>
+
+                    <div class="function__card--group">
+                        <div class="function__card" @click="$router.push('/user/about')">
+                            <i class="iconfont">&#xe729;</i>
+                            关于标信通
                         </div>
                     </div>
                 </div>

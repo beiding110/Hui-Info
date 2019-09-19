@@ -23,7 +23,7 @@ export default {
                 }, {
                     path: 'res',
                     name: 'huiinfo-bidding-search-res',
-                    meta: {title: '招标搜索结果', alive: true, vip: true},
+                    meta: {title: '招标搜索结果', alive: true},
                     component: function(){return import(/*webpackChunkName: 'bidding'*/ '@/views/bidding-search/search-main')},
                 }, {
                     path: '',

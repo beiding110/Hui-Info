@@ -1,13 +1,6 @@
 <template>
     <div class="page page_search">
-        <div class="weui-search-bar weui-search-bar_focusing ">
-            <form class="weui-search-bar__form">
-                <div class="weui-search-bar__box">
-                    <input v-model="search" type="search" placeholder="示例：税务局" class="weui-search-bar__input">
-                </div>
-            </form>
-            <a href="javascript:" class="submit-btn" @click="searchHandler" :style="{color:search?'#409EFF' : '#aaa'}">筛选</a>
-        </div>
+        <search-top v-model="search" @search="searchHandler" noBtn ref="searchTop"></search-top>
 
         <search-tip v-model="search" ref="searchTip" @select="goListHandler"
         store-key="$searchEnterpriseHistory" trace-url="/Api/DingYue/GetQiYeList" trace-key="CompanyName"></search-tip>
@@ -24,7 +17,6 @@ export default {
     data () {
         return {
             search: '',
-
         }
     },
     methods:{
@@ -41,7 +33,7 @@ export default {
         }
     },
     mounted:function(){
-
+        this.$refs.searchTop.focus();
     }
 }
 </script>

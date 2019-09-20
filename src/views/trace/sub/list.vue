@@ -8,10 +8,10 @@
                     </div>
                     <div class="trace-list_item_row trace-list_item-body">
                         <div>
-                            地区：{{item.CityName || '-'}}
+                            地区：{{item.CityName || '全部'}}
                         </div>
                         <div>
-                            信息类别：{{item.TypeName || '-'}}
+                            信息类别：{{item.TypeName || '全部'}}
                         </div>
                         <!-- <div>
                             时间段：{{item.DateRange ? '近 ' + item.DateRange + ' 天' : '-'}}

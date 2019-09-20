@@ -9,7 +9,7 @@
         <div slot="footer" class="info--card__footer">
             <w-tag class="info-card footer-tags" type="info">{{item.DWTYPETEXT}}</w-tag>
             <w-tag class="info-card footer-tags" type="danger">{{item.XZQYNAME}}-{{item.DWAREANAME}}</w-tag>
-            <w-tag class="info-card footer-tags" type="warn">{{item.HYTYPENAME}}</w-tag>
+            <!-- <w-tag class="info-card footer-tags" type="warn">{{item.HYTYPENAME}}</w-tag> -->
         </div>
     </w-card>
 </template>

@@ -164,6 +164,7 @@ export default {
             return date.join('-') + ' ' + hm.join(':');
         },
         timeToMMdd(str) {
+            str = str.replace(/\-/g, '/');
             return new Date(str).Format('MM-dd');
         }
     },

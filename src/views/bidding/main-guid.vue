@@ -3,11 +3,7 @@
         <div class="top-search-con">
             <img src="~@/assets/bidding-guid-bg.jpg" class="top-search-con_bg"/>
             <div class="top-search-block">
-                <div class="search-block" @click="goto('/home/bidding/search')">
-                    搜索
-                </div>
                 <img src="@/assets/bidding-guide-text.png" class="bidding-guide-text"/>
-                <!-- <h2 class="title">标信订阅开启服务定制新时代</h2> -->
             </div>
         </div>
 
@@ -82,7 +78,7 @@ export default {
         .guid-btn-title{font-size:16px; margin:4px 0; color:#2d2d2d; font-weight:bold;}
         .guid-btn-des{color:#636363;}
 
-    .bidding-guide-text{height:32px; margin:6px 0 0 12px;}
+    .bidding-guide-text{display:block; width:70%; margin:0 auto;}
 
 /* 广告部分 */
     .advertisements{background:rgba(255, 255, 255, .3); border:1px solid rgba(255, 255, 255, .8); position:relative; padding:0; border-radius:4px; overflow:hidden;}

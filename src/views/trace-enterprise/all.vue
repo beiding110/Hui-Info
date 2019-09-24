@@ -1,9 +1,7 @@
 <template>
     <div class="page">
         <div class="top-btn-con">
-            <div class="trace-enterprice-tip">
-                您在此可以填写关注的代理机构、业主单位、竞争对手企业名称的招标、中标等情况
-            </div>
+            <top-tip></top-tip>
         </div>
 
         <div class="page-con">
@@ -27,9 +25,10 @@
 
 <script>
 import listCardItem from '@/views/trace-enterprise/components/list-card-item'
+import topTip from '@/views/trace-enterprise/components/top-tip'
 import '@/views/trace/css/home.css'
 export default {
-    components: {listCardItem},
+    components: {listCardItem, topTip},
     data () {
         return {
             tableData: []
@@ -59,5 +58,4 @@ export default {
 .weui-flex{background:white;}
 
 .page-con{top:87px;}
-.trace-enterprice-tip{background:#f4f4f8;padding:1em; font-size:13px; font-weight:bold;}
 </style>

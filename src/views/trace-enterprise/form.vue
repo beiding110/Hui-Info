@@ -48,7 +48,7 @@
 import traceFormMixins from '@/mixins/trace-form-mixins'
 
 export default {
-    mixins: [traceFormMixins],
+    mixins: [traceFormMixins('/home/trace/enterprise-all')],
     data () {
         return {
             DanWeiTypeData: []

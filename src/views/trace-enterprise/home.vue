@@ -1,6 +1,7 @@
 <template>
     <div class="page">
         <div class="top-btn-con">
+            <top-tip></top-tip>
             <btn-to-setting type="enterprice"></btn-to-setting>
             <btn type="primary" @click="toKeyWord">添加订阅</btn>
         </div>
@@ -13,13 +14,15 @@
 <script>
 import traceList from './sub/list.vue'
 import btnToSetting from '@/views/trace/components/btn-to-setting.vue'
+import topTip from '@/views/trace-enterprise/components/top-tip'
 
 import '@/views/trace/css/home.css'
 
 export default {
     components:{
         traceList,
-        btnToSetting
+        btnToSetting,
+        topTip
     },
     data () {
         return {
@@ -39,7 +42,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-    .page-con{top:123px;}
+    .page-con{top:188px;}
 
     .trace-enterprice-tip{background:#f4f4f8;padding:1em; font-size:13px; font-weight:bold;}
 </style>

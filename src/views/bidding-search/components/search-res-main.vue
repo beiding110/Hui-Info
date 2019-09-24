@@ -26,9 +26,11 @@ export default {
     },
     methods: {
         goTraceHandler() {
+            var query = this.getQuery();
+            query.fromSearch = true;
             this.goto({
                 path: this.tfUrl,
-                query: this.getQuery()
+                query: query
             });
         },
         closeHandler() {

@@ -32,7 +32,7 @@
                 	<div class="weui-panel__bd">
                 		<div class="weui-media-box weui-media-box_text">
                 			<h4 class="weui-media-box__title">公示内容</h4>
-                			<p class="weui-media-box__desc rich-text__con" v-html="detail.publicity_content"></p>
+                			<p class="weui-media-box__desc rich-text__con" v-html="richTableToLongTable(detail.publicity_content)"></p>
                 		</div>
                 	</div>
                 </div>
@@ -64,13 +64,13 @@
                 </div>
             </w-card>
         </template>
-        <template v-else-if="$route.params.type=='GongGao'">
+        <template v-else>
             <w-card class="info--card">
                 <div class="weui-form-preview">
 
                 	<div class="weui-form-preview__hd">
-                		<h1 class="weui-form-preview__value">{{detail.bulletin_name}}</h1>
-                        <font class="weui-form-preview__value addtime">{{timeFormatter(detail.bulletin_issue_time)}}</font>
+                		<h1 class="weui-form-preview__value">{{detail.Title}}</h1>
+                        <font class="weui-form-preview__value addtime">{{timeFormatter(detail.PubInWebDate)}}</font>
                     </div>
 
                 </div>
@@ -78,9 +78,9 @@
             <w-card class="info--card">
                 <div class="weui-panel">
                 	<div class="weui-panel__bd">
-                		<div class="weui-media-box weui-media-box_text">
-                			<h4 class="weui-media-box__title">公告内容</h4>
-                			<p class="weui-media-box__desc rich-text__con" v-html="detail.bulletin_content"></p>
+                        <div class="weui-media-box weui-media-box_text">
+                			<p class="weui-media-box__desc rich-text__con" :class="'rich-text_' + detailType"
+                            v-html="contentTableToMobileGg(detail.Content)"></p>
                 		</div>
                 	</div>
                 </div>
@@ -111,13 +111,16 @@ export default {
             set: function(val){
                 this.$emit('input', val);
             }
-        }
+        },
+        detailType () {
+            return this.$route.params.type;
+        },
     },
     methods:{
         queryData: function(){
             var that = this;
             var guid = this.$route.params.guid;
-            var type = this.$route.params.type;
+            var type = this.detailType;
 
             this.$get('/Api/Biding/GetDetail', {
                 id: guid,
@@ -128,12 +131,96 @@ export default {
             })
         },
         timeFormatter: function(time){
+            if(/-/.test(time)) {
+                return time.split(' ')[0];
+            };
+
             try{
                 var yyyy = time.substring(0,4);
                 var MM = time.substring(4,6);
                 var dd = time.substring(6,8);
                 return yyyy + '-' + MM + '-' + dd;
             }catch(e){}
+        },
+        contentTableToMobileGg (str) {
+            if(this.detailType !== 'GongGao') return str;
+
+            function DtableBuilder(obj) {
+                this.init(obj);
+            };
+            DtableBuilder.prototype = {
+                init (obj) {
+                    this.$str = '<div class="table-rebuild"><div class="table-title">' + obj.title + '</div>';
+                },
+                add (item) {
+                    this.$str += ('<div class="table-row">' +
+                        '<div class="table-label">' + item.label + '</div>' +
+                        '<div class="table-value">' + item.value + '</div>' +
+                    '</div>');
+                },
+                print () {
+                    this.$str += '</div>';
+                    return this.$str;
+                }
+            };
+
+            var patt_table = new RegExp("<table.*?>((?:.|\n)+?)<\/table>","g"),
+        		patt_td = new RegExp("<td.*?>((?:.|\n)+?)<\/td>","g");
+
+        	var res_teble, res_td;
+
+        	while ((res_teble = patt_table.exec(str)) != null)  {
+
+        		var res_arr = [], counter = 1;
+        		var tablebody = res_teble[1];
+
+        		while ((res_td = patt_td.exec(tablebody)) != null)  {
+        			// console.log(res_td)
+
+        			if(counter % 2) {
+        				res_arr.push({});
+        				res_arr[res_arr.length - 1].label = res_td[1];
+        			} else {
+        				res_arr[res_arr.length - 1].value = res_td[1];
+        			}
+
+        			counter ++;
+        		};
+
+        		var rebuild_str = '';
+                var rebuild_str_zbr = new DtableBuilder({title: '招标人'}),
+                    rebuild_str_dl = new DtableBuilder({title: '招标代理机构'});
+        		res_arr.forEach(function(item, index) {
+        			if(!(index % 2)) {
+                        rebuild_str_zbr.add(item);
+                    } else {
+                        rebuild_str_dl.add(item);
+                    }
+        		});
+
+        		rebuild_str = rebuild_str_zbr.print() + rebuild_str_dl.print();
+
+        		str = str.replace(res_teble[0], rebuild_str);
+        	};
+
+            return str
+        },
+        richTableToLongTable(str) {
+            var patt_table = new RegExp("<table.*?>((?:.|\n)+?)<\/table>","g");
+
+        	var res_teble, res_td;
+
+        	while ((res_teble = patt_table.exec(str)) != null)  {
+
+        		var tablebody = res_teble[0],
+                    rebuild_str = '';
+
+        		rebuild_str = '<div class="long-table-scroll-con">' + tablebody + '</div>';
+
+        		str = str.replace(tablebody, rebuild_str);
+        	};
+
+            return str
         }
     },
     mounted: function(){
@@ -171,4 +258,15 @@ export default {
 .rich-text__con table{width: 100% !important; border-collapse:collapse; border:none; table-layout: fixed; display: block;}
 .rich-text__con table td{max-width: 100% !important; border: 1px solid #F2F6FC;}
 .rich-text__con table tr td:first-child{ }
+
+.rich-text__con .table-title{padding:.5em 0; font-weight:bold;}
+.rich-text__con .table-rebuild{border-bottom:1px solid #666;}
+.rich-text__con .table-row{overflow:hidden; border:1px solid #666; border-bottom:0;}
+.rich-text__con .table-label, .rich-text__con .table-value{float:left; padding:.2em .4em; box-sizing:border-box;}
+.rich-text__con .table-label{width:8em;}
+.rich-text__con .table-value{width:calc(100% - 8em); border-left:1px solid #666;}
+
+.long-table-scroll-con{width:100%; overflow:auto;}
+.long-table-scroll-con table{min-width:1000px;}
+.long-table-scroll-con table td{padding:.2em;}
 </style>

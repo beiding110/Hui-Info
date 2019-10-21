@@ -29,7 +29,7 @@ export default {
             })
         },
         toSetting() {
-            this.goto({
+            this.$router.replace({
                 path: '/trace/form',
                 query: {
                     type: this.extra.RowGuid

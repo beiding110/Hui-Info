@@ -7,7 +7,7 @@
                 :item="item"
                 :index="index + 1"
                 @click.native="toDetail(item, index)"
-                :key="index"
+                :key="item.RowGuid"
                 v-touch:hold="itemHold"
                 v-ncmenu
                 :bold="bold || item.searchkey"

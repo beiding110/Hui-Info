@@ -12,7 +12,9 @@
         </div> -->
 
         <div class="trace-detail__list-con" style="position:relative; overflow:hidden;">
-            <list-bidding ref="listbidding" url="/Api/Biding/GetDingYueList" :extra.sync="extra" lazy no-hyname>
+            <list-bidding ref="listbidding" key="trace-enterprise-list-bidding"
+            url="/Api/Biding/GetDingYueList"
+            :extra.sync="extra" lazy no-hyname>
                 <template slot="hyname" slot-scope="scope">
                     <w-tag class="info-card footer-tags" type="primary" v-if="scope.row.zbjg !== '-1'" style="float:right; margin-right:.5em;">
                         {{scope.row.zbjg}}万

@@ -4,7 +4,8 @@
         <search-top v-model="extraForm.KeyName" @search="quertData" no-btn></search-top>
 
         <div class="page-content" style="top:44px;">
-            <list :extra.sync="extraForm" ref="list" :bold="extraForm.KeyName" lazy url="/Api/Biding/GetDingYueZhaoBiaoList"></list>
+            <list ref="list" key="trace-all-bidding-list"
+             :extra.sync="extraForm" :bold="extraForm.KeyName" lazy url="/Api/Biding/GetDingYueZhaoBiaoList"></list>
         </div>
 
         <w-btn-fixed @click="goSetting">设置</w-btn-fixed>

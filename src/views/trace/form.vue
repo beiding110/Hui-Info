@@ -25,6 +25,7 @@
                 <input-picker placeholder="请选择所属区域" v-model="form.CityCode" :data="CityData" @select="citySel"></input-picker>
             </form-item>
             <form-item label="定制状态">
+                <span></span>
                 <w-switch
                 slot="footer"
                 v-model="form.Shbj"

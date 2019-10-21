@@ -30,6 +30,7 @@
                 placeholder="全部企业类型"></w-select>
             </form-item>
             <form-item label="定制状态">
+                <span></span>
                 <w-switch
                 slot="footer"
                 v-model="form.Shbj"

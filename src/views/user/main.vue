@@ -13,7 +13,13 @@
                                 <i :class="$store.state.IsVip ? 'iconfont vipIcon active' : 'iconfont vipIcon'">&#xe646;</i>
                             </div>
                             <div>
-                                {{$store.state.IsVip ? ('会员到期日：'+ timeFormatter(form.VipEndDate) ) : ( $store.state.IsTry ? ('试用到期日：' + timeFormatter(form.VipEndDate) ) : '免费会员' )}}
+                                {{
+                                    $store.state.IsVip
+                                    ? ('会员到期日：'+ timeFormatter(form.VipEndDate) )
+                                    : ( $store.state.IsTry
+                                        ? ('试用会员')
+                                        : '免费会员' )
+                                }}
                             </div>
                         </div>
                     </div>

@@ -13,7 +13,7 @@
                             <w-tag class="info-card footer-tags" type="warn">{{detail.hyname}}</w-tag>
                             <span class="addtime">
                                 <i class="iconfont">&#xe63b;</i>
-                                {{timeBeforeCalc(timeFormatter(detail.bulletin_issue_time))}}
+                                {{timeBeforeCalc(timeFormatter(detail.PubInWebDate))}}
                             </span>
                         </div>
                     </div>

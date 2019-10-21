@@ -111,6 +111,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.push-time{width:100%;}
 .push-time.weui-cell_select, .push-time.weui-cell{padding-left:0; color:#666; font-size:13px;}
 
 .weui-media-box{background:white; margin-top:1em; padding:14px 18px;}

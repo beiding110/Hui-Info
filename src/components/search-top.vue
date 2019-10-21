@@ -80,7 +80,8 @@ export default {
         },
         getQueryKey() {
             var keyword = this.getQuery('KeyName');
-            !!keyword && (this.model = keyword);
+            // !!keyword && (this.model = keyword);
+            this.model = keyword;
         },
         screenHandler() {
             var query = this.getQuery();

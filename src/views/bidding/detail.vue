@@ -93,7 +93,9 @@
                                 {{timeBeforeCalc(timeFormatter(detail.PubInWebDate))}}
                             </font>
 
-                            <collect-star v-model="detail.Collection" :guid="detail.RowGuid" class="btn-collect"></collect-star>
+                            <collect-star
+                            v-if="detailType === 'GongGao'"
+                            v-model="detail.Collection" :guid="detail.RowGuid" class="btn-collect"></collect-star>
                         </div>
                     </div>
                 </div>

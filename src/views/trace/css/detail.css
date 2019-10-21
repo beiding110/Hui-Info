@@ -1,4 +1,4 @@
-.trace-detail__title{height:44px; background:white; font-size:14px; padding:1em; color:#333333; border-bottom:1px solid #dddddd;}
+.trace-detail__title{height:44px; background:white; font-size:14px; padding:1em; color:#333333; border-bottom:1px solid #dddddd; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
 
 .trace-detail__infotip{color:#353535; padding:.5em 1em;}
 .trace-detail__infotip .iconfont{display:inline-block; color:#FC965C; margin-right:10px;}

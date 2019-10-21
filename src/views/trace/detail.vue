@@ -1,7 +1,9 @@
 <template>
     <div style="height:100%;">
         <div class="trace-detail__title">
-            根据您设置的关键词：{{extra.KeyName}}，为您预览30天之内的信息，点击标题可查看详情。
+            根据您设置的关键词：
+            <span class="trace-key">{{extra.KeyName}}</span>
+            ，为您预览30天之内的信息，点击标题可查看详情。
 
             <span class="btn-to-setting" @click="toSetting">订阅设置</span>
         </div>
@@ -63,5 +65,5 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
+    .trace-key{max-width:20em; overflow:hidden; text-overflow:ellipsis; display:inline-block;}
 </style>

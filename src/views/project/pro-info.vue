@@ -25,6 +25,8 @@
                     </span>
                 </template>
 
+                <span></span>
+
                 <w-switch
                 slot="footer"
                 v-model="form.Scbj"

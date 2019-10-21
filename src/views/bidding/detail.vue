@@ -103,7 +103,7 @@
                 	<div class="weui-panel__bd">
                 		<div class="weui-media-box weui-media-box_text">
                 			<p class="weui-media-box__desc rich-text__con" :class="'rich-text_' + detailType"
-                            v-html="fontReplacer(this.searchKey, contentTableToMobileGg(detail.Content))"></p>
+                            v-html="fontReplacer(this.searchKey, richTableToLongTable(contentTableToMobileGg(detail.Content)))"></p>
                 		</div>
                 	</div>
                 </div>

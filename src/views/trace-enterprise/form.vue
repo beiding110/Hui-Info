@@ -5,7 +5,7 @@
         </trace-form-title>
 
         <div class="weui-cells weui-cells_form">
-            <form-item label="企业名称" v-model="form.CompanyName" placeholder="请输入企业名称" required></form-item>
+            <form-item label="企业名称" v-model="form.CompanyName" placeholder="请输入企业全称" required></form-item>
             <!-- <form-item label="时间段" arrow required>
                 <input-picker placeholder="请选择时间段" v-model="form.DateRange" :data="DateRangeData"></input-picker>
             </form-item> -->

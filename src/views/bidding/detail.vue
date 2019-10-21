@@ -281,6 +281,8 @@ export default {
 
 .text-sub-title{overflow:hidden;}
 .btn-collect{float:right;}
+
+.addtime{display:inline-block;}
 </style>
 
 <style>

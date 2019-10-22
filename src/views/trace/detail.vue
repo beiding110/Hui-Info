@@ -65,5 +65,5 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-    .trace-key{max-width:20em; overflow:hidden; text-overflow:ellipsis; display:inline-block;}
+    .trace-key{max-width:20em; overflow:hidden; text-overflow:ellipsis; display:inline-block; vertical-align:middle;}
 </style>

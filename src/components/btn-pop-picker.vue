@@ -52,8 +52,6 @@ export default {
     },
     data () {
         return {
-            activeItem: {},
-
             isActive: false
         }
     },
@@ -66,6 +64,11 @@ export default {
                 this.$emit('input', e)
             }
         },
+        activeItem() {
+            if(!this.data) return {};
+            var filtArr = this.data.filter(item => item.value === this.value);
+            return filtArr[0] || {};
+        }
     },
     methods:{
         show() {
@@ -81,10 +84,8 @@ export default {
         },
         reset() {
             this.model = '';
-            this.activeItem = this.data[0];
         },
         itemSel(item) {
-            this.activeItem = item;
             this.model = item.value;
             this.$emit('select', item);
         },

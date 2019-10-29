@@ -40,6 +40,10 @@ export default {
             type: Boolean,
             default: false
         },
+        queryKey: {
+            type: String,
+            default: 'KeyName'
+        }
     },
     data () {
         return {
@@ -79,9 +83,11 @@ export default {
             this.isFocus = false;
         },
         getQueryKey() {
-            var keyword = this.getQuery('KeyName');
-            // !!keyword && (this.model = keyword);
-            this.model = keyword;
+            if(!!this.queryKey) {
+                var keyword = this.getQuery(this.queryKey);
+                // !!keyword && (this.model = keyword);
+                this.model = keyword;
+            };
         },
         screenHandler() {
             var query = this.getQuery();

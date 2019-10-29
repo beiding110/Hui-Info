@@ -1,7 +1,7 @@
 <template>
     <div class="page">
         <!-- <search-bar v-model="extraForm.CompanyName" @search="quertData" placeholder="企业名称"></search-bar> -->
-        <search-top v-model="extraForm.CompanyName" @search="quertData" placeholder="企业名称" no-btn></search-top>
+        <search-top v-model="extraForm.CompanyName" @search="quertData" placeholder="企业名称" no-btn query-key="CompanyName"></search-top>
 
         <div class="page-content" style="top:44px;">
             <list :extra.sync="extraForm" ref="list" :bold="extraForm.CompanyName" lazy></list>

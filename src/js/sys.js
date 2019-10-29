@@ -8,9 +8,9 @@ import dialogVip from '@/components-sys/dialog-vip'
         } else {
             owner.showDialogVip(() => {
                 if(flag) {
-                    this.$router.push('/msg/error/抱歉/您是非会员，无权限查看此内容');
+                    this.$router.push('/user/vippay');
                 } else {
-                    this.$router.replace('/msg/error/抱歉/您是非会员，无权限查看此内容');
+                    this.$router.replace('/user/vippay');
                 };
             });
         }

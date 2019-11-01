@@ -98,7 +98,7 @@ export default {
         this.initTimes();
     },
     mounted() {
-
+        this.queryDetail();
     },
     activated() {
         this.queryDetail();

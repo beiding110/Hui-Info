@@ -18,7 +18,10 @@ export default {
                 TypeCode: '',
                 DateRange: '',
                 HyCode: '',
-                JdCode: ''
+                JdCode: '',
+
+                begintime: '',
+                endtime: ''
             },
 
             CityData: [],

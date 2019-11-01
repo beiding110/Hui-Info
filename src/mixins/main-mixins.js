@@ -20,8 +20,8 @@ export default {
                 HyCode: '',
                 JdCode: '',
 
-                begintime: '',
-                endtime: ''
+                BeginTime: '',
+                EndTime: ''
             },
 
             CityData: [],

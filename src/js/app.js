@@ -185,7 +185,7 @@ export default (function(owner){
                 }
             },
             beforeSend: function(xhr){
-                var href = encodeURI(window.location.href);
+                var href = window.location.href;
                 xhr.setRequestHeader('Url', href);
             },
             //AJAX请求结束后，

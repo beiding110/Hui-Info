@@ -46,6 +46,10 @@ export default {
                 }, (data) => {
                     this.model = !this.model
 
+                    if(this.model) {
+                        app.ShowMsg('已关注，可从“我的-关注的项目”查看或设置提醒日期');
+                    }
+
                     this.$store.commit('setState',{
                         collectSign: true
                     });

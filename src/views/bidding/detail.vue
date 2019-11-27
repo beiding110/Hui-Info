@@ -169,7 +169,7 @@ export default {
                 var dd = time.substring(6,8);
                 var hh = time.substring(8,10);
                 var mm = time.substring(10,12);
-                return yyyy + '-' + MM + '-' + dd + ' ' + hh + mm;
+                return yyyy + '-' + MM + '-' + dd + ' ' + hh + ':' + mm;
             }catch(e){}
         },
         contentTableToMobileGg (str) {

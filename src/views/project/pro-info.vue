@@ -14,7 +14,7 @@
         </w-card>
         <w-card class="info--card">
             <form-item label="开标时间">
-                {{kbTimeSlicer(detail.bid_doc_refer_end_time)}}
+                {{kbTimeSlicer(form.bid_doc_refer_end_time)}}
             </form-item>
 
             <form-item label="开标提醒">
@@ -153,6 +153,9 @@ export default {
         },
         kbTimeSlicer(time) {
             if(!time) return;
+
+            if(/-/.test(time)) return time;
+
             var date = [],
                 hm = [];
 

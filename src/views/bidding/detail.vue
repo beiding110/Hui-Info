@@ -160,14 +160,16 @@ export default {
         },
         timeFormatter: function(time){
             if(/-/.test(time)) {
-                return time.split(' ')[0];
+                return time;
             };
 
             try{
                 var yyyy = time.substring(0,4);
                 var MM = time.substring(4,6);
                 var dd = time.substring(6,8);
-                return yyyy + '-' + MM + '-' + dd;
+                var hh = time.substring(8,10);
+                var mm = time.substring(10,12);
+                return yyyy + '-' + MM + '-' + dd + ' ' + hh + mm;
             }catch(e){}
         },
         contentTableToMobileGg (str) {

@@ -8,6 +8,10 @@ export default {
         value: {
             type: String,
             default: ''
+        },
+        showWeek: {
+            type: Boolean,
+            default: false
         }
     },
     data () {
@@ -18,6 +22,18 @@ export default {
     computed: {
         model: {
             get() {
+                if(this.showWeek) {
+                    if(!this.value) return;
+
+                    var detailTime = this.value;
+                    detailTime = detailTime.replace(/\-/g, '/');
+
+                    var weekDay = new Date(detailTime).getDate(),
+                        weekArr = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
+
+                    return detailTime + ' ' + weekArr[weekDay]
+                }
+
                 return this.value;
             },
             set(n, o) {

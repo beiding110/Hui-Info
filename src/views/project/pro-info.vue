@@ -42,7 +42,7 @@
                     </span>
                 </template>
 
-                <w-date-picker v-model="form.PushTime"></w-date-picker>
+                <w-date-picker v-model="form.PushTime" show-week></w-date-picker>
                 <!-- <w-select
                 v-model="form.PushTime"
                 :data="timeData"
@@ -154,19 +154,30 @@ export default {
         kbTimeSlicer(time) {
             if(!time) return;
 
-            if(/-/.test(time)) return time;
+            var detailTime;
 
-            var date = [],
-                hm = [];
+            if(/-/.test(time)) {
+                detailTime = time;
+            } else {
+                var date = [],
+                    hm = [];
 
-            date.push(time.slice(0,4));
-            date.push(time.slice(4,6));
-            date.push(time.slice(6,8));
+                date.push(time.slice(0,4));
+                date.push(time.slice(4,6));
+                date.push(time.slice(6,8));
 
-            hm.push(time.slice(8,10));
-            hm.push(time.slice(10,12));
+                hm.push(time.slice(8,10));
+                hm.push(time.slice(10,12));
 
-            return date.join('-') + ' ' + hm.join(':');
+                detailTime = date.join('-') + ' ' + hm.join(':');
+            };
+
+            detailTime = detailTime.replace(/\-/g, '/');
+
+            var weekDay = new Date(detailTime).getDate(),
+                weekArr = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
+
+            return detailTime + ' ' + weekArr[weekDay]
         },
         timeToMMdd(str) {
             str = str.replace(/\-/g, '/');

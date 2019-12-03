@@ -81,7 +81,7 @@ export default {
             detail: {},
 
             form: {
-                Scbj: '0',
+                Scbj: '1',
                 PushTime: '',
                 ProjectID: ''
             },

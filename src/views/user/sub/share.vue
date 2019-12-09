@@ -121,7 +121,7 @@ export default {
     .text_con{margin:0 1em;}
     .text_con p{text-align: left; text-indent: 2em; padding: 0.5em; }
 
-    .user_info__head_con{border-radius: 50%; overflow: hidden; position: relative; width:4.5rem; height:4.5rem; display: inline-block;}
+    .user_info__head_con{overflow: hidden; position: relative; width:4.5rem; height:4.5rem; display: inline-block;}
     .user_info__head_con>img{width:100%; position: absolute; left: 50%; top:50%; transform: translate(-50%, -50%);}
 
     .user_info__user_name{font-size:1rem;}

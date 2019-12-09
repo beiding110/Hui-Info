@@ -49,7 +49,7 @@
 import traceFormMixins from '@/mixins/trace-form-mixins'
 
 export default {
-    mixins: [traceFormMixins('/home/trace/enterprise-all')],
+    mixins: [traceFormMixins('/home/trace/enterprise')],
     data () {
         return {
             DanWeiTypeData: []

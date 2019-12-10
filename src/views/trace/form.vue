@@ -5,7 +5,7 @@
         </trace-form-title>
 
         <div class="weui-cells weui-cells_form">
-            <form-item label="关键字" v-model="form.KeyName" placeholder="请输入关键字，空格分隔" required></form-item>
+            <form-item label="关键字" v-model="form.KeyName" placeholder="关键字(多个用空格分隔)" required></form-item>
             <!-- <form-item label="招标类型" arrow>
                 <input-picker placeholder="请选择招标类型" v-model="form.TypeCode" :data="TypeData" @select="typeSel"></input-picker>
             </form-item> -->

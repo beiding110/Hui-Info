@@ -32,7 +32,7 @@ export default {
                     var detailTime = this.value;
                     detailTime = detailTime.replace(/\-/g, '/');
 
-                    var weekDay = new Date(detailTime).getDate(),
+                    var weekDay = new Date(detailTime).getDay(),
                         weekArr = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
 
                     return detailTime + ' ' + weekArr[weekDay]

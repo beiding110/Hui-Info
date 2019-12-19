@@ -45,7 +45,8 @@
                 <w-date-picker
                 v-model="form.PushTime"
                 show-week
-                show-time></w-date-picker>
+                show-time
+                @close="togglePush"></w-date-picker>
                 <!-- <w-select
                 v-model="form.PushTime"
                 :data="timeData"

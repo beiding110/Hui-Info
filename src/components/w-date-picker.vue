@@ -80,6 +80,9 @@ export default {
 
                 that.model = date.join('-') + (time.length ? ' ' + time.join(':') : '');
             },
+            onClose() {
+                this.$emit('close');
+            }
         });
     }
 }

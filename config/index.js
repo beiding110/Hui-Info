@@ -12,7 +12,7 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
       '/': {
-        target: 'http://192.168.1.251:80',
+        target: 'http://192.168.1.79:4040',
             //'http://192.168.0.230:7090/HuiInfo/',
             //'http://www.hbidding.com/',
             //'http://192.168.0.182:888',

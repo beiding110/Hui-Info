@@ -93,9 +93,16 @@
                                 {{timeBeforeCalc(timeFormatter(detail.PubInWebDate))}}
                             </font>
 
-                            <collect-star
-                            v-if="detailType === 'GongGao'"
-                            v-model="detail.Collection" :guid="detail.RowGuid" class="btn-collect"></collect-star>
+                            <div class="right-group">
+                                <span class="btn-bh" @click="bhClickHandler">
+                                    <i class="iconfont">&#xe61e;</i>
+                                    投标保函办理
+                                </span>
+
+                                <collect-star
+                                v-if="detailType === 'GongGao'"
+                                v-model="detail.Collection" :guid="detail.RowGuid" class="btn-collect"></collect-star>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -251,6 +258,11 @@ export default {
         	};
 
             return str
+        },
+        bhClickHandler() {
+            this.goto({
+                path: '/msg/info/提示/此项服务暂不支持手机端操作，请您通过电脑登录E网智融www.ewzr.com.cn办理'
+            });
         }
     },
     mounted: function(){
@@ -278,13 +290,15 @@ export default {
 .weui-form-preview__hd .weui-form-preview__value.addtime{text-align: center; color:#909399; font-size:1.2em;}
 
 .weui-media-box__desc>table{max-width:100%; border:1px solid #F2F6FC;}
-.weui-media-box__desc>table tr{border:1px solid #F2F6FC;}
+.weui-media-box__desc>table tr{border:1px solid #5DE986;}
 .weui-media-box__desc>table tr td{border:1px solid #F2F6FC;}
 
 .info--card.zh-card{padding:0;}
 
 .text-sub-title{overflow:hidden;}
-.btn-collect{float:right;}
+.text-sub-title .right-group{text-align:right; overflow:hidden;}
+.btn-bh{margin-right:.5em; color:#67C23A;}
+.btn-collect{}
 
 .addtime{display:inline-block;}
 </style>

@@ -70,6 +70,10 @@
                     </div>
 
                     <div class="function__card--group">
+                        <div class="function__card" @click="$router.push('/msg/info/提示/此项服务暂不支持手机端操作，请您通过电脑登录E网智融www.ewzr.com.cn办理')">
+                            <i class="iconfont">&#xe61e;</i>
+                            我的电子保函
+                        </div>
                         <div class="function__card" @click="$router.push('/user/about')">
                             <i class="iconfont">&#xe729;</i>
                             关于标信通

@@ -24,7 +24,7 @@
         </template>
 
         <div class="search-block bottom-advertisement guid-btn advertisements">
-            <img src="~@sta/advs/340-120.png" />
+            <img src="~@sta/advs/ewzr.jpg" />
         </div>
     </div>
 </template>

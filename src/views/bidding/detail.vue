@@ -261,7 +261,7 @@ export default {
         },
         bhClickHandler() {
             this.goto({
-                path: '/msg/info/提示/此项服务暂不支持手机端操作，请您通过电脑登录E网智融www.ewzr.com.cn办理'
+                path: '/user/bh'
             });
         }
     },

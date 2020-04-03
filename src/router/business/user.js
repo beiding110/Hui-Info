@@ -39,6 +39,11 @@ export default {
                 name: 'huiinfo-user-about',
                 meta: {title: '关于标信通'},
                 component: function(){return import(/*webpackChunkName: 'user'*/ '@/views/user/sub/about')},
+            }, {
+                path: 'bh',
+                name: 'huiinfo-user-bh',
+                meta: {title: '电子保函'},
+                component: function(){return import(/*webpackChunkName: 'user'*/ '@/views/user/sub/bh')},
             }
         ]
     }

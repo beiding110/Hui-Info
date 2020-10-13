@@ -14,7 +14,7 @@
         <!-- <div class="weui-msg__extra-area">
             <div class="weui-footer">
                 <p class="weui-footer__links">
-                    <a href="javascript:void(0);" class="weui-footer__link">标信通</a>
+                    <a href="javascript:void(0);" class="weui-footer__link">标信宝</a>
                 </p>
                 <p class="weui-footer__text">© 2019 中惠科技</p>
             </div>

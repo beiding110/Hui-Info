@@ -22,6 +22,6 @@ export default {
     path: '/home',
     name: 'huiinfo',
     component: home,
-    meta: {alive: true, title: '标信通'},
+    meta: {alive: true, title: '标信宝'},
     children: route
 };

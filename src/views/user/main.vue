@@ -76,7 +76,7 @@
                         </div>
                         <div class="function__card" @click="$router.push('/user/about')">
                             <i class="iconfont">&#xe729;</i>
-                            关于标信通
+                            关于标信宝
                         </div>
                     </div>
                 </div>

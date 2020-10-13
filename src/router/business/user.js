@@ -37,7 +37,7 @@ export default {
             }, {
                 path: 'about',
                 name: 'huiinfo-user-about',
-                meta: {title: '关于标信通'},
+                meta: {title: '关于标信宝'},
                 component: function(){return import(/*webpackChunkName: 'user'*/ '@/views/user/sub/about')},
             }, {
                 path: 'bh',

@@ -67,7 +67,7 @@
           </div>
 
           <div
-            v-if="form.Shbj === '1'"
+            v-if="showShareController"
             class="function__card"
             @click="$router.push('/user/share/' + form.RowGuid)"
           >
@@ -111,6 +111,11 @@ export default {
 
       app.ShowMsgBox("功能尚未开放，请于" + remain + "天后申请<br>(*╹▽╹*)");
     },
+  },
+  computed: {
+    showShareController() {
+      return this.form.Shbj === '1' || false;
+    }
   },
   mounted: function () {
     this.queryInfo();

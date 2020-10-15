@@ -95,6 +95,16 @@ export default {
             };
         },
         wxSDK: function() {
+            var shareSettings = {
+                title: '惠信息',
+                desc: `您的好友给您分享了会员，快来领取吧`,
+                link: window.location.href.replace(window.location.search, ''),
+                imgUrl: 'http://www.hbidding.com/huiinfo/static/pic300.png',
+                success: function() {
+                    // alert('分享成功');
+                }
+            };
+
             var that = this;
             this.$get('/Api/Base/GetWxJsConfig', {
                 url: window.location.href
@@ -105,29 +115,14 @@ export default {
                     timestamp: data.Timestamp,
                     nonceStr: data.NonceStr,
                     signature: data.Signature,
-                    jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage']
+                    jsApiList: ['updateTimelineShareData', 'updateAppMessageShareData']
                 };
 
                 wx.config(configObj);
 
                 wx.ready(function() {
-                    wx.onMenuShareTimeline({
-                        title: '惠信息',
-                        link: window.location.href.replace(window.location.search, ''),
-                        imgUrl: 'http://www.hbidding.com/huiinfo/static/pic300.png',
-                        success: function() {
-                            // alert('分享成功');
-                        }
-                    }),
-                    wx.onMenuShareAppMessage({
-                        title: '惠信息',
-                        desc: '',
-                        link: window.location.href.replace(window.location.search, ''),
-                        imgUrl: 'http://www.hbidding.com/huiinfo/static/pic300.png',
-                        success: function() {
-                            // alert('分享成功');
-                        }
-                    })
+                    wx.updateTimelineShareData(shareSettings),
+                    wx.updateAppMessageShareData(shareSettings)
                 })
             })
         },

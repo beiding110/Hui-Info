@@ -113,7 +113,7 @@ export default {
                 wx.ready(function() {
                     wx.onMenuShareTimeline({
                         title: '惠信息',
-                        link: window.location.href,
+                        link: window.location.href.replace(window.location.search, ''),
                         imgUrl: 'http://www.hbidding.com/huiinfo/static/pic300.png',
                         success: function() {
                             // alert('分享成功');
@@ -122,7 +122,7 @@ export default {
                     wx.onMenuShareAppMessage({
                         title: '惠信息',
                         desc: '',
-                        link: window.location.href,
+                        link: window.location.href.replace(window.location.search, ''),
                         imgUrl: 'http://www.hbidding.com/huiinfo/static/pic300.png',
                         success: function() {
                             // alert('分享成功');

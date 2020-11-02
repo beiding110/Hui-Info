@@ -18,6 +18,7 @@ import FastClick from 'jquery-weui/dist/lib/fastclick'
 import '@/css/common.css'
 import app from '@/js/app.js'
 import '@/js/app-supply.js'
+import '@/js/sys.js'
 
 import myWeui from '@/components'
 

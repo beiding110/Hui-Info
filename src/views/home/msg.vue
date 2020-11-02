@@ -12,19 +12,16 @@
                 <btn type="success" @click="goto('/user/vippay')">购买会员</btn>
             </p>
         </div>
-        <div class="weui-msg__extra-area">
-            <div class="weui-footer">
-                <p class="weui-footer__links">
-                    <a href="javascript:void(0);" class="weui-footer__link">惠信息</a>
-                </p>
-                <p class="weui-footer__text">© 2019 中惠科技</p>
-            </div>
-        </div>
+        
+        <page-footer></page-footer>
     </div>
 </template>
 
 <script>
+import PageFooter from '@/views/components/page-footer'
+
 export default {
+    components: { PageFooter },
     props: ['type', 'title', 'text'],
     data () {
         return {

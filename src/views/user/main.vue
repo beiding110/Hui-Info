@@ -24,6 +24,7 @@
                 "
                 >&#xe646;</i
               >
+              <span v-if="!$store.state.IsVip" class="toBeVip" @click="$router.push('/user/vippay')">加入会员</span>
             </div>
             <div>
               {{
@@ -285,4 +286,6 @@ export default {
 .user-info__text > div:nth-child(2) {
   color: #666666;
 }
+
+.toBeVip{cursor:pointer; font-size:10px; line-height:14px; vertical-align:middle; background-color:#C8A14E; background-image: linear-gradient(to right, #F5E7BE , #C8A14E); border-radius:3px; padding:0 1em;}
 </style>

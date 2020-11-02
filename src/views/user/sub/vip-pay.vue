@@ -12,17 +12,17 @@
 
         <div class="scroll-con">
             <w-card class="info--card">
-                <!-- <div class="info--card__title">套餐权益</div> -->
-
-                <vip-table></vip-table>
-            </w-card>
-
-            <w-card class="info--card">
                 <div class="info--card__title">请选择会员服务</div>
 
                 <template>
                     <price-card v-model="payId"></price-card>
                 </template>
+            </w-card>
+
+            <w-card class="info--card">
+                <!-- <div class="info--card__title">套餐权益</div> -->
+
+                <vip-table></vip-table>
             </w-card>
         </div>
 

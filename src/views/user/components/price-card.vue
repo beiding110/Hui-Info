@@ -1,7 +1,7 @@
 <template>
     <div>
         <template v-for="(item, index) in list">
-            <div class="card-price" @click="setModel(item.PayID)">
+            <div :key="index" class="card-price" @click="setModel(item.PayID)">
                 <div class="card-price_body" :class="model === item.PayID ? 'active' : ''">
                     <div class="card-price_top">
                         <font class="price">{{item.XianJia}}</font>
@@ -12,7 +12,7 @@
                     </div>
                 </div>
                 <div class="info-corner">
-                    限时优惠
+                    特惠
                 </div>
             </div>
         </template>

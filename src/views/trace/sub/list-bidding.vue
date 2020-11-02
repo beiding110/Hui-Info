@@ -4,8 +4,8 @@
         <div class="weui-panel weui-panel_access">
             <div class="weui-panel__bd">
 
-                <template v-for="item in tableData">
-                    <router-link :to="'/detail/bidding/'+item.RowGuid+'/'+item.Category" class="weui-media-box weui-media-box_appmsg">
+                <template v-for="(item, index) in tableData">
+                    <router-link :key="index" :to="'/detail/bidding/'+item.RowGuid+'/'+item.Category" class="weui-media-box weui-media-box_appmsg">
                         <div class="weui-media-box__bd">
                             <h4 class="weui-media-box__title">{{item.Title}}</h4>
                             <p class="weui-media-box__desc">
@@ -16,7 +16,7 @@
                                     </div>
                                 </div>
                                 <div class="item-info-con_right">
-                                    {{timeFormatter(item.AddTime)}}
+                                    {{timeBeforeCalc(item.AddTime)}}
                                 </div>
                             </p>
                         </div>

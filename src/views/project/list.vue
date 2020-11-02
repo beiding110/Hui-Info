@@ -27,7 +27,7 @@
                         </div>
                         <div class="info--body__right">
                             <div class="price">￥{{item.TzZe}}</div>
-                            <div>{{timeFormatter(item.AddTime)}}</div>
+                            <div>{{timeBeforeCalc(item.AddTime)}}</div>
                         </div>
                     </div>
                     <div slot="footer" class="info--card__footer">

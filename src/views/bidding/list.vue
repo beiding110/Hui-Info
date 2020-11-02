@@ -24,7 +24,7 @@
                                 <span>代理机构：{{item.zbdlname}}</span>
                             </div>
                         </div>
-                        <div class="info--body__right">{{timeFormatter(item.AddTime)}}</div>
+                        <div class="info--body__right">{{timeBeforeCalc(item.AddTime)}}</div>
                     </div>
                     <div slot="footer" class="info--card__footer">
                         <div class="info--footer__left">

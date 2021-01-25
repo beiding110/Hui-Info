@@ -100,9 +100,16 @@ export default {
             }
         },
         dataPreCal: function(val){
-            var data = val.slice(0);
-            if(data.length && data[0].label !== '全部'){
-                data.unshift({label: '全部', value: ''});
+            var data = val.slice(0) || [];
+
+            var allStr = this.placeholder ? `全部${this.placeholder}` : '全部';
+
+            if(data.length) {
+                if(!/全部/.test(data[0].label)){
+                    data.unshift({label: allStr, value: ''});
+                } else {
+                    data[0].label = allStr;
+                };
             };
             
             this.newData = data;

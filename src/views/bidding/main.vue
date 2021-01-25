@@ -1,6 +1,6 @@
 <template>
     <div class="page">
-        <search-bar placeholder="业主单位 / 招标代理名称 / 项目名称" v-model="KeyName" @search="quertData"></search-bar>
+        <search-bar placeholder="业主单位 / 招标代理名称 / 项目名称" v-model="Value" @search="quertData"></search-bar>
         <div class="weui-flex w-sel-search">
             <div class="weui-flex__item sel-btn__flex">
                 <btn-picker placeholder="地区" v-model="CityCode" @select="quertData" :data="CityData"></btn-picker>
@@ -28,7 +28,7 @@ export default {
     },
     data () {
         return {
-            KeyName: '',
+            Value: '',
             CityCode: '',
             TypeCode: '',
             DateRange: '',
@@ -41,7 +41,8 @@ export default {
     computed: {
         extraForm: function(){
             return {
-                KeyName: this.KeyName,
+                KeyName: '',
+                Value: this.Value,
                 CityCode: this.CityCode,
                 TypeCode: this.TypeCode,
                 DateRange: this.DateRange

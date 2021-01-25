@@ -81,7 +81,8 @@ export default function() {
             DateRangeData: [
                 {label: '近三天', title: '近三天', value: '3'},
                 {label: '近一周', title: '近一周', value: '7'},
-                {label: '近一月', title: '近一月', value: '30'}
+                {label: '近一月', title: '近一月', value: '30'},
+                {label: '近三月', title: '近三月', value: '90'},
             ],
             SourceData: [
                 {label: '河北省招标投标公共服务平台', title: '河北省招标投标公共服务平台', value: '河北省招标投标公共服务平台'},

@@ -14,7 +14,9 @@
             条
         </div>
 
-        <div style="height:calc(100% - 80px);">
+        <search-bar placeholder="业主单位 / 招标代理名称 / 项目名称" v-model="extra.Value" @search="reload"></search-bar>
+
+        <div style="height:calc(100% - 124px);">
             <w-tab>
                 <w-tab-item label="招标" name="bidding">
                     <list-bidding ref="listbidding" url="/Api/Biding/GetDingYueList" :extra.sync="extra" lazy></list-bidding>
@@ -34,7 +36,9 @@ export default {
     components: {listBidding, listProject},
     data () {
         return {
-            extra:{},
+            extra:{
+                Value: '',
+            },
 
             addToday: {},
             form: {},
@@ -52,7 +56,8 @@ export default {
                 RowGuid:this.$route.params.guid == 'null' ? '' : this.$route.params.guid,
                 CityCode:this.$route.params.CityCode == 'null' ? '' : this.$route.params.CityCode,
                 DateRange:this.$route.params.DateRange == 'null' ? '' : this.$route.params.DateRange,
-                KeyName:this.$route.params.KeyName == 'null' ? '' : this.$route.params.KeyName
+                KeyName:this.$route.params.KeyName == 'null' ? '' : this.$route.params.KeyName,
+                Value: '',
             }
         },
         reload() {

@@ -31,7 +31,7 @@
                 $store.state.IsVip
                   ? "会员到期日：" + timeFormatter(form.VipEndDate)
                   : $store.state.IsTry
-                  ? "试用到期日：" + timeFormatter(form.VipEndDate)
+                  ? "首次登陆7日会员到期：" + timeFormatter(form.VipEndDate)
                   : "无会员"
               }}
             </div>

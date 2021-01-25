@@ -9,6 +9,13 @@
                 <span class="iconfont" @click.stop="toSetting" v-if="model">&#xe600;</span>
             </div>
             <div class="trace-card--right" v-if="readonly">
+                <span 
+                v-if="activeNum"
+                class="weui-badge badge-tip"
+                >
+                    {{activeNum}}
+                </span>
+
                 <img
                     class="trace-card--detail__btn"
                     :src="planeIcon"
@@ -64,6 +71,9 @@ export default {
         },
         planeIcon() {
             return this.model ? plane : planeDis;
+        },
+        activeNum() {
+            return (Number(this.data.Bidding) + Number(this.data.Project));
         }
     },
     methods:{
@@ -131,6 +141,8 @@ export default {
 .trace-card--left input{display:block; height:30px; width:calc(100% - 2em); margin:0 auto; background:white; border:none;}
 .trace-card--left input:focus{outline:none;}
 
-.trace-card--right{width:44px; text-align:right; }
+.trace-card--right{width:44px; text-align:right; position:relative;}
 .trace-card--detail__btn{width:30px; height:30px; display:inline-block; margin:-10px 0;}
+
+.badge-tip{position:absolute; right:-.4em; top:-.4em;}
 </style>

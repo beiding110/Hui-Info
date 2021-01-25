@@ -3,7 +3,7 @@
         <form class="weui-search-bar__form">
             <div class="weui-search-bar__box">
                 <i class="weui-icon-search"></i>
-                <input type="search" class="weui-search-bar__input" placeholder="搜索" v-model="model" @keydown="search">
+                <input type="search" class="weui-search-bar__input" :placeholder="placeholder" v-model="model" @keydown="search">
                 <a href="javascript:" class="weui-icon-clear" @click="clearSearchKey"></a>
             </div>
             <label class="weui-search-bar__label">
@@ -17,7 +17,16 @@
 
 <script>
 export default {
-    props: ['value'],
+    props: {
+        value: {
+            type: String,
+            default: ''
+        },
+        placeholder: {
+            type: String,
+            default: '搜索'
+        }
+    },
     data () {
         return {
             searchKey: ''
